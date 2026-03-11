@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <title>Torus and Sweep — Definitions &amp; Uses</title>
+</head>
+<body class="pageBody" data-gallery-enabled="false">
+  <div id="top"></div>
+
+  <div class="pageCard">
+    <div class="pageTopRow">
+      <h1>Torus and Sweep — Definitions &amp; Uses</h1>
+      <a id="galleryLink" class="pillLink" href="gallery.html" style="display:none;">🖼️ Gallery</a>
+    </div>
+
+    
+<p class="muted">Concept reference for common 3D modeling objects used in functional part design.</p>
+<p>Object Definition and Uses – Torus and Sweep</p>
+<p>This reference defines what a Torus and a Sweep are , what they are typically used for , and how to decide</p>
+<p>which one to use when modeling functional 3D‑printed parts.</p>
+<h2>Torus</h2>
+<h3>Definition</h3>
+<p>A torus  is a 3D shape created by revolving a circular profile  around a perfectly circular path .</p>
+<p><strong>In practical terms:</strong> </p>
+<p>A torus is a round tube bent into a perfect circle .</p>
+<h3>Key characteristics</h3>
+<p><strong>Path:</strong> Perfect circle</p>
+<p><strong>Cross‑section:</strong> Perfect circle</p>
+<p><strong>Cross‑section size:</strong> Constant everywhere</p>
+<p>Common real‑world uses</p>
+<p>O‑rings and round gaskets</p>
+<p>Sealing rings</p>
+<p>Rubber bumpers</p>
+<p>Circular hoses or tubes</p>
+<p>Rounded protective rings</p>
+<p>Bearing race concepts</p>
+<p>Why torus is preferred when possible</p>
+<p>Simple geometry</p>
+<p>Fewer constraints</p>
+<p>Very stable models</p>
+<p>Easy to edit later</p>
+<p>Uniform compression for seals</p>
+<p>When not to use a torus</p>
+<p>Flat or rectangular gaskets</p>
+<p>Non‑circular paths</p>
+<p>Variable thickness parts</p>
+<p>Organic or asymmetric shapes•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>1</p>
+<h2>Sweep</h2>
+<h3>Definition</h3>
+<p>A sweep  is a modeling operation where a 2D profile  is carried along a path  to form a 3D object.</p>
+<p><strong>In simple terms:</strong> </p>
+<p>A sweep means drag this shape along this path .</p>
+<p>Required elements</p>
+<p>Profile  – the cross‑section (circle, square, custom)</p>
+<p>Path  – the route the profile follows (line, arc, spline, helix)</p>
+<p>Common real‑world uses</p>
+<p>Pipes and hoses with bends</p>
+<p>Wiring and cable routing</p>
+<p>Handrails</p>
+<p>Weatherstripping</p>
+<p>Non‑round gaskets</p>
+<p>Any extrusion following a curved or irregular path</p>
+<p>Strengths</p>
+<p>Works with any path shape</p>
+<p>Supports custom profiles</p>
+<p>Can follow complex geometry</p>
+<p>Tradeoffs</p>
+<p>More complex to constrain</p>
+<p>Easier to break</p>
+<p>Harder to edit later</p>
+<p>Relationship Between Torus and Sweep</p>
+<p>A  torus is a special case of a sweep : - Path = perfect circle - Profile = perfect circle - Cross‑section =</p>
+<p>constant</p>
+<p>Because of this, a torus should be used instead of a sweep  whenever its constraints are met.1.</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>2</p>
+<p>Decision Tree – Torus vs Sweep vs Extrude</p>
+<p>Step 1 – Is the path a perfect circle?</p>
+<p>Yes → go to Step 2</p>
+<p>No → Sweep</p>
+<p>Step 2 – Is the cross‑section round and constant?</p>
+<p>Yes → Torus</p>
+<p>No → Sweep</p>
+<p>Step 3 – Is the shape a flat ring or washer?</p>
+<p>Yes → Extrude + Cut</p>
+<p>No → continue</p>
+<p>Step 4 – Does the cross‑section change along the path?</p>
+<p>Yes → Sweep</p>
+<p>No → Torus (if circular) or Sweep (if not)</p>
+<p>Quick Cheat Sheet</p>
+<p>Geometry Goal Best Tool</p>
+<p>O‑ring / round gasket Torus</p>
+<p>Rectangular gasket Extrude + Cut</p>
+<p>Circular tube Torus</p>
+<p>Bent tube or hose Sweep</p>
+<p>Cable routing Sweep</p>
+<p>Flat washer Extrude</p>
+<p>Organic or variable profile Sweep</p>
+<p>When to Use a Torus vs a Sweep</p>
+<p>This section explains  why and when designers switch between a torus and a sweep , and why this is</p>
+<p>usually a design replacement , not a literal CAD conversion.•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>3</p>
+<p>Sweep → Torus (Uncommon)</p>
+<p>Replacing a sweep with a torus is uncommon  and usually happens during cleanup or refactoring.</p>
+<p>It occurs when the designer realizes that: - The path is a  perfect circle  - The cross-section is  perfectly</p>
+<p>round  - The cross-section never changes</p>
+<p>At that point, the sweep is doing extra work with no benefit. The correct move is to delete the sweep and</p>
+<p>replace it with a torus .</p>
+<p><strong>Typical reason:</strong> the original model was over-complicated.</p>
+<p>Torus → Sweep (Common and Intentional)</p>
+<p>Replacing a torus with a sweep is much more common  and usually intentional as the design matures.</p>
+<p>This happens when any of the following become true: - The cross-section is no longer round (D-profile, bulb</p>
+<p>seal, flat face) - The path is no longer a perfect circle (oval, offset, segmented) - Orientation matters (profile</p>
+<p>must stay flat or rotate intentionally) - The design shifts from exploration to production-quality intent</p>
+<p>A sweep allows the designer to express how and why  the shape follows the path.</p>
+<p>Mental Model</p>
+<p>A torus is a shortcut  — precise, simple, stable</p>
+<p>A sweep is a statement of intent  — flexible, expressive, controlled</p>
+<p><strong>Designers often:</strong> - Start with a  torus  to validate geometry - Move to a  sweep  only when requirements</p>
+<p>demand it</p>
+<p>Practical Rules of Thumb</p>
+<p>If it’s round, constant thickness, and perfectly circular  → Torus</p>
+<p>If any of those conditions break → Sweep</p>
+<p>Don’t "convert" — replace  the feature with the correct one</p>
+<p>Key Takeaway</p>
+<p>Use a torus for pure geometry. Replace it with a sweep when the design becomes</p>
+<p>engineered.•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>4</p>
+
+  </div>
+
+  <div class="pageFooter">
+    <a id="topLink" class="topLink" href="#top">Top ↑</a>
+  </div>
+
+  <script src="../scripts/page.js"></script>
+</body>
+</html>

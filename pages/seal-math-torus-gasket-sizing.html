@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <title>Seal Math — Torus &amp; Gasket Sizing</title>
+</head>
+<body class="pageBody" data-gallery-enabled="false">
+  <div id="top"></div>
+
+  <div class="pageCard">
+    <div class="pageTopRow">
+      <h1>Seal Math — Torus &amp; Gasket Sizing</h1>
+      <a id="galleryLink" class="pillLink" href="gallery.html" style="display:none;">🖼️ Gallery</a>
+    </div>
+
+    
+<p class="muted">Reference math and workflow for sizing circular seals and gaskets from real groove measurements.</p>
+<p>Seal Math – Torus &amp; Gasket Sizing</p>
+<p>This reference explains how to calculate round (torus) and square/rectangular gasket dimensions  from</p>
+<p>real, tapered groove measurements. It is intended for 3D‑printed filament cases with tongue‑and‑groove</p>
+<p>seals .</p>
+<h2>Round Gasket (Torus)</h2>
+<p>What a torus represents</p>
+<p>A round gasket is modeled as a torus  (donut shape): - The gasket follows a circular centerline path  inside</p>
+<p>the groove - The gasket has a round cross‑section  (cord / O‑ring style)</p>
+<p><strong>FreeCAD Torus parameters:</strong> - Radius1 (Major Radius)  → distance from model center to gasket centerline -</p>
+<p>Radius2 (Minor Radius)  → radius of the gasket cross‑section</p>
+<h3>Measure the groove (tapered grooves)</h3>
+<p>For tapered grooves, measure both top and bottom :</p>
+<p><strong>Groove Outer Diameter (OD):</strong> </p>
+<p>OD_top</p>
+<p>OD_bottom</p>
+<p><strong>Groove Inner Diameter (ID):</strong> </p>
+<p>ID_top</p>
+<p>ID_bottom</p>
+<h3>Average the taper (centerline diameters)</h3>
+<p>Outer diameter at groove center:</p>
+<p>OD_c = (OD_top + OD_bottom) / 2</p>
+<p>Inner diameter at groove center:</p>
+<p>ID_c = (ID_top + ID_bottom) / 2•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>1</p>
+<h3>Groove centerline diameter</h3>
+<p>This is the diameter the gasket naturally wants to sit on.</p>
+<p>D_center = (OD_c + ID_c) / 2</p>
+<h3>Convert to FreeCAD Torus values</h3>
+<p><strong>Major Radius (Radius1):</strong> </p>
+<p>R1 = D_center / 2</p>
+<p><strong>Minor Radius (Radius2):</strong> </p>
+<p>R2 = gasket_diameter / 2</p>
+<p>Example (real measurements)</p>
+<p><strong>Measured:</strong> - OD_top = 221 mm - OD_bottom = 219 mm - ID_top = 213 mm - ID_bottom = 215 mm - Desired</p>
+<p>round gasket diameter = 2.5 mm</p>
+<p><strong>Calculations:</strong> </p>
+<p>OD_c = (221 + 219) / 2 = 220 mm</p>
+<p>ID_c = (213 + 215) / 2 = 214 mm</p>
+<p>D_center = (220 + 214) / 2 = 217 mm</p>
+<p>R1 = 217 / 2 = 108.5 mm</p>
+<p>R2 = 2.5 / 2 = 1.25 mm</p>
+<p><strong>Final FreeCAD Torus Settings:</strong> - Radius 1 = 108.5 mm  - Radius 2 = 1.25 mm</p>
+<h2>Square / Rectangular Gasket Ring</h2>
+<p>A rectangular gasket is created by cutting the center out of a cylinder  (washer shape). This type of gasket</p>
+<p>resists rolling and works well in narrow grooves.</p>
+<p>2</p>
+<h3>Use the same groove centerline</h3>
+<p>R_center = D_center / 2</p>
+<p><strong>(From the example above:</strong> R_center = 108.5 mm)</p>
+<h3>Choose gasket width</h3>
+<p>Choose a gasket slightly narrower  than the groove radial width for easy seating.</p>
+<p><strong>Let:</strong> - W = gasket radial width - w = W / 2</p>
+<h3>Calculate inner and outer radii</h3>
+<p>R_out = R_center + w</p>
+<p>R_in = R_center − w</p>
+<h3>Choose gasket height (Z)</h3>
+<p>Height should be slightly taller than the available cavity  so it compresses when the lid closes.</p>
+<p>Typical starting value for TPU: - 2.1–2.3 mm</p>
+<p>Example (rectangular gasket)</p>
+<p><strong>From above:</strong> - R_center = 108.5 mm</p>
+<p><strong>Choose:</strong> - W = 2.7 mm → w = 1.35 mm - Height (Z) = 2.3 mm</p>
+<p><strong>Computed radii:</strong> </p>
+<p>R_out = 108.5 + 1.35 = 109.85 mm</p>
+<p>R_in = 108.5 − 1.35 = 107.15 mm</p>
+<p>Final Rectangular Gasket Geometry:  - Outer radius = 109.85 mm  - Inner radius = 107.15 mm  - Height (Z) =</p>
+<p>2.3 mm</p>
+<p>3</p>
+<p>Build method (FreeCAD)</p>
+<p>Create outer cylinder (R = 109.85, H = 2.3)</p>
+<p>Create inner cylinder (R = 107.15, H = 2.3)</p>
+<p>Boolean Cut (outer − inner)</p>
+<h3>Key Takeaways</h3>
+<p>Round gaskets  want the groove centerline</p>
+<p>Rectangular gaskets  are easier to retain in narrow grooves</p>
+<p>Always average tapered grooves</p>
+<p>Let compression come from geometry , not brute force</p>
+<p>This math applies to any circular tongue‑and‑groove enclosure , not just filament cases.1.</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>•</p>
+<p>4</p>
+
+  </div>
+
+  <div class="pageFooter">
+    <a id="topLink" class="topLink" href="#top">Top ↑</a>
+  </div>
+
+  <script src="../scripts/page.js"></script>
+</body>
+</html>

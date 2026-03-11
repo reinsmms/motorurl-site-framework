@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duplicating a Body (Including Dependencies)</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/toc.css" />
+</head>
+<body>
+  <main class="page">
+  <p># Duplicating a Body (Including Dependencies)</p>
+
+<p>This section completes an important **missing step** in the duplication process:</p>
+<p>the **Object Selection** dialog that appears when you copy a Body.</p>
+
+<p>The goal here is **not** to analyze every dependency, but to understand *what to click* and *why*.</p>
+
+<p>---</p>
+
+<p>## Fastest way to duplicate a Body (safe method)</p>
+
+<p>1. Select the **Body** you want to copy  </p>
+<p>2. Press **Ctrl + C**  </p>
+<p>3. Review the **Object Selection** dialog (Figure 1)  </p>
+<p>4. Click **OK**  </p>
+<p>5. Press **Ctrl + V**  </p>
+<p>6. Rename the new Body immediately</p>
+
+<p>---</p>
+
+<p>## The Object Selection dialog (what this is)</p>
+
+<p>When you copy a Body, FreeCAD checks whether that Body relies on other objects</p>
+<p>(sketches, reference geometry, origins).</p>
+
+<p>Instead of guessing, FreeCAD shows you this dialog so it can copy **everything required**</p>
+<p>to keep the new Body fully functional.</p>
+
+<p>You do **not** need to understand every item listed to use this safely.</p>
+
+<p>---</p>
+
+<p>## How to use the dialog (recommended settings)</p>
+
+<p>![Object Selection dialog](../../assets/images/core-concepts/object-selection-duplicate-body.png)</p>
+<p>*Figure 1 – Object Selection dialog when copying a Body*</p>
+
+<p>### A — Auto Select Depending Objects</p>
+
+<p>When enabled, FreeCAD automatically selects:</p>
+<p>- the Body</p>
+<p>- its sketches</p>
+<p>- any reference geometry it relies on</p>
+
+<p>This is what you want **almost all of the time**.</p>
+
+<p>### B — Show Dependencies</p>
+
+<p>When enabled, FreeCAD displays *why* items are selected by showing:</p>
+<p>- **Depending on**: objects this Body uses</p>
+<p>- **Depended by**: objects that use this Body</p>
+
+<p>This is for visibility only — you do not need to change anything here.</p>
+
+<p>### Dependency panels (right side)</p>
+
+<p>The two panels on the right explain relationships:</p>
+<p>- **Depending on** lists references required by the Body</p>
+<p>- **Depended by** lists objects that rely on the Body</p>
+
+<p>These lists explain *why* FreeCAD selected certain items automatically.</p>
+<p>They are informational and safe to ignore for basic duplication.</p>
+
+<p>---</p>
+
+<p>## IMPORTANT NOTE</p>
+
+<p>⚠️ **Do NOT click “Use Original Selections”**</p>
+
+<p>That option disables automatic dependency handling and is intended for</p>
+<p>advanced workflows. It will be covered later.</p>
+
+<p>For normal duplication, leave:</p>
+<p>- **Auto Select Depending Objects** ON</p>
+<p>- **Show Dependencies** ON</p>
+<p>- Click **OK**</p>
+
+<p>---</p>
+
+<p>## Final steps</p>
+
+<p>4. Press **Ctrl + V** to paste  </p>
+<p>5. Rename the new Body:</p>
+<p>   - Right-click → **Rename**</p>
+<p>   - or press **F2**</p>
+
+<p>Rename immediately so you don’t accidentally edit the wrong version.</p>
+
+<p>---</p>
+
+<p>## Key takeaway</p>
+
+<p>The Object Selection dialog exists to **protect your model**.</p>
+
+<p>If you accept the defaults and click **OK**, you get a clean,</p>
+<p>fully-independent duplicate of the Body every time.</p>
+  </main>
+</body>
+</html>

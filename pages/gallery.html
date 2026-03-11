@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <title>Gallery</title>
+</head>
+<body class="pageBody">
+  <div id="top"></div>
+
+  <div class="pageCard">
+    <div class="pageTopRow">
+      <div>
+        <h1>Gallery</h1>
+        <p class="muted">Folder: <span id="galleryTitle">—</span></p>
+      </div>
+      <a class="pillLink" href="gallery-index.html">📁 Gallery Index</a>
+    </div>
+
+    <p id="galleryStatus" class="muted"></p>
+    <div id="galleryGrid" class="galleryGrid" aria-label="Gallery thumbnails"></div>
+  </div>
+
+  <div class="pageFooter">
+    <a id="topLink" class="topLink" href="#top">Top ↑</a>
+  </div>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox__panel">
+      <div class="lightbox__bar">
+        <div id="lbLabel"></div>
+        <button id="lbClose" class="lbBtn" type="button" aria-label="Close">✕</button>
+      </div>
+
+      <div id="lbViewer" class="lightbox__viewer"></div>
+
+      <div class="lbBtnRow">
+        <button id="lbPrev" class="lbBtn" type="button" aria-label="Previous">← Prev</button>
+        <button id="lbNext" class="lbBtn" type="button" aria-label="Next">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/gallery.js"></script>
+  <script src="../scripts/page.js"></script>
+</body>
+</html>

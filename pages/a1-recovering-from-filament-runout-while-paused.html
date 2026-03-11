@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <title>Recovering from Filament Runout When the A1 Is Already Paused</title>
+</head>
+<body class="pageBody">
+  <div id="top"></div>
+  <div class="pageCard">
+    <div class="pageTopRow">
+      <h1>Recovering from Filament Runout When the A1 Is Already Paused</h1>
+    </div>
+
+    <p class="muted">
+      Applies to Bambu Lab A1 printers without AMS.
+    </p>
+
+    <h2>Symptoms</h2>
+    <ul>
+      <li>Printer shows <strong>Paused</strong></li>
+      <li>Filament menu only shows <strong>Edit</strong></li>
+      <li>Load / Unload options are missing</li>
+    </ul>
+
+    <h2>Why this happens</h2>
+    <p>
+      The A1 only enables Load and Unload during idle states or
+      when a filament change is explicitly expected.
+    </p>
+
+    <h2>Recommended recovery</h2>
+    <ol>
+      <li>Tap <strong>Resume</strong></li>
+      <li>Allow extrusion attempt</li>
+      <li>Runout is detected and printer re-pauses</li>
+      <li>Load new filament and resume</li>
+    </ol>
+
+    <h2>If runout is not detected</h2>
+    <ol>
+      <li>Resume the print</li>
+      <li>Gently pull remaining filament past the sensor</li>
+      <li>Printer enters filament-change mode</li>
+    </ol>
+
+    <h2>What not to do</h2>
+    <ul>
+      <li>Do not cancel the print</li>
+      <li>Do not power-cycle</li>
+      <li>Do not force filament while paused</li>
+    </ul>
+  </div>
+  <div class="pageFooter">
+    <a class="topLink" href="#top">Top ↑</a>
+  </div>
+</body>
+</html>

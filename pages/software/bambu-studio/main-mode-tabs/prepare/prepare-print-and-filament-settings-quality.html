@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prepare → Print & Filament Settings (Quality)</title>
+  <style>
+    :root{--bg:#0f1216;--card:#151a21;--text:#e7e7e7;--muted:#b9c0cc;--line:#2a3240;--accent:#7dd3fc;}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45;}
+    header{padding:28px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#121826,transparent);}
+    header h1{margin:0 0 6px 0;font-size:1.6rem;}
+    header p{margin:0;color:var(--muted);max-width:70ch;}
+    main{max-width:980px;margin:0 auto;padding:18px;}
+    .toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:18px 0;}
+    .toc a{color:var(--accent);text-decoration:none;}
+    .toc a:hover{text-decoration:underline;}
+    section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:18px 0;}
+    h2{margin:0 0 10px 0;font-size:1.25rem;}
+    h3{margin:18px 0 8px 0;font-size:1.05rem;}
+    h4{margin:14px 0 6px 0;font-size:0.98rem;color:#f3f4f6;}
+    hr{border:0;border-top:1px solid var(--line);margin:14px 0;}
+    ul{margin:8px 0 0 18px;}
+    .shot{display:block;width:25%;height:auto;border-radius:10px;border:1px solid var(--line);margin:10px 0 6px 0;}
+    .shot-wide{display:block;max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line);margin:10px 0 6px 0;}
+    .cap{color:var(--muted);font-size:0.9rem;margin:0 0 8px 0;}
+    table{width:100%;border-collapse:collapse;margin-top:10px;}
+    th,td{border:1px solid var(--line);padding:10px;vertical-align:top;}
+    th{background:#111723;text-align:left;}
+    .note{color:var(--muted);font-size:0.95rem;}
+    code{background:#0b1020;border:1px solid var(--line);padding:0 6px;border-radius:6px;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Prepare → Print &amp; Filament Settings (Quality)</h1>
+    <p>This page covers the <b>Quality</b> tab settings that affect surface finish, dimensional accuracy, and seam visibility. (No over-polish; focused on what to touch and why.)</p>
+  </header>
+
+  <main>
+    <div class="toc">
+      <b>On this page</b>
+      <ul>
+        <li><a href="#precision">Precision</a></li>
+        <li><a href="#seam">Seam</a></li>
+        <li><a href="#layer-height">Layer Height</a></li>
+        <li><a href="#line-width">Line Width</a></li>
+      </ul>
+      <p class="note">Screenshots are embedded and scaled to 25% per the workflow.</p>
+    </div>
+
+    <section id="precision">
+      <h2>Precision</h2>
+      <img class="shot" src="../../assets/images/process-settings/quality/quality-precision.png" alt="Quality tab – Precision settings" />
+      <p class="cap">Quality tab → Precision (screenshot)</p>
+
+      <p>These settings control how closely the printed geometry matches the digital model, especially for curves, holes, and small dimensional details.</p>
+
+      <h3>Slice gap closing radius</h3>
+      <p><b>What it affects:</b> Tiny gaps between adjacent extrusion paths.</p>
+      <p><b>Increase it when:</b></p>
+      <ul>
+        <li>You see small pinholes or gaps in top surfaces or thin walls</li>
+        <li>You want cleaner-looking surfaces on cosmetic parts</li>
+      </ul>
+      <p><b>Decrease it when:</b></p>
+      <ul>
+        <li>Fine details are getting blurred or overfilled</li>
+        <li>Very small features are being lost</li>
+      </ul>
+      <p><b>Example:</b> A decorative box shows tiny gaps between lines on flat faces → slightly increase this value to visually close them.</p>
+
+      <hr />
+
+      <h3>Resolution</h3>
+      <p><b>What it affects:</b> How smoothly curves are approximated during slicing.</p>
+      <p><b>Increase it when:</b></p>
+      <ul>
+        <li>Circles or curves look faceted</li>
+        <li>You’re printing parts with visible curved edges (vases, round housings)</li>
+      </ul>
+      <p><b>Decrease it when:</b></p>
+      <ul>
+        <li>Slicing is slow or produces very large G-code files</li>
+        <li>The model is mostly straight lines or mechanical geometry</li>
+      </ul>
+      <p><b>Example:</b> A round knob looks slightly polygonal → increase resolution for smoother curves.</p>
+
+      <hr />
+
+      <h3>Arc fitting</h3>
+      <p><b>What it affects:</b> Converts many short straight moves into true arcs.</p>
+      <p><b>Enable it when:</b></p>
+      <ul>
+        <li>Printing parts with lots of curves</li>
+        <li>You want smoother motion and smaller G-code files</li>
+      </ul>
+      <p><b>Disable it when:</b></p>
+      <ul>
+        <li>Troubleshooting unusual motion behavior</li>
+        <li>Printing extremely precise mechanical parts where predictability matters</li>
+      </ul>
+      <p><b>Example:</b> A cylindrical part prints with subtle vibration marks → enabling arc fitting can smooth motion.</p>
+
+      <hr />
+
+      <h3>X–Y hole compensation</h3>
+      <p><b>What it affects:</b> The printed size of holes in the X–Y plane.</p>
+      <p><b>Increase it when:</b></p>
+      <ul>
+        <li>Screws, bolts, or pins don’t fit into holes</li>
+        <li>Holes consistently print undersized</li>
+      </ul>
+      <p><b>Decrease it when:</b> Holes are coming out too loose.</p>
+      <p><b>Example:</b> An M3 screw won’t pass through a printed hole → apply a small positive hole compensation instead of redesigning the model.</p>
+
+      <hr />
+
+      <h3>X–Y contour compensation</h3>
+      <p><b>What it affects:</b> The overall external size of the part.</p>
+      <p><b>Increase it when:</b> Parts are consistently slightly too small.</p>
+      <p><b>Decrease it when:</b> Parts are consistently slightly too large.</p>
+      <p><b>Example:</b> A snap-fit box is just a bit too tight overall → a small contour compensation can correct it globally.</p>
+
+      <hr />
+
+      <h3>Auto circle contour–hole compensation</h3>
+      <p><b>What it affects:</b> Automatically applies different compensation logic to circular holes versus outer contours.</p>
+      <p><b>Enable it when:</b></p>
+      <ul>
+        <li>You want better dimensional accuracy without manual tuning</li>
+        <li>Printing parts with many holes and circular features</li>
+      </ul>
+      <p><b>Disable it when:</b> You need full manual control for calibration or testing.</p>
+      <p><b>Example:</b> A part with many different hole sizes prints inconsistently → enabling this can normalize results.</p>
+
+      <hr />
+
+      <h3>Elephant foot compensation</h3>
+      <p><b>What it affects:</b> Bottom-layer flare caused by heat and first-layer squish.</p>
+      <p><b>Increase it when:</b></p>
+      <ul>
+        <li>Bottom edges are wider than the rest of the part</li>
+        <li>Parts don’t sit flat against mating surfaces</li>
+      </ul>
+      <p><b>Decrease it when:</b> The bottom edge looks undercut or weak.</p>
+      <p><b>Example:</b> A box won’t slide into a slot because the bottom edge is too wide → increase elephant foot compensation.</p>
+
+      <hr />
+
+      <h3>Precise Z height</h3>
+      <p><b>What it affects:</b> Vertical dimensional accuracy.</p>
+      <p><b>Enable it when:</b></p>
+      <ul>
+        <li>Parts must match an exact height</li>
+        <li>Layer stacking accuracy matters more than speed</li>
+      </ul>
+      <p><b>Disable it when:</b> Printing fast prototypes or when minor Z-height variation is acceptable.</p>
+      <p><b>Example:</b> A printed spacer must be exactly 10 mm tall → enable precise Z height.</p>
+
+      <hr />
+
+      <h3>Precision – Quick Reference</h3>
+      <table>
+        <thead>
+          <tr><th>Setting</th><th>What it Fixes</th><th>Typical Adjustment</th><th>When to Touch It</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Slice gap closing radius</td><td>Tiny gaps between lines</td><td>Small increase</td><td>Visible pinholes or gaps on surfaces</td></tr>
+          <tr><td>Resolution</td><td>Faceted curves</td><td>Increase</td><td>Circles or curves look polygonal</td></tr>
+          <tr><td>Arc fitting</td><td>Choppy motion on curves</td><td>Enable</td><td>Parts with many curves</td></tr>
+          <tr><td>X–Y hole compensation</td><td>Holes too tight</td><td>Small positive value</td><td>Screws/pins don’t fit</td></tr>
+          <tr><td>X–Y contour compensation</td><td>Part overall size</td><td>Small ± adjustment</td><td>Whole part too big or small</td></tr>
+          <tr><td>Auto circle contour–hole comp.</td><td>Inconsistent holes</td><td>Enable</td><td>Parts with many holes</td></tr>
+          <tr><td>Elephant foot compensation</td><td>Bottom edge flare</td><td>Increase gradually</td><td>Bottom edge wider than rest</td></tr>
+          <tr><td>Precise Z height</td><td>Incorrect height</td><td>Enable</td><td>Exact Z height required</td></tr>
+        </tbody>
+      </table>
+
+      <p class="note"><b>General tuning advice:</b> Change one setting at a time, use small test prints (holes/cubes/rings), and prefer compensation settings over editing the model when the issue is repeatable.</p>
+    </section>
+
+    <section id="seam">
+      <h2>Seam</h2>
+      <img class="shot" src="../../assets/images/process-settings/quality/quality-seam.png" alt="Quality tab – Seam settings" />
+      <p class="cap">Quality tab → Seam (screenshot)</p>
+      <img class="shot" src="../../assets/images/process-settings/quality/quality-seam-position-dropdown.png" alt="Seam position dropdown" />
+      <p class="cap">Seam position dropdown (screenshot)</p>
+
+      <p>These settings control <b>where and how each layer starts and ends</b>, which directly affects visible seam lines, surface quality, and strength at layer transitions.</p>
+
+      <h3>Seam position</h3>
+      <p><b>What it affects:</b> Where the layer start/end seam is placed on the model.</p>
+      <p><b>Options explained:</b></p>
+      <ul>
+        <li><b>Nearest</b> – Places seams close to the previous layer’s seam; fastest, but may create visible vertical lines.</li>
+        <li><b>Aligned</b> – Forces seams into a single vertical line; easy to hide on corners.</li>
+        <li><b>Back</b> – Attempts to place seams on the back side of the model relative to the camera.</li>
+        <li><b>Random</b> – Distributes seams randomly to avoid a single visible line.</li>
+      </ul>
+      <p><b>Example:</b> A decorative cylinder shows a single ugly seam → switch from Aligned to Random.</p>
+
+      <hr />
+
+      <h3>Seam placement away from overhangs (experimental)</h3>
+      <p><b>What it affects:</b> Prevents seams from being placed on overhanging areas where they are more visible or weaker.</p>
+      <p><b>Enable it when:</b> seams look rough/droopy on angled surfaces or you have noticeable overhang seams.</p>
+      <p><b>Disable it when:</b> you want full manual control or are troubleshooting seam placement.</p>
+
+      <hr />
+
+      <h3>Smart scarf seam application</h3>
+      <p><b>What it affects:</b> Replaces a hard seam start/stop with a gradual “scarf” transition.</p>
+      <p><b>Enable it when:</b> you want the least visible seams possible (cosmetic prints).</p>
+      <p><b>Disable it when:</b> printing fast prototypes or when maximum seam predictability is required.</p>
+
+      <hr />
+
+      <h3>Scarf application angle threshold</h3>
+      <p><b>What it affects:</b> Determines which angles qualify for scarf seam blending.</p>
+      <p><b>Increase it when:</b> you want scarf seams applied more aggressively.</p>
+      <p><b>Decrease it when:</b> seams start affecting sharp features.</p>
+
+      <hr />
+
+      <h3>Scarf around entire wall</h3>
+      <p><b>What it affects:</b> Applies scarf blending around the full wall instead of only at the seam location.</p>
+      <p><b>Enable it when:</b> you want maximum seam hiding on high-finish parts.</p>
+      <p><b>Disable it when:</b> you want minimal toolpath complexity.</p>
+
+      <hr />
+
+      <h3>Scarf steps</h3>
+      <p><b>What it affects:</b> How gradual the scarf transition is.</p>
+      <p><b>Increase it when:</b> seams are still visible.</p>
+      <p><b>Decrease it when:</b> surface detail is being softened.</p>
+
+      <hr />
+
+      <h3>Scarf joint for inner walls</h3>
+      <p><b>What it affects:</b> Applies scarf transitions to inner walls as well as outer walls.</p>
+      <p><b>Enable it when:</b> internal appearance or strength matters.</p>
+      <p><b>Disable it when:</b> inner walls are hidden and speed matters.</p>
+
+      <hr />
+
+      <h3>Override filament scarf seam setting</h3>
+      <p><b>What it affects:</b> Forces scarf seam behavior regardless of filament profile defaults.</p>
+      <p><b>Enable it when:</b> filament defaults aren’t producing good seam results.</p>
+
+      <hr />
+
+      <h3>Role-based wipe speed</h3>
+      <p><b>What it affects:</b> Adjusts wipe behavior differently for walls, infill, and other roles.</p>
+      <p><b>Enable it when:</b> seams show blobs or stringing.</p>
+      <p><b>Disable it when:</b> diagnosing extrusion issues.</p>
+
+      <hr />
+
+      <h3>Seam – Quick Reference</h3>
+      <table>
+        <thead>
+          <tr><th>Setting</th><th>What it Fixes</th><th>Typical Choice</th><th>When to Touch It</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Seam position</td><td>Visible seam line</td><td>Random / Aligned</td><td>Visible vertical seam</td></tr>
+          <tr><td>Away from overhangs</td><td>Rough seam on angles</td><td>Enable</td><td>Seams landing on overhangs</td></tr>
+          <tr><td>Smart scarf seam</td><td>Harsh seam start</td><td>Enable</td><td>Cosmetic prints</td></tr>
+          <tr><td>Scarf angle threshold</td><td>Scarf not triggering</td><td>Adjust</td><td>Scarf seams not being applied</td></tr>
+          <tr><td>Scarf around entire wall</td><td>Seam still visible</td><td>Enable</td><td>High-finish parts</td></tr>
+          <tr><td>Scarf steps</td><td>Abrupt transition</td><td>Increase</td><td>Seam still visible</td></tr>
+          <tr><td>Inner wall scarf</td><td>Internal seam marks</td><td>Enable</td><td>Internal strength/appearance</td></tr>
+          <tr><td>Override filament scarf</td><td>Filament mismatch</td><td>Enable</td><td>Filament-specific seam issues</td></tr>
+          <tr><td>Role-based wipe speed</td><td>Blobs at seam</td><td>Enable</td><td>Seam blobs/stringing</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="layer-height">
+      <h2>Layer Height</h2>
+      <img class="shot" src="../../assets/images/process-settings/quality/quality-layer-height-line-width.png" alt="Quality tab – Layer height and Line width sections" />
+      <p class="cap">Quality tab → Layer height &amp; Line width (screenshot)</p>
+
+      <p>These settings control <b>vertical resolution, surface smoothness, and print time</b>.</p>
+
+      <h3>Layer height</h3>
+      <p><b>Decrease it when:</b> you want smoother surfaces or more visible detail (decorative parts).</p>
+      <p><b>Increase it when:</b> you want faster prints (large functional parts).</p>
+      <p><b>Example:</b> A figurine shows visible layer lines → reduce layer height.</p>
+
+      <hr />
+
+      <h3>Initial layer height</h3>
+      <p><b>Increase it when:</b> adhesion is inconsistent or your first layer needs more tolerance for bed variation.</p>
+      <p><b>Decrease it when:</b> you need fine detail on the bottom surface.</p>
+      <p><b>Example:</b> A part lifts at the corners → increase initial layer height slightly.</p>
+    </section>
+
+    <section id="line-width">
+      <h2>Line Width</h2>
+      <p>These settings control <b>how wide each extrusion line is</b>, affecting strength, surface finish, and dimensional accuracy.</p>
+
+      <h3>Default line width</h3>
+      <p><b>Increase it when:</b> you want stronger parts and can accept slightly less detail.</p>
+      <p><b>Decrease it when:</b> fine detail matters.</p>
+
+      <hr />
+
+      <h3>Initial layer line width</h3>
+      <p><b>Increase it when:</b> prints have adhesion issues.</p>
+
+      <hr />
+
+      <h3>Outer wall line width</h3>
+      <p><b>Decrease it when:</b> fine external detail and dimensional accuracy matter most.</p>
+
+      <hr />
+
+      <h3>Inner wall line width</h3>
+      <p><b>Increase it when:</b> structural strength is important.</p>
+
+      <hr />
+
+      <h3>Top surface line width</h3>
+      <p><b>Decrease it when:</b> top surfaces look rough or uneven.</p>
+
+      <hr />
+
+      <h3>Sparse infill line width</h3>
+      <p><b>Increase it when:</b> faster prints are preferred over fine infill detail.</p>
+
+      <hr />
+
+      <h3>Internal solid infill line width</h3>
+      <p>Controls the strength of solid internal layers.</p>
+
+      <hr />
+
+      <h3>Support line width</h3>
+      <p><b>Decrease it when:</b> supports are hard to remove.</p>
+
+      <p class="note">Note: Line width is a “feel” setting—small changes can have big effects. If you’re tuning, adjust one item at a time and test on a small part.</p>
+    </section>
+
+    <section>
+      <h2>Screenshot index</h2>
+      <p class="note">If you need to move these into your repo assets folder, these are the paths referenced by this page:</p>
+      <ul class="note">
+        <li><code>assets/images/process-settings/quality/quality-precision.png</code></li>
+        <li><code>assets/images/process-settings/quality/quality-seam.png</code></li>
+        <li><code>assets/images/process-settings/quality/quality-seam-position-dropdown.png</code></li>
+        <li><code>assets/images/process-settings/quality/quality-layer-height-line-width.png</code></li>
+      </ul>
+    </section>
+
+  <section class="card"><h2>Related</h2><p><a href="prepare-fuzzy-skin.html">Prepare → Fuzzy Skin</a></p></section>
+</main>
+</body>
+</html>

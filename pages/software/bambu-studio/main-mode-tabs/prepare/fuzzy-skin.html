@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bambu Studio – Fuzzy Skin</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/toc.css" />
+</head>
+<body>
+  <main class="page">
+
+    <h1>Prepare → Fuzzy Skin</h1>
+
+    <p>
+      Fuzzy skin adds intentional surface texture by applying small, randomized outer-wall offsets.
+      It can improve appearance and help coatings (like Sno&nbsp;Tex) “grab” the surface — but it can also increase vibration on thin parts.
+    </p>
+
+    <h2>What It Is</h2>
+    <p>
+      Fuzzy skin changes the toolpath so the nozzle makes many small direction changes
+      along the outer wall. The result is a roughened surface that looks “cast” or “weathered.”
+    </p>
+
+    <h2>Controlling Density</h2>
+    <ul>
+      <li><strong>Fuzzy skin point distance</strong>: smaller distance = denser fuzz.</li>
+      <li><strong>Fuzzy skin thickness</strong>: larger thickness = deeper texture but more lateral force.</li>
+    </ul>
+
+    <p>
+      <strong>Tip:</strong> Adjust point distance first to increase texture density.
+      Increasing thickness often causes instability before improving appearance.
+    </p>
+
+    <h2>Fuzzy Skin Painting Tool</h2>
+    <p>
+      Allows fuzzy skin to be applied selectively instead of across the entire model.
+      Useful for roofs, decorative faces, or specific texture areas.
+    </p>
+
+    <h2>Reducing Dynamic Excitation (Wall Vibration)</h2>
+
+    <p>
+      Rapid direction changes repeatedly push sideways on the wall.
+      Thin, tall, and on-edge parts amplify this effect.
+    </p>
+
+    <h3>Stability Adjustment Priority</h3>
+    <ol>
+      <li><strong>Increase point distance</strong> — Suggested: <code>0.45 – 0.6 mm</code></li>
+      <li><strong>Reduce thickness</strong> — Suggested ceiling: <code>≤ 0.2 mm</code></li>
+      <li><strong>Lower outer wall speed</strong> — Suggested: <code>40 – 60 mm/s</code></li>
+      <li><strong>Lower outer wall acceleration</strong> — Suggested: <code>800 – 1500 mm/s²</code></li>
+    </ol>
+
+    <h3>Safe Starting Preset (Thin Vertical Parts)</h3>
+    <ul>
+      <li>Thickness: <code>0.2</code></li>
+      <li>Point distance: <code>0.5</code></li>
+      <li>Outer wall speed: <code>50 mm/s</code></li>
+      <li>Outer wall acceleration: <code>1000 mm/s²</code></li>
+    </ul>
+
+    <h2>Screenshots</h2>
+    <p>Add screenshots after placing them in <code>/assets/bambu-studio/</code>.</p>
+
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="../print-and-filament-settings-quality.html">Prepare → Print &amp; Filament Settings (Quality)</a></li>
+    </ul>
+
+  </main>
+</body>
+</html>

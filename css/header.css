@@ -1,0 +1,55 @@
+/* MotorURL Header (Part 03)
+   Shared include: /includes/header.html
+   Goals: small, left-aligned brand; sticky; low vertical footprint; matches existing theme.
+*/
+
+:root{
+  --headerH: 48px; /* target 40–48px */
+}
+
+.siteHeader{
+  position: sticky;
+  top: 0;
+  z-index: 3000;
+
+  height: var(--headerH);
+  display: flex;
+  align-items: center;
+
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+.siteHeader__brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 100%;
+  padding-left: 14px;
+  padding-right: 10px;
+
+  text-decoration: none;
+  color: var(--text);
+}
+
+.siteHeader__brand:hover{
+  background: var(--panel2); /* subtle standout */
+}
+
+.siteHeader__logo{
+  height: 70%;   /* temporary sizing rule */
+  width: auto;   /* preserve aspect ratio */
+  display: block;
+}
+
+.siteHeader__name{
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Make room for header while preserving existing full-height layout */
+.app{
+  height: calc(100vh - var(--headerH));
+}

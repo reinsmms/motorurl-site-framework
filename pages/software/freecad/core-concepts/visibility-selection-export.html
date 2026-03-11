@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visibility, Selection, and Export (How They Work Together)</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/toc.css" />
+</head>
+<body>
+  <main class="page">
+  <p># Visibility, Selection, and Export (How They Work Together)</p>
+
+<p>This page explains a common source of confusion in FreeCAD:</p>
+<p>**visibility**, **selection**, and **export** are related, but they are not the same thing.</p>
+
+<p>Understanding how they interact prevents accidental exports and missing geometry.</p>
+
+<p>---</p>
+
+<p>## The three concepts (short version)</p>
+
+<p>- **Visibility** controls what you can *see*</p>
+<p>- **Selection** controls what you are *acting on*</p>
+<p>- **Export** uses *both* visibility and selection rules</p>
+
+<p>Keeping these separate in your head makes FreeCAD much easier to predict.</p>
+
+<p>---</p>
+
+<p>## Visibility</p>
+
+<p>Visibility answers one question:</p>
+
+<p>> **Is this object currently shown?**</p>
+
+<p>- Visible objects appear in the 3D view</p>
+<p>- Hidden objects do not appear</p>
+<p>- Visibility is toggled with the **Spacebar**</p>
+
+<p>Important:</p>
+<p>- Hidden objects are **ignored during export**</p>
+<p>- Visibility does not mean the object is selected</p>
+
+<p>---</p>
+
+<p>## Selection</p>
+
+<p>Selection answers a different question:</p>
+
+<p>> **Which object am I working on right now?**</p>
+
+<p>- Clicking an object selects it</p>
+<p>- Selected objects highlight in the tree and 3D view</p>
+<p>- You can select objects that are visible or hidden (via the tree)</p>
+
+<p>Selection alone does **not** guarantee export.</p>
+
+<p>---</p>
+
+<p>## Export (what FreeCAD actually does)</p>
+
+<p>When exporting, FreeCAD follows these rules:</p>
+
+<p>1. Only **visible** objects are considered</p>
+<p>2. If something is **selected**, only the selected visible objects export</p>
+<p>3. If nothing is selected, **all visible objects** export</p>
+
+<p>This is why accidental multi-body exports happen.</p>
+
+<p>---</p>
+
+<p>## Safe export workflow (recommended)</p>
+
+<p>To export a single Body safely:</p>
+
+<p>1. Hide all other Bodies (Spacebar)</p>
+<p>2. Confirm only **one Body is visible**</p>
+<p>3. Select that Body</p>
+<p>4. File → Export → STL / 3MF</p>
+
+<p>This removes ambiguity and prevents mixed exports.</p>
+
+<p>---</p>
+
+<p>## Common mistakes (and why they happen)</p>
+
+<p>### “Why did my export include multiple parts?”</p>
+<p>- More than one Body was visible</p>
+
+<p>### “Why did nothing export?”</p>
+<p>- The Body was hidden</p>
+
+<p>### “Why did the wrong thing export?”</p>
+<p>- Selection did not match visibility</p>
+
+<p>These are visibility issues, not file format problems.</p>
+
+<p>---</p>
+
+<p>## How this relates to duplication and dependencies</p>
+
+<p>- Duplication uses **selection**</p>
+<p>- Export uses **visibility + selection**</p>
+<p>- Dependencies determine *what must exist*, not *what exports*</p>
+
+<p>Each system has a different purpose.</p>
+
+<p>---</p>
+
+<p>## One-sentence takeaway</p>
+
+<p>> **If you can’t see it, it won’t export. If you don’t select it, FreeCAD may export more than you expect.**</p>
+  </main>
+</body>
+</html>

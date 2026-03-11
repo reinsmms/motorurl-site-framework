@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Origin vs Geometry (How to Think About It)</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/toc.css" />
+</head>
+<body>
+  <main class="page">
+  <p># Origin vs Geometry (How to Think About It)</p>
+
+<p>This page explains the difference between **Origins**, **reference geometry**, and **actual model geometry** in FreeCAD,</p>
+<p>using simple, non-technical language.</p>
+
+<p>The goal is to help you understand *what things are*, not how FreeCAD internally tracks dependencies.</p>
+
+<p>---</p>
+
+<p>## The most important idea</p>
+
+<p>> **Origins provide references. Bodies create geometry.**</p>
+
+<p>If you understand that sentence, most FreeCAD confusion disappears.</p>
+
+<p>---</p>
+
+<p>## What the Origin is</p>
+
+<p>Each Body in FreeCAD has an **Origin**.</p>
+
+<p>The Origin:</p>
+<p>- defines where **zero** is</p>
+<p>- provides **X, Y, Z axes**</p>
+<p>- provides **XY, XZ, YZ planes**</p>
+<p>- never creates printable geometry</p>
+
+<p>Think of the Origin as a **coordinate system** or **reference framework**.</p>
+
+<p>You build *relative to* it, but it never becomes part of your part.</p>
+
+<p>---</p>
+
+<p>## What Origin children really are</p>
+
+<p>Under an Origin you see:</p>
+<p>- axes</p>
+<p>- planes</p>
+
+<p>These are **tools**, not parts.</p>
+
+<p>They exist so you can:</p>
+<p>- attach sketches</p>
+<p>- align features</p>
+<p>- place geometry accurately</p>
+
+<p>They are shown as “children” only because they belong to the Origin as references,</p>
+<p>not because they are pieces of the model.</p>
+
+<p>---</p>
+
+<p>## What geometry is</p>
+
+<p>Geometry is anything that:</p>
+<p>- creates a visible solid</p>
+<p>- can be exported</p>
+<p>- can be printed</p>
+
+<p>Examples:</p>
+<p>- Pad</p>
+<p>- Pocket</p>
+<p>- Revolve</p>
+<p>- Torus</p>
+<p>- Fillet</p>
+
+<p>Geometry lives **inside a Body**, not inside the Origin.</p>
+
+<p>---</p>
+
+<p>## The relationship between Origin and geometry</p>
+
+<p>A simple way to think about it:</p>
+
+<p>- The Origin does **not contain** geometry</p>
+<p>- Geometry does **not belong to** the Origin</p>
+<p>- Geometry is **defined relative to** the Origin</p>
+
+<p>In other words:</p>
+
+<p>> The Origin helps place geometry, but does not own it.</p>
+
+<p>---</p>
+
+<p>## A helpful analogy</p>
+
+<p>Think of the Origin like graph paper taped to your desk.</p>
+
+<p>- You draw shapes *on* the grid</p>
+<p>- The grid helps you stay aligned</p>
+<p>- The drawing is not part of the grid</p>
+
+<p>FreeCAD works the same way.</p>
+
+<p>---</p>
+
+<p>## Why this matters</p>
+
+<p>Understanding this helps you avoid common mistakes:</p>
+<p>- trying to “move” the Origin instead of the geometry</p>
+<p>- assuming deleting an Origin will delete a part</p>
+<p>- thinking planes are solid objects</p>
+
+<p>Once you separate **references** from **geometry**, the model tree becomes much easier to read.</p>
+
+<p>---</p>
+
+<p>## One-sentence takeaway</p>
+
+<p>> **Origins define space. Bodies create parts. Geometry may use references without being their child.**</p>
+  </main>
+</body>
+</html>

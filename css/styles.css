@@ -1,0 +1,469 @@
+
+/* motorurl theme variables */
+:root {
+  --bg: #070a0f;
+  --panel: #0b1018;
+  --panel2: #0f1622;
+  --text: #e7eefc;
+  --muted: #9aa8c2;
+  --line: rgba(255,255,255,.08);
+  --accent: #19ff7a;          /* neon green */
+  --accent2: rgba(25,255,122,.18);
+  --accent3: rgba(25,255,122,.35);
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+  --radius: 14px;
+}
+
+/* motorurl.com starter home layout (v4)
+   - Sidebar tree nav (left) with collapse/expand
+   - Iframe content frame (right)
+   - Mobile: hamburger opens a slide-over menu
+   - Gallery: thumbnails grid + lightbox overlay (no autoplay)
+   - Gallery Index: auto lists subject folders (from assets/index.json)
+*/
+:root{
+  --bg:#0b0f14;--panel:#0f1622;--panel2:#0c121c;--text:#e8eef7;--muted:#a9b6c8;--line:rgba(255,255,255,.08);
+  --accent:#6aa9ff;--hover:rgba(255,255,255,.06);--focus:rgba(106,169,255,.35);--sidebarWidth:290px;--radius:12px;
+  --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Noto Sans","Liberation Sans",sans-serif;
+}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text)}
+.app{display:grid;grid-template-columns:var(--sidebarWidth) 1fr;height:100vh}
+.sidebar{background:linear-gradient(180deg,var(--panel),var(--panel2));border-right:1px solid var(--line);padding:14px;display:grid;grid-template-rows:auto 1fr auto;gap:12px}
+.brand{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(255,255,255,.02)}
+.brand__logo{width:44px;height:44px;border-radius:10px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02));display:inline-block}
+.brand__title{font-size:14px;font-weight:650;letter-spacing:.2px}
+.brand__homeLink{display:inline-block;margin-top:4px;font-size:12px;color:var(--accent);text-decoration:none}
+.brand__homeLink:hover{text-decoration:underline}
+.brand__homeLink:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus);border-radius:8px}
+.sidebar__footer{padding:10px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+.tree{padding:6px;overflow:auto;border:1px solid var(--line);border-radius:var(--radius)}
+.tree button,.tree a{font-family:inherit}
+.tree .branch{margin-bottom:6px}
+.branch__toggle{width:100%;display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:center;padding:8px 10px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--text);cursor:pointer;text-align:left}
+.branch__toggle:hover{background:var(--hover);border-color:var(--line)}
+.branch__toggle:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+.chev{width:18px;height:18px;display:grid;place-items:center;color:var(--muted);user-select:none}
+.branch[data-open="true"] .chev { display:inline-block; transition: transform 120ms ease; transform: rotate(0deg); transform-origin: 50% 50%; }
+.branch__title{font-weight:600;font-size:13px}
+.branch__items{margin:6px 0 0 26px;display:none;border-left:1px solid var(--line);padding-left:10px}
+.branch[data-open="true"] > .branch__items{display:grid;gap:4px}
+.navItem{display:block;padding:7px 10px;border-radius:10px;color:var(--text);text-decoration:none;border:1px solid transparent}
+.navItem:hover{background:var(--hover);border-color:var(--line)}
+.navItem[aria-current="page"]{border-color:rgba(106,169,255,.55);background:rgba(106,169,255,.10)}
+.muted{color:var(--muted)}
+.main{display:grid;grid-template-rows:auto 1fr}
+.main__bar{padding:10px 14px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center}
+.breadcrumb{font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hamburger{display:none;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);border-radius:10px;padding:6px 10px;cursor:pointer}
+.hamburger:hover{background:var(--hover)}
+.hamburger:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+.contentFrame{width:100%;height:100%;border:0;background:var(--bg)}
+
+/* Page styling (iframe pages) */
+.pageBody{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);padding:28px}
+.pageCard{max-width:980px;margin:0 auto;border:1px solid var(--line);border-radius:14px;padding:22px;background:rgba(255,255,255,.02)}
+.pageTopRow{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+.pageCard h1{margin:0;font-size:30px}
+.pageCard p{margin:0;color:var(--muted)}
+.pillLink{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--text);background:rgba(255,255,255,.03)}
+.pillLink:hover{background:var(--hover)}
+.pillLink:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+.pageFooter{max-width:980px;margin:14px auto 0 auto;display:flex;justify-content:flex-end}
+.topLink{color:var(--muted);text-decoration:none;border-bottom:1px dashed transparent}
+.topLink:hover{color:var(--text);border-bottom-color:var(--muted)}
+
+/* Gallery */
+.galleryGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:14px}
+.thumb{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02);cursor:pointer;position:relative;aspect-ratio:1/1}
+.thumb:hover{background:var(--hover)}
+.thumb img,.thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.thumb__badge{position:absolute;left:10px;bottom:10px;font-size:12px;padding:4px 8px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.45);color:var(--text)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;z-index:200;padding:18px}
+.lightbox[data-open="true"]{display:grid}
+.lightbox__panel{width:min(1100px,100%);height:min(92vh,900px);margin:auto;display:grid;grid-template-rows:auto 1fr auto;gap:10px}
+.lightbox__bar{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font-size:13px}
+.lightbox__viewer{border:1px solid var(--line);border-radius:16px;background:rgba(0,0,0,.35);overflow:hidden;display:grid;place-items:center}
+.lightbox__viewer img,.lightbox__viewer video{max-width:100%;max-height:100%;width:auto;height:auto;display:block}
+.lbBtnRow{display:flex;justify-content:center;gap:10px}
+.lbBtn{border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);border-radius:999px;padding:10px 14px;cursor:pointer}
+.lbBtn:hover{background:var(--hover)}
+.lbBtn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+
+/* Gallery Index */
+.subjectGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.subjectCard{border:1px solid var(--line);border-radius:14px;padding:14px;background:rgba(255,255,255,.02);text-decoration:none;color:var(--text)}
+.subjectCard:hover{background:var(--hover)}
+.subjectCard__title{font-weight:650;margin:0 0 6px 0}
+.subjectCard__meta{margin:0;color:var(--muted);font-size:13px}
+
+/* Mobile slide-over */
+@media (max-width:860px){
+  .app{grid-template-columns:1fr;grid-template-rows:1fr}
+  .hamburger{display:inline-block}
+  .sidebar{position:fixed;top:0;left:0;height:100vh;width:min(92vw,340px);transform:translateX(-105%);transition:transform 180ms ease-out;z-index:50;box-shadow:0 14px 40px rgba(0,0,0,.55)}
+  body.menu-open .sidebar{transform:translateX(0)}
+  .backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:40}
+  body.menu-open .backdrop{display:block}
+}
+
+/* v1 updates: category links on top-level branches */
+.branchHeader{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center;padding:6px 6px}
+.branch__toggleBtn{border:1px solid transparent;background:transparent;border-radius:10px;padding:6px;cursor:pointer;color:var(--text)}
+.branch__toggleBtn:hover{background:var(--hover);border-color:var(--line)}
+.branch__toggleBtn:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+.branch__titleLink{display:block;padding:8px 10px;border-radius:10px;color:var(--text);text-decoration:none;border:1px solid transparent;font-weight:600;font-size:13px}
+.branch__titleLink:hover{background:var(--hover);border-color:var(--line)}
+.branch__titleLink:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus)}
+
+/* Home page section links (larger than body text, smaller than title) */
+.homeSectionLink{
+  font-size:18px;
+  font-weight:650;
+  text-decoration:none;
+  color:var(--accent);
+}
+.homeSectionLink:hover{text-decoration:underline}
+
+/* v3: nested tree spacing */
+.branch .branch__items .branchHeader{margin-left:6px}
+.branch .branch__items .branch__items{margin-left:18px}
+
+/* v7c: local chev rotation for nested branches */
+.branch[data-open="true"] > .branchHeader .chev { display:inline-block; transition: transform 120ms ease; transform: rotate(0deg); transform-origin: 50% 50%; }
+
+
+/* v4: reskin sidebar + nav (neon) */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+a { color: var(--text); }
+
+.muted { color: var(--muted); }
+
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(180deg, var(--panel), var(--panel2));
+  border-right: 1px solid var(--line);
+}
+
+.sidebar__top {
+  background: rgba(255,255,255,.02);
+  border-bottom: 1px solid var(--line);
+}
+
+.brandCard {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.brandCard:hover { border-color: rgba(25,255,122,.22); }
+
+.brandCard__title { color: var(--text); }
+
+.brandCard__home { color: var(--accent); }
+
+.branchHeader {
+  border-radius: 10px;
+  padding: 8px 8px;
+}
+
+.branch__titleLink {
+  color: var(--text);
+  opacity: .92;
+}
+
+.branch__titleLink:hover { opacity: 1; }
+
+.branch__toggleBtn {
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.branch__toggleBtn:hover {
+  border-color: rgba(25,255,122,.22);
+  background: rgba(25,255,122,.06);
+}
+
+.branch[data-open="true"] > .branchHeader .chev { display:inline-block; transition: transform 120ms ease; transform: rotate(0deg); transform-origin: 50% 50%; }
+
+.navItem {
+  display: block;
+  padding: 10px 10px;
+  border-radius: 12px;
+  margin: 4px 0;
+  border: 1px solid transparent;
+  color: var(--text);
+  opacity: .88;
+}
+
+.navItem:hover {
+  opacity: 1;
+  border-color: rgba(25,255,122,.18);
+  background: rgba(255,255,255,.03);
+}
+
+.navItem[aria-current="page"] {
+  opacity: 1;
+  border-color: var(--accent3);
+  background: rgba(25,255,122,.08);
+  box-shadow: 0 0 0 1px rgba(25,255,122,.15), 0 0 18px rgba(25,255,122,.10);
+}
+
+.navItem[aria-current="page"]::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Hamburger / mobile drawer */
+.hamburger {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+}
+.hamburger:hover { border-color: rgba(25,255,122,.22); }
+
+.sidebarOverlay { background: rgba(0,0,0,.55); }
+
+/* Page cards */
+.pageCard {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.pillLink {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+  color: var(--text);
+}
+.pillLink:hover {
+  border-color: rgba(25,255,122,.22);
+  background: rgba(25,255,122,.06);
+}
+
+
+/* v6: nav font scale for dense trees */
+/* Slightly reduce nav typography to accommodate denser trees across sites */
+.branch__titleLink {
+  font-size: 0.95rem;
+}
+
+.navItem {
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+/* Nested levels step down a touch more */
+.branch .branch__items .branch__titleLink {
+  font-size: 0.92rem;
+}
+
+.branch .branch__items .navItem {
+  font-size: 0.9rem;
+}
+
+
+/* v7: chevron direction + animation */
+.chev {
+  display: inline-block;
+  transition: transform 120ms ease;
+  transform: rotate(0deg); /* right-pointing when collapsed */
+  transform-origin: 50% 50%;
+}
+
+.branch[data-open="true"] > .branchHeader .chev { display:inline-block; transition: transform 120ms ease; transform: rotate(0deg); transform-origin: 50% 50%; }
+
+
+/* v8: chevron glyph + rotation (CSS pseudo-element) */
+.chev {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  line-height: 1.1em;
+  color: var(--muted);
+  transition: transform 120ms ease, color 120ms ease;
+  transform: rotate(0deg); /* right when collapsed */
+  transform-origin: 50% 50%;
+}
+
+.chev::before {
+  content: "▶";
+  display: inline-block;
+}
+
+.branch__toggleBtn:hover .chev {
+  color: var(--accent);
+}
+
+.branch[data-open="true"] > .branchHeader .chev {
+  transform: rotate(90deg); /* down when expanded */
+}
+
+
+/* v9: nav subtitle styling */
+.navTitle {
+  display: block;
+}
+
+.navSub {
+  display: block;
+  font-size: 0.82em;
+  opacity: 0.75;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+
+/* v10: data tables (reference pages) */
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,.02);
+  margin: 12px 0 18px;
+}
+.dataTable th, .dataTable td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.dataTable th {
+  text-align: left;
+  font-weight: 600;
+  background: rgba(255,255,255,.03);
+}
+.dataTable tr:last-child td { border-bottom: none; }
+.dataTable.compact th, .dataTable.compact td { padding: 8px 10px; }
+
+
+/* v11: larger hamburger */
+#hamburgerBtn, .hamburgerBtn, .hamburger {
+  width: 48px;
+  height: 48px;
+  font-size: 1.35rem;
+}
+#hamburgerBtn svg, .hamburger svg {
+  width: 24px;
+  height: 24px;
+}
+/* Nav Density – Microsoft Learn style (parents exact, children slightly smaller)
+   Parents (.branchHeader) ≈ .tree-expander
+   Children (.navItem) slightly smaller to fit more items
+*/
+
+.branchHeader{
+  font-size:14px;
+  line-height:25.6px;          /* Learn-like rhythm */
+  padding:2px 0 2px 16px;       /* top right bottom left */
+  margin:0;
+}
+
+.navItem{
+  font-size:13px;               /* slightly smaller than parents */
+  line-height:22px;
+  padding:2px 0 2px 28px;       /* a little more indent than header */
+  margin:0;
+  border-radius:0;              /* Learn is fairly square */
+}
+
+/* tighten child group spacing */
+.branch__items{
+  margin-top:0;
+  padding-left:0;               /* we're handling indent via padding-left above */
+}
+
+/* optional: reduce extra vertical gaps if any are coming from flex gap */
+.branch[data-open="true"] > .branch__items{
+  gap:0;
+}
+
+/* ============================================================
+   Nav Density – Microsoft Learn style (v2)
+   Parents (.branchHeader/.branch__titleLink) tightened to match Learn
+   Children (.navItem) slightly smaller and compact
+   Added: 2026-02-07
+   ============================================================ */
+
+.branchHeader{
+  /* keep the row tight and consistent */
+  padding:0;
+  margin:0;
+  min-height:0;
+  align-items:center;
+}
+
+.branch__titleLink{
+  font-size:14px;
+  line-height:25.6px;          /* Learn-like rhythm */
+  padding:2px 0 2px 0;         /* vertical only; horizontal handled by grid */
+  margin:0;
+}
+
+.branch__toggleBtn{
+  /* prevent the toggle cell from forcing extra height */
+  padding:2px 0;
+  margin:0;
+  height:auto;
+  min-height:0;
+  line-height:1;
+}
+
+.navItem{
+  font-size:13px;               /* slightly smaller than parents */
+  line-height:22px;
+  padding:2px 0 2px 28px;       /* indent for leaf items */
+  margin:0;
+  border-radius:0;
+}
+
+/* tighten child group spacing/indent */
+.branch__items{
+  margin-top:0;
+  padding-left:0;               /* indent is handled via padding-left on items */
+}
+
+.branch[data-open="true"] > .branch__items{
+  gap:0;
+}
+
+/* ============================================================
+   Nav Density – Microsoft Learn style (v3) FONT -1px (override)
+   Fix: ensure ALL nav levels honor the reduced font sizes by
+        overriding any earlier nested selectors.
+   Added: 2026-02-07
+   ============================================================ */
+
+.branchHeader .branch__titleLink{
+  font-size:13px !important;
+  line-height:25.6px !important;
+}
+
+/* Leaf items (all levels) */
+#treeNav .navItem{
+  font-size:12px !important;
+  line-height:22px !important;
+}
+
+/* If any nested rule targets nav items, override it too */
+#treeNav .branch .branch__items .navItem{
+  font-size:12px !important;
+  line-height:22px !important;
+}
+#treeNav a.active {
+font-weight:600;
+color:#4fa3ff;
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creating Multiple Parts in a Document (FreeCAD)</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/toc.css" />
+</head>
+<body>
+  <main class="page">
+  <p># Creating Multiple Parts in a Document (FreeCAD)</p>
+
+<p>This page explains how to manage **multiple variations of a part** inside a single FreeCAD document using:</p>
+<p>- clear naming</p>
+<p>- color-coding</p>
+<p>- duplication</p>
+<p>- safe export practices</p>
+
+<p>This approach is ideal for iterative design (example: O-ring sizes, gasket thickness tests).</p>
+
+<p>---</p>
+
+<p>## Core concepts (terminology refresher)</p>
+
+<p>- **Document** = the FreeCAD project file (`.FCStd`)</p>
+<p>- **Body** = one solid printable part</p>
+<p>- **Part** = a container that can hold multiple bodies</p>
+
+<p>FreeCAD does **not** use literal “tabs.”  </p>
+<p>Instead, **multiple Bodies inside one Document** serve the same purpose.</p>
+
+<p>---</p>
+
+<p>## Recommended structure (best practice)</p>
+
+<p>**One Document → Multiple Bodies**</p>
+
+<p>- Keep all variants in a single document</p>
+<p>- Create **one Body per variation**</p>
+<p>- Hide/show bodies as needed</p>
+
+<p>Example:</p>
+
+<p>Document  </p>
+<p>└─ Part: O-Ring Variants  </p>
+<p>   ├─ Body: O-Ring_Round_2p5mm  </p>
+<p>   ├─ Body: O-Ring_Round_3p0mm  </p>
+<p>   └─ Body: O-Ring_Round_3p2mm  </p>
+
+<p>---</p>
+
+<p>## Naming convention (clear & sortable)</p>
+
+<p>Rename the **Body**, not individual features.</p>
+
+<p>Use a sortable format like:</p>
+
+<p>- `O-Ring_Round_2p5mm`</p>
+<p>- `O-Ring_Round_3p0mm`</p>
+<p>- `O-Ring_Round_3p2mm`</p>
+
+<p>Square gasket examples:</p>
+<p>- `Gasket_Square_2p3mmH`</p>
+<p>- `Gasket_Square_2p1mmH`</p>
+
+<p>---</p>
+
+<p>## Color-coding bodies (highly recommended)</p>
+
+<p>Color makes variants instantly identifiable.</p>
+
+<p>### How to set color</p>
+<p>1. Select the **Body** in the Model tree</p>
+<p>2. Right-click → **Appearance**</p>
+<p>3. Set **Shape Color** (optional transparency)</p>
+
+<p>---</p>
+
+<p>## Fastest way to duplicate a Body (safe method)</p>
+
+<p>1. Select the Body you want to copy</p>
+<p>2. **Ctrl+C**</p>
+<p>3. **Ctrl+V**</p>
+<p>4. Rename the new body immediately</p>
+<p>5. Change only the required parameter</p>
+
+<p>---</p>
+
+<p>## Export only the correct Body (avoid mistakes)</p>
+
+<p>1. Hide all other bodies</p>
+<p>2. Ensure only **one** body is visible</p>
+<p>3. Select the visible body</p>
+<p>4. File → Export → **STL / 3MF**</p>
+
+<p>---</p>
+
+<p>## Rules of thumb</p>
+
+<p>- One Document = one project</p>
+<p>- One Body = one printable part</p>
+<p>- Variations = multiple bodies</p>
+<p>- Always rename bodies</p>
+<p>- Always color-code variants</p>
+<p>- Export only what’s visible</p>
+
+<p>---</p>
+
+<p>## Key takeaway</p>
+
+<p>**Multiple bodies in one document** is the cleanest, safest way to manage design variations in FreeCAD.</p>
+  </main>
+</body>
+</html>

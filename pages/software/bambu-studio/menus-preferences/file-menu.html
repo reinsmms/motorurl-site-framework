@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Menu â€“ Bambu Studio Manual (A1)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/bambu-studio/css/main.css">
+</head>
+<script src="/assets/bambu-studio/js/lightbox.js" defer></script>
+<body>
+  <div class="layout">
+        <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Bambu Studio Manual</div>
+        <div class="sidebar-subtitle">Bambu Lab A1 Â· No AMS Lite</div>
+        <div class="badge"><span class="badge-dot"></span><span>Real-world verified</span></div>
+        <div class="sidebar-meta"><span>Studio: 2.4.0.70</span><span>Profile: A1 (No AMS)</span></div>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Overview</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html"><span class="nav-bullet"></span><span>Intro & Scope</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Menus & Preferences</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="file-menu.html" class="active"><span class="nav-bullet"></span><span>File Menu</span></a></li>
+          <li class="nav-item"><a href="help-menu.html"><span class="nav-bullet"></span><span>Help Menu</span></a></li>
+          <li class="nav-item"><a href="view-menu.html"><span class="nav-bullet"></span><span>View Menu</span></a></li>
+          <li class="nav-item"><a href="preferences.html"><span class="nav-bullet"></span><span>Preferences</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Main Mode Tabs</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="prepare.html"><span class="nav-bullet"></span><span>Prepare</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_overview.html"><span class="nav-bullet"></span><span>Prepare â€“ Overview</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_object_layout.html"><span class="nav-bullet"></span><span>Prepare â€“ Object Layout & Organization</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_supports_surface_tools.html"><span class="nav-bullet"></span><span>Prepare â€“ Supports & Surface Tools</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_plates_layout_control.html"><span class="nav-bullet"></span><span>Prepare â€“ Plates & Layout Control</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_print_filament_concepts.html"><span class="nav-bullet"></span><span>Prepare â€“ Print & Filament Settings (Concepts)</span></a></li>
+          <li class="nav-item"><a href="slice.html"><span class="nav-bullet"></span><span>Slice (Preview)</span></a></li>
+          <li class="nav-item"><a href="device.html"><span class="nav-bullet"></span><span>Device</span></a></li>
+          <li class="nav-item"><a href="project.html"><span class="nav-bullet"></span><span>Project</span></a></li>
+          <li class="nav-item"><a href="calibration.html"><span class="nav-bullet"></span><span>Calibration</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Key Features</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="supports.html"><span class="nav-bullet"></span><span>Supports</span></a></li>
+          <li class="nav-item"><a href="per-object.html"><span class="nav-bullet"></span><span>Per-Object Settings</span></a></li>
+          <li class="nav-item"><a href="ironing.html"><span class="nav-bullet"></span><span>Ironing</span></a></li>
+          <li class="nav-item"><a href="timelapse.html"><span class="nav-bullet"></span><span>Timelapse</span></a></li>
+          <li class="nav-item"><a href="workflows.html"><span class="nav-bullet"></span><span>Workflows</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="troubleshooting.html"><span class="nav-bullet"></span><span>Troubleshooting</span></a></li>
+          <li class="nav-item"><a href="glossary.html"><span class="nav-bullet"></span><span>Glossary</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="top-bar">
+        <div class="top-bar-main">
+          <div class="top-title">File Menu</div>
+          <div class="top-subtitle">
+            Project loading/saving, imports, exports, and preset tools in Bambu Studio 2.4.0.70.
+          </div>
+        </div>
+        <div class="version-pill">
+          <strong>Bambu Studio: 2.4.0.70</strong>
+          <span>Verified on: 2025-11-28</span>
+          <span>Profile: A1 Â· No AMS</span>
+        </div>
+      </header>
+
+      <section class="content-group">
+        <div class="content-heading">Overview</div>
+        <div class="content-tagline">
+          The <strong>File</strong> menu controls projects, importing models, exporting sliced files,
+          and preset backup â€“ but never talks directly to the printer.
+        </div>
+
+        <div class="content-columns">
+          <div>
+            <ul style="font-size:13px; line-height:1.6; padding-left:0; list-style:none;">
+              <li><strong>New Project</strong> (Ctrl+N) â€“ clear the plate and start from scratch.</li>
+              <li><strong>Open Projectâ€¦</strong> (Ctrl+O) â€“ load a saved 3MF, replacing the current one.</li>
+              <li><strong>Recent Projects â–¶</strong> â€“ quick access to recently opened 3MFs.</li>
+              <li><strong>Save Project</strong> (Ctrl+S) â€“ save to existing 3MF (greyed out until named).</li>
+              <li><strong>Save Project asâ€¦</strong> (Ctrl+Shift+S) â€“ save a new 3MF copy.</li>
+            </ul>
+
+            <div class="callout-box" style="margin-top:10px;">
+              <div class="callout-title">Import</div>
+              <ul style="font-size:13px; line-height:1.6; padding-left:16px;">
+                <li><strong>Import 3MF/STL/STEP/SVG/OBJ/AMFâ€¦</strong> (Ctrl+I) â€“ add geometry to the current plate.</li>
+                <li><strong>Import Configsâ€¦</strong> â€“ bring in profiles from another system or backup.</li>
+              </ul>
+            </div>
+
+            <div class="callout-box">
+              <div class="callout-title">Export</div>
+              <ul style="font-size:13px; line-height:1.6; padding-left:16px;">
+                <li><strong>Export all objects as one STLâ€¦</strong> â€“ merge everything to a single STL.</li>
+                <li><strong>Export all objects as STLsâ€¦</strong> â€“ each object becomes a separate STL.</li>
+                <li><strong>Export Generic 3MFâ€¦</strong> â€“ 3MF usable in other slicers.</li>
+                <li><strong>Export plate sliced fileâ€¦</strong> â€“ sliced file for the current plate.</li>
+                <li><strong>Export all plate sliced fileâ€¦</strong> â€“ sliced files for all plates.</li>
+                <li><strong>Export G-codeâ€¦</strong> â€“ raw G-code output.</li>
+                <li><strong>Export toolpaths as OBJâ€¦</strong> â€“ toolpath visualization model.</li>
+                <li><strong>Export Preset Bundleâ€¦</strong> â€“ backup of your printer/filament/process profiles.</li>
+              </ul>
+            </div>
+
+            <ul style="font-size:13px; line-height:1.6; padding-left:0; list-style:none;">
+              <li><strong>Publish to MakerWorld</strong> â€“ upload models/plates to MakerWorld.</li>
+              <li><strong>Batch Preset Management</strong> â€“ bulk edit and clean up presets.</li>
+              <li><strong>Quit</strong> â€“ exit Bambu Studio (prompts to save if needed).</li>
+            </ul>
+
+            <div class="callout-box" style="margin-top:14px;">
+              <div class="callout-title">Workflow tips</div>
+              <ul style="font-size:13px; line-height:1.6; padding-left:16px;">
+                <li>Use <strong>Save Project asâ€¦</strong> before you start heavily editing a plate.</li>
+                <li>Use <strong>Import</strong> to add new parts without destroying your layout.</li>
+                <li>Use <strong>Export all plate sliced fileâ€¦</strong> for multi-plate jobs.</li>
+                <li>Back up tuned A1 profiles with <strong>Export Preset Bundleâ€¦</strong>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="screenshot-frame">
+              <div class="screenshot-placeholder">
+                File menu screenshot (put file-menu.png here)
+              </div>
+              <ul class="callout-list" style="margin-top:10px;">
+                <li><span class="callout-number">1</span> Top-left File menu button.</li>
+                <li><span class="callout-number">2</span> New / Open / Save commands.</li>
+                <li><span class="callout-number">3</span> Import submenu.</li>
+                <li><span class="callout-number">4</span> Export submenu.</li>
+                <li><span class="callout-number">5</span> MakerWorld & preset tools.</li>
+                <li><span class="callout-number">6</span> Quit.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px; font-size:12px; color:var(--text-faint);">
+          <em>Verified: Bambu Studio 2.4.0.70 Â· Bambu Lab A1 (No AMS) Â· Windows</em>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prepare â€“ Object Layout & Organization â€“ Bambu Studio Manual (A1)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/bambu-studio/css/main.css">
+</head>
+<script src="/assets/bambu-studio/js/lightbox.js" defer></script>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Bambu Studio Manual</div>
+        <div class="sidebar-subtitle">Bambu Lab A1 Â· No AMS Lite</div>
+        <div class="badge"><span class="badge-dot"></span><span>Real-world verified</span></div>
+        <div class="sidebar-meta"><span>Studio: 2.4.0.70</span><span>Profile: A1 (No AMS)</span></div>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Overview</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html"><span class="nav-bullet"></span><span>Intro & Scope</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Menus & Preferences</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="file-menu.html"><span class="nav-bullet"></span><span>File Menu</span></a></li>
+          <li class="nav-item"><a href="help-menu.html"><span class="nav-bullet"></span><span>Help Menu</span></a></li>
+          <li class="nav-item"><a href="view-menu.html"><span class="nav-bullet"></span><span>View Menu</span></a></li>
+          <li class="nav-item"><a href="preferences.html"><span class="nav-bullet"></span><span>Preferences</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Main Mode Tabs</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="prepare.html"><span class="nav-bullet"></span><span>Prepare</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_overview.html"><span class="nav-bullet"></span><span>Prepare â€“ Overview</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_object_layout.html" class="active"><span class="nav-bullet"></span><span>Prepare â€“ Object Layout & Organization</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_supports_surface_tools.html"><span class="nav-bullet"></span><span>Prepare â€“ Supports & Surface Tools</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_plates_layout_control.html"><span class="nav-bullet"></span><span>Prepare â€“ Plates & Layout Control</span></a></li>
+<li class="nav-item" style="margin-left:12px;"><a href="prepare_print_filament_concepts.html"><span class="nav-bullet"></span><span>Prepare â€“ Print & Filament Settings (Concepts)</span></a></li>
+          <li class="nav-item"><a href="slice.html"><span class="nav-bullet"></span><span>Slice (Preview)</span></a></li>
+          <li class="nav-item"><a href="device.html"><span class="nav-bullet"></span><span>Device</span></a></li>
+          <li class="nav-item"><a href="project.html"><span class="nav-bullet"></span><span>Project</span></a></li>
+          <li class="nav-item"><a href="calibration.html"><span class="nav-bullet"></span><span>Calibration</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Key Features</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="supports.html"><span class="nav-bullet"></span><span>Supports</span></a></li>
+          <li class="nav-item"><a href="per-object.html"><span class="nav-bullet"></span><span>Per-Object Settings</span></a></li>
+          <li class="nav-item"><a href="ironing.html"><span class="nav-bullet"></span><span>Ironing</span></a></li>
+          <li class="nav-item"><a href="timelapse.html"><span class="nav-bullet"></span><span>Timelapse</span></a></li>
+          <li class="nav-item"><a href="workflows.html"><span class="nav-bullet"></span><span>Workflows</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="nav-section-title">Reference</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="troubleshooting.html"><span class="nav-bullet"></span><span>Troubleshooting</span></a></li>
+          <li class="nav-item"><a href="glossary.html"><span class="nav-bullet"></span><span>Glossary</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="top-bar">
+        <div class="top-bar-main">
+          <div class="top-title">Prepare â€“ Object Layout & Organization</div>
+          <div class="top-subtitle">Assemblies, merges, and how to organize complex models on the plate.</div>
+        </div>
+        <div class="version-pill">
+          <strong>Bambu Studio: 2.4.0.70</strong>
+          <span>Verified on: 2025-11-28</span>
+          <span>Profile: A1 Â· No AMS</span>
+        </div>
+      </header>
+
+
+      <section class="content-group">
+        <div class="content-heading">Assembly vs merged parts (mental model)</div>
+        <div class="content-tagline">
+          An <strong>assembly</strong> keeps separate pieces together as a group. A <strong>merge</strong> fuses geometry.
+        </div>
+
+        <div class="content-columns">
+          <div>
+            <div class="callout-box">
+              <div class="callout-title">Assembly (grouping)</div>
+              <ul style="font-size:13px; line-height:1.7; padding-left:16px;">
+                <li>Keeps multiple parts linked as one logical unit</li>
+                <li>You can still select parts inside the assembly</li>
+                <li>Great for organizing complex models (like multi-part prints)</li>
+              </ul>
+            </div>
+            <div style="margin-top:10px; font-size:13px;">
+              <strong>Screenshot:</strong><br>
+              <code>E:\Storage\motorurl.com\Bambu_Studio_Manual\Staged_Screenshots\20251225_231348-BARN_Assembly - BambuStudio.png</code>
+            </div>
+          </div>
+          <div>
+            <div class="callout-box">
+              <div class="callout-title">Merged part (fusing geometry)</div>
+              <ul style="font-size:13px; line-height:1.7; padding-left:16px;">
+                <li>Combines selected parts into one object</li>
+                <li>After merging, you generally lose part-level selection</li>
+                <li>Useful when you need a single printable object or to simplify the object list</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-group">
+        <div class="content-heading">Sub-merge vs merge into single part</div>
+        <div class="content-tagline">
+          Both reduce clutter, but they behave differently when you need to edit later.
+        </div>
+
+        <div class="content-columns">
+          <div>
+            <ul style="font-size:13px; line-height:1.7; padding-left:16px;">
+              <li><strong>Sub-merge:</strong> keeps a parent/child structure so parts stay identifiable under one node.</li>
+              <li><strong>Merge into single part:</strong> fuses geometry into one part.</li>
+              <li><strong>Fix Model:</strong> attempts to repair manifold issues and mesh problems.</li>
+            </ul>
+            <div class="callout-box" style="margin-top:12px;">
+              <div class="callout-title">Rule of thumb</div>
+              <p style="margin:0; font-size:13px; line-height:1.6;">
+                Use <strong>assembly/sub-merge</strong> when you may need to tweak parts later. Use <strong>merge into single part</strong> when you want â€œone object, one outcome.â€
+              </p>
+            </div>
+            <div style="margin-top:10px; font-size:13px;">
+              <strong>Screenshot:</strong><br>
+              <code>E:\Storage\motorurl.com\Bambu_Studio_Manual\Staged_Screenshots\20251225_231858-BARN_Assembly - BambuStudio.png</code>
+            </div>
+          </div>
+          <div>
+            <div class="callout-box">
+              <div class="callout-title">Where to find it</div>
+              <p style="margin:0; font-size:13px; line-height:1.6;">
+                Rightâ€‘click an object in the Objects list (or on the plate) to see assembly/merge options.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </main>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/toc.css" />
+  <title>Filament Drying Guide</title>
+</head>
+<body class="pageBody" data-gallery-enabled="false">
+  <div id="top"></div>
+
+  <div class="pageCard">
+    <div class="pageTopRow">
+      <h1>Filament Drying Guide</h1>
+      <a id="galleryLink" class="pillLink" href="gallery.html" style="display:none;">🖼️ Gallery</a>
+    </div>
+
+    
+<p class="muted">Drying reference settings and notes by material family. Use manufacturer guidance when it conflicts with these defaults.</p>
+
+<nav class="toc" data-toc></nav>
+
+<h2>Baseline filament drying settings</h2>
+<table class='dataTable'>
+<thead><tr><th>Material family</th><th>Typical drying temp</th><th>Typical time</th><th>Notes / exceptions</th></tr></thead>
+<tbody>
+<tr><td>PLA / PLA+</td><td>40–45 °C</td><td>4–6 h</td><td>PLA+, PLA Tough, High‑Speed PLA treated as same familyAvoid &gt;50 °C (risk of deformation); usually low moisture sensitivity</td></tr>
+<tr><td>PETG</td><td>50–55 °C</td><td>4–6 h</td><td>PETG variants generally equivalentStringing often moisture‑related; dry before tuning retraction</td></tr>
+<tr><td>ABS</td><td>60–65 °C</td><td>4–8 h</td><td>ABS+, ASA similarHigher temps acceptable; store dry after drying</td></tr>
+<tr><td>ASA</td><td>60–65 °C</td><td>4–8 h</td><td>Considered ABS‑family equivalentMore UV‑stable than ABS; drying behavior same</td></tr>
+<tr><td>TPU</td><td>45–55 °C</td><td>4–8 h</td><td>Shore hardness (85A, 95A, etc.) does not materially change drying needsVery moisture sensitive; dry even if new</td></tr>
+<tr><td>Nylon (PA)</td><td>70–80 °C</td><td>8–12 h</td><td>PA6, PA12, blends vary slightlyExtremely hygroscopic; print directly from dryer if possible</td></tr>
+<tr><td>Nylon CF / GF</td><td>70–80 °C</td><td>8–12 h</td><td>Reinforced nylons follow base PANever skip drying; moisture dominates print quality Polycarbonate (PC)70–80 °C 6–8 h PC blends similarNeeds aggressive drying; enclosure recommended</td></tr>
+<tr><td>PVA</td><td>45–50 °C</td><td>4–6 h</td><td>Soluble support materialAbsorbs moisture very rapidly; reseal immediately</td></tr>
+<tr><td>HIPS</td><td>50–55 °C</td><td>4–6 h</td><td>HIPS behaves like ABS‑liteLower moisture sensitivity than nylon 1</td></tr>
+</tbody></table>
+
+<h2>TPU</h2>
+<h3>Quick re-dry after brief exposure</h3>
+
+<table class="dataTable compact">
+  <thead><tr><th>Scenario</th><th>Temp</th><th>Time</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Short re-dry after brief exposure (about 6–12 hours)</td>
+      <td>45–50 °C</td>
+      <td>2–3 hours</td>
+      <td>Removes surface moisture. Use a full 4–8 hour cycle if exposure exceeds ~24 hours or symptoms appear.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Goal is surface moisture removal (not a full recondition cycle).</li>
+  <li>Use a full cycle again if exposure exceeds ~24 hours or you see popping, foaming, gloss loss, or excessive stringing.</li>
+  <li>Optional sanity check: extrude 50–100 mm — smooth/glossy is good; bubbling/hissing means extend drying time.</li>
+</ul>
+
+<h2>PETG clarity notes</h2>
+<table class='dataTable compact'>
+<thead><tr><th>PETG type</th><th>Drying sensitivity</th><th>Visual sensitivity</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Opaque PETG</td><td>Moderate</td><td>LowMoisture</td><td>mainly affects stringing and surface quality</td></tr>
+<tr><td>Transparent / Clear PETG</td><td>Moderate</td><td>HighEven</td><td>slight moisture causes haze, bubbles, and clarity loss</td></tr>
+</tbody></table>
+
+<h3>Visual symptoms and corrective action</h3>
+<table class='dataTable'>
+<thead><tr><th>Symptom</th><th>Likely cause</th><th>Action</th></tr></thead><tbody>
+<tr><td>Fine bubbles in extrusion</td><td>Moisture</td><td>Dry 55 °C +2–4 h</td></tr>
+<tr><td>Cloudy / milky clear parts</td><td>Moisture</td><td>or cooling too fast Dry fully; reduce fan</td></tr>
+<tr><td>Excessive stringing</td><td>Moisture</td><td>Dry before tuning retraction</td></tr>
+<tr><td>Popping / hissing sounds</td><td>Severe moisture</td><td>Full drying cycle required</td></tr>
+<tr><td>Rough or pitted surface</td><td>Moisture</td><td>Increase drying time•</td></tr>
+<tr><td>Loss of gloss</td><td>Moisture</td><td>Dry and store sealed immediately</td></tr>
+</tbody></table>
+
+<p class="muted">Source: Filament Drying Settings Reference (PDF).</p>
+
+  </div>
+
+  <div class="pageFooter">
+    <a id="topLink" class="topLink" href="#top">Top ↑</a>
+  </div>
+
+  <script src="../scripts/page.js"></script>
+  <script src="../scripts/toc.js"></script>
+</body>
+</html>

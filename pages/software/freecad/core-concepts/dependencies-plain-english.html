@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dependencies (Plain-English Explanation)</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/toc.css" />
+</head>
+<body>
+  <main class="page">
+  <p># Dependencies (Plain-English Explanation)</p>
+
+<p>This page explains **dependencies** in FreeCAD using everyday language.</p>
+<p>You do **not** need to understand FreeCAD’s internal dependency system to work safely and predictably.</p>
+
+<p>---</p>
+
+<p>## The key idea</p>
+
+<p>> **Dependencies describe what an object uses, not what it contains.**</p>
+
+<p>This distinction removes most confusion.</p>
+
+<p>---</p>
+
+<p>## “Uses” vs “Contains”</p>
+
+<p>In FreeCAD:</p>
+
+<p>- **Contains** means *physically holds* something in the model tree  </p>
+<p>- **Uses** means *relies on as a reference*</p>
+
+<p>Most dependencies are **uses**, not **contains**.</p>
+
+<p>---</p>
+
+<p>## Examples</p>
+
+<p>### Example 1: A sketch on a plane</p>
+
+<p>- The Body **contains** the sketch</p>
+<p>- The sketch **uses** the plane</p>
+<p>- The plane is **not part of** the sketch</p>
+
+<p>Deleting the plane does not delete the sketch, but it may break its references.</p>
+
+<p>---</p>
+
+<p>### Example 2: Geometry using the Origin</p>
+
+<p>- Geometry **uses** the Origin’s planes and axes</p>
+<p>- The Origin does **not contain** the geometry</p>
+<p>- Geometry does **not belong** to the Origin</p>
+
+<p>The Origin is a reference framework, not a parent part.</p>
+
+<p>---</p>
+
+<p>## Why the model tree can be misleading</p>
+
+<p>The model tree shows **structure**, not **ownership**.</p>
+
+<p>Just because something appears “under” another item does not mean:</p>
+<p>- it will export together</p>
+<p>- it will duplicate together</p>
+<p>- it will be deleted together</p>
+
+<p>Tree position ≠ dependency direction.</p>
+
+<p>---</p>
+
+<p>## What the Object Selection dialog is telling you</p>
+
+<p>When copying or exporting, FreeCAD may say:</p>
+
+<p>> “The selected objects contain other dependencies.”</p>
+
+<p>What it really means:</p>
+
+<p>> “Other objects rely on this one, or this one relies on others.”</p>
+
+<p>The dialog exists to keep those relationships intact.</p>
+
+<p>---</p>
+
+<p>## Safe mental model</p>
+
+<p>When working in FreeCAD, think in these terms:</p>
+
+<p>- Bodies **contain** geometry</p>
+<p>- Geometry **uses** references</p>
+<p>- References **support**, but do not own</p>
+<p>- Dependencies describe **support relationships**, not hierarchy</p>
+
+<p>---</p>
+
+<p>## Practical rules of thumb</p>
+
+<p>- Don’t delete reference geometry casually</p>
+<p>- Accept default dependency selections when copying</p>
+<p>- Hide objects to control export, not dependencies</p>
+<p>- If something breaks, a reference was removed — not the geometry</p>
+
+<p>---</p>
+
+<p>## One-sentence takeaway</p>
+
+<p>> **Dependencies explain support relationships, not ownership or containment.**</p>
+  </main>
+</body>
+</html>
