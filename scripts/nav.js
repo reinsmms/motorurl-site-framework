@@ -9,77 +9,104 @@
     crumb.textContent = parts.join(" / ");
   }
 
-  function loadPage(url, linkElement, pathArray) {
-    const frame = document.getElementById("contentFrame");
-    if (!frame) return;
-
-    frame.src = url;
-
+  function setActiveLink(linkElement) {
     if (currentLink) {
       currentLink.classList.remove("active");
+      currentLink.removeAttribute("aria-current");
     }
 
-    linkElement.classList.add("active");
-    currentLink = linkElement;
+    if (linkElement) {
+      linkElement.classList.add("active");
+      linkElement.setAttribute("aria-current", "page");
+      currentLink = linkElement;
+    }
+  }
 
+  function loadPage(url, linkElement, pathArray) {
+    const frame = document.getElementById("contentFrame");
+    if (!frame || !url) return;
+
+    frame.src = url;
+    setActiveLink(linkElement);
     updateBreadcrumb(pathArray);
   }
 
   function buildNavItem(item, container, parentPath = []) {
     const li = document.createElement("li");
     const pathArray = [...parentPath, item.title];
-    const hasChildren = item.children && item.children.length > 0;
+    const hasChildren = Array.isArray(item.children) && item.children.length > 0;
 
     if (hasChildren) {
-      li.classList.add("branch");
+      li.className = "branch";
+      li.setAttribute("data-open", "false");
 
-      const row = document.createElement("div");
-      row.classList.add("branch__row");
+      const header = document.createElement("div");
+      header.className = "branchHeader";
 
-      const toggle = document.createElement("button");
-      toggle.type = "button";
-      toggle.classList.add("branch__toggle");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.textContent = "▸";
+      const toggleBtn = document.createElement("button");
+      toggleBtn.type = "button";
+      toggleBtn.className = "branch__toggleBtn";
+      toggleBtn.setAttribute("aria-expanded", "false");
+      toggleBtn.setAttribute("aria-label", `Toggle ${item.title}`);
 
-      const label = document.createElement("span");
-      label.classList.add("branch__label");
-      label.textContent = item.title;
+      const chev = document.createElement("span");
+      chev.className = "chev";
+      toggleBtn.appendChild(chev);
 
-      const subList = document.createElement("ul");
-      subList.classList.add("nav-sub");
-      subList.style.display = "none";
+      const title = document.createElement("span");
+      title.className = "branch__titleLink";
+      title.textContent = item.title;
+      title.tabIndex = 0;
+      title.setAttribute("role", "button");
+      title.setAttribute("aria-expanded", "false");
 
-      function setExpanded(expanded) {
-        toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-        toggle.textContent = expanded ? "▾" : "▸";
-        subList.style.display = expanded ? "block" : "none";
+      const childList = document.createElement("div");
+      childList.className = "branch__items";
+
+      function setOpen(isOpen) {
+        li.setAttribute("data-open", isOpen ? "true" : "false");
+        toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        title.setAttribute("aria-expanded", isOpen ? "true" : "false");
       }
 
-      toggle.addEventListener("click", function () {
-        const expanded = toggle.getAttribute("aria-expanded") === "true";
-        setExpanded(!expanded);
+      function toggleOpen() {
+        const isOpen = li.getAttribute("data-open") === "true";
+        setOpen(!isOpen);
+      }
+
+      toggleBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleOpen();
       });
 
-      label.addEventListener("click", function () {
-        const expanded = toggle.getAttribute("aria-expanded") === "true";
-        setExpanded(!expanded);
+      header.addEventListener("click", function (e) {
+        if (e.target === toggleBtn || toggleBtn.contains(e.target)) return;
+        toggleOpen();
       });
 
-      row.appendChild(toggle);
-      row.appendChild(label);
-      li.appendChild(row);
+      title.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleOpen();
+        }
+      });
+
+      header.appendChild(toggleBtn);
+      header.appendChild(title);
+      li.appendChild(header);
 
       item.children.forEach(function (child) {
-        buildNavItem(child, subList, pathArray);
+        buildNavItem(child, childList, pathArray);
       });
 
-      li.appendChild(subList);
+      li.appendChild(childList);
     } else {
       const link = document.createElement("a");
+      link.className = "navItem";
       link.textContent = item.title;
       link.href = "#";
-      link.dataset.url = item.url;
+      link.dataset.url = item.url || "";
 
       link.addEventListener("click", function (e) {
         e.preventDefault();
@@ -94,17 +121,16 @@
 
   function buildNavigation() {
     const navContainer = document.getElementById("treeNav");
-    if (!navContainer || !NAV_DATA) return;
+    if (!navContainer || typeof NAV_DATA === "undefined") return;
 
     navContainer.innerHTML = "";
 
-    const list = document.createElement("ul");
-
+    const root = document.createElement("div");
     NAV_DATA.forEach(function (item) {
-      buildNavItem(item, list);
+      buildNavItem(item, root);
     });
 
-    navContainer.appendChild(list);
+    navContainer.appendChild(root);
   }
 
   document.addEventListener("DOMContentLoaded", buildNavigation);
