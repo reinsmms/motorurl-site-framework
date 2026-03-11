@@ -467,3 +467,39 @@ a { color: var(--text); }
 font-weight:600;
 color:#4fa3ff;
 }
+/* ---------- NAV BRANCH FIXES ---------- */
+
+/* remove bullet from branch rows */
+#treeNav li.branch {
+  list-style: none;
+}
+
+/* align caret + label */
+#treeNav .branch__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* caret toggle */
+#treeNav .branch__toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 10px;           /* keeps label close to caret */
+  cursor: pointer;
+  color: #ccc;
+  font-size: 16px;       /* match bullet size */
+  line-height: 1;
+}
+
+/* branch label */
+#treeNav .branch__label {
+  cursor: pointer;
+  font: inherit;
+}
+
+/* children indentation */
+#treeNav .nav-sub {
+  margin-left: 16px;
+}
