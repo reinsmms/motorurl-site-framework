@@ -1,111 +1,111 @@
 (function () {
+  let currentLink = null;
 
-let currentLink = null;
+  function updateBreadcrumb(pathArray) {
+    const crumb = document.getElementById("crumbs");
+    if (!crumb) return;
 
-function updateBreadcrumb(pathArray) {
+    const parts = ["3D Printing", ...pathArray];
+    crumb.textContent = parts.join(" / ");
+  }
 
-const crumb = document.getElementById("crumbs");
+  function loadPage(url, linkElement, pathArray) {
+    const frame = document.getElementById("contentFrame");
+    if (!frame) return;
 
-if (!crumb) return;
+    frame.src = url;
 
-const parts = ["3D Printing", ...pathArray];
+    if (currentLink) {
+      currentLink.classList.remove("active");
+    }
 
-crumb.textContent = parts.join(" / ");
+    linkElement.classList.add("active");
+    currentLink = linkElement;
 
-}
+    updateBreadcrumb(pathArray);
+  }
 
-function loadPage(url, linkElement, pathArray) {
+  function buildNavItem(item, container, parentPath = []) {
+    const li = document.createElement("li");
+    const pathArray = [...parentPath, item.title];
+    const hasChildren = item.children && item.children.length > 0;
 
-const frame = document.getElementById("contentFrame");
+    if (hasChildren) {
+      li.classList.add("branch");
 
-if (!frame) return;
+      const row = document.createElement("div");
+      row.classList.add("branch__row");
 
-frame.src = url;
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.classList.add("branch__toggle");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "▸";
 
-/* highlight active link */
+      const label = document.createElement("span");
+      label.classList.add("branch__label");
+      label.textContent = item.title;
 
-if (currentLink) {
-currentLink.classList.remove("active");
-}
+      const subList = document.createElement("ul");
+      subList.classList.add("nav-sub");
+      subList.style.display = "none";
 
-linkElement.classList.add("active");
+      function setExpanded(expanded) {
+        toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+        toggle.textContent = expanded ? "▾" : "▸";
+        subList.style.display = expanded ? "block" : "none";
+      }
 
-currentLink = linkElement;
+      toggle.addEventListener("click", function () {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        setExpanded(!expanded);
+      });
 
-/* update breadcrumb */
+      label.addEventListener("click", function () {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        setExpanded(!expanded);
+      });
 
-updateBreadcrumb(pathArray);
+      row.appendChild(toggle);
+      row.appendChild(label);
+      li.appendChild(row);
 
-}
+      item.children.forEach(function (child) {
+        buildNavItem(child, subList, pathArray);
+      });
 
-function buildNavItem(item, container, parentPath = []) {
+      li.appendChild(subList);
+    } else {
+      const link = document.createElement("a");
+      link.textContent = item.title;
+      link.href = "#";
+      link.dataset.url = item.url;
 
-const li = document.createElement("li");
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        loadPage(item.url, link, pathArray);
+      });
 
-const link = document.createElement("a");
+      li.appendChild(link);
+    }
 
-link.textContent = item.title;
+    container.appendChild(li);
+  }
 
-const pathArray = [...parentPath, item.title];
+  function buildNavigation() {
+    const navContainer = document.getElementById("treeNav");
+    if (!navContainer || !NAV_DATA) return;
 
-if (item.url) {
+    navContainer.innerHTML = "";
 
-link.href = "#";
+    const list = document.createElement("ul");
 
-link.dataset.url = item.url;
+    NAV_DATA.forEach(function (item) {
+      buildNavItem(item, list);
+    });
 
-link.addEventListener("click", function (e) {
+    navContainer.appendChild(list);
+  }
 
-e.preventDefault();
-
-loadPage(item.url, link, pathArray);
-
-});
-
-}
-
-li.appendChild(link);
-
-/* children */
-
-if (item.children && item.children.length > 0) {
-
-const subList = document.createElement("ul");
-
-subList.classList.add("nav-sub");
-
-item.children.forEach(child => {
-
-buildNavItem(child, subList, pathArray);
-
-});
-
-li.appendChild(subList);
-
-}
-
-container.appendChild(li);
-
-}
-
-function buildNavigation() {
-
-const navContainer = document.getElementById("treeNav");
-
-if (!navContainer || !NAV_DATA) return;
-
-const list = document.createElement("ul");
-
-NAV_DATA.forEach(item => {
-
-buildNavItem(item, list);
-
-});
-
-navContainer.appendChild(list);
-
-}
-
-document.addEventListener("DOMContentLoaded", buildNavigation);
-
+  document.addEventListener("DOMContentLoaded", buildNavigation);
 })();
