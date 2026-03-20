@@ -467,3 +467,20 @@ a { color: var(--text); }
 font-weight:600;
 color:#4fa3ff;
 }
+/* TOC panel formatting */
+#tocPanel a {
+  display: block;
+  padding: 4px 0;
+  text-decoration: none;
+  color: #ccc;
+}
+
+#tocPanel a:hover {
+  color: #fff;
+}
+
+/* indent H3 items */
+#tocPanel a[data-level="3"] {
+  padding-left: 14px;
+  font-size: 0.95em;
+}
