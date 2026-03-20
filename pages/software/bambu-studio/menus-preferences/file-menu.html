@@ -5,6 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bambu Studio – File Menu</title>
 </head>
+<script>
+(function () {
+
+  function getHeadings() {
+    const headings = [];
+    const nodes = document.querySelectorAll("h2, h3");
+
+    nodes.forEach((el, index) => {
+      if (!el.id) {
+        el.id = "section-" + index;
+      }
+
+      headings.push({
+        id: el.id,
+        text: el.textContent.trim(),
+        level: el.tagName.toLowerCase()
+      });
+    });
+
+    return headings;
+  }
+
+  // Listen for TOC request from parent
+  window.addEventListener("message", (event) => {
+    const data = event.data;
+
+    if (data?.type === "motorurl:requestToc") {
+      const headings = getHeadings();
+
+      window.parent.postMessage({
+        type: "motorurl:toc",
+        headings: headings
+      }, "*");
+    }
+
+    if (data?.type === "motorurl:scrollTo") {
+      const target = document.getElementById(data.id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  });
+
+})();
+</script>
 <body class="pageBody">
   <main class="pageCard">
     <header class="pageTopRow">
