@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- IMPORTANT:
+After copying this file, update the stylesheet path based on page location.
+
+Typical paths:
+../../../../css/styles.css   (for deep pages like Bambu Studio menus)
+../../../css/styles.css      (for higher-level pages)
+-->
+
+  <!-- =========================================================
+       MotorURL Manual Page Template
+       Shared content template for Bambu Studio, Fusion, FreeCAD,
+       and future software documentation pages.
+       ========================================================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- PAGE TITLE -->
+  <title>Software Name – Page Title</title>
+
+  <!-- SHARED SITE STYLES -->
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="pageBody">
+
+  <!-- =========================================================
+       PAGE CARD WRAPPER
+       ========================================================= -->
+  <main class="pageCard">
+
+    <!-- =======================================================
+         PAGE HEADER
+         Replace these placeholders with real page info.
+         ======================================================= -->
+    <div class="pageTopRow">
+      <div>
+        <h1>Software Name – Page Title</h1>
+        <p>
+          Product / section context goes here<br />
+          Version / scope / hardware note goes here
+        </p>
+      </div>
+    </div>
+
+    <!-- =======================================================
+         OVERVIEW
+         Short explanation of what this page covers and when
+         the user would use this feature/menu/tool.
+         ======================================================= -->
+    <h2>Overview</h2>
+    <p>
+      Explain what this page is about in a few sentences. Keep it
+      practical and user-focused. This section should help the user
+      understand why the feature matters before diving into details.
+    </p>
+
+    <!-- =======================================================
+         MAIN SECTIONS
+         Use H2 for major groups and H3 for sub-items.
+         Keep heading structure consistent for TOC generation.
+         ======================================================= -->
+    <h2>Main Sections</h2>
+    <p>
+      Use this section for the main functions, tools, commands, or menu
+      groups related to the topic.
+    </p>
+
+    <!-- SUBSECTION EXAMPLE -->
+    <h3>First Item or Command</h3>
+    <p>
+      Describe what this item does, when to use it, and anything a user
+      should notice before clicking it.
+    </p>
+
+    <h3>Second Item or Command</h3>
+    <p>
+      Add the practical explanation here. Include shortcuts, behavior,
+      warnings, or workflow notes when useful.
+    </p>
+
+    <h3>Third Item or Command</h3>
+    <p>
+      Continue with as many H3 subsections as needed. For shorter pages,
+      fewer subsections are fine.
+    </p>
+
+    <!-- =======================================================
+         OPTIONAL ADDITIONAL MAJOR SECTION
+         Duplicate/remove as needed.
+         ======================================================= -->
+    <h2>Additional Section</h2>
+    <p>
+      Use this for things like Import, Export, Settings, Workflow,
+      Tools, or other logical groupings.
+    </p>
+
+    <h3>Example Subsection</h3>
+    <p>
+      Add supporting detail here.
+    </p>
+
+    <!-- =======================================================
+         TIPS
+         Use for practical advice, common mistakes, and useful habits.
+         ======================================================= -->
+    <h2>Tips</h2>
+    <ul>
+      <li>Add practical workflow advice here.</li>
+      <li>Use short, readable bullet points.</li>
+      <li>Include cautionary notes when they help prevent mistakes.</li>
+    </ul>
+
+    <!-- =======================================================
+         SCREENSHOT GUIDE
+         Use this section even if screenshots are not added yet.
+         It helps plan future visuals and keeps page structure consistent.
+         ======================================================= -->
+    <h2>Screenshot Guide</h2>
+    <p>
+      Describe what screenshots would be most helpful for this page.
+      Mention whether the page needs:
+    </p>
+    <ul>
+      <li>a full-screen overview image</li>
+      <li>a close-up of a menu or tool area</li>
+      <li>multiple smaller screenshots instead of one crowded image</li>
+      <li>callouts or labels for important UI elements</li>
+    </ul>
+
+    <!-- =======================================================
+         RELATED PAGES
+         Link to nearby or supporting documentation pages.
+         Replace placeholders with real links when available.
+         ======================================================= -->
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="#">Related Page One</a></li>
+      <li><a href="#">Related Page Two</a></li>
+      <li><a href="#">Related Page Three</a></li>
+    </ul>
+
+  </main>
+
+  <!-- =========================================================
+       OPTIONAL FOOTER LINK
+       Keep or remove depending on page style.
+       ========================================================= -->
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <!-- =========================================================
+       CHILD PAGE TOC HELPER
+       This allows the parent shell TOC panel to request headings
+       from pages loaded inside the iframe.
+       ========================================================= -->
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+
+        nodes.forEach((el, index) => {
+          if (!el.id) {
+            el.id = "section-" + index;
+          }
+
+          items.push({
+            id: el.id,
+            text: el.textContent.trim(),
+            level: el.tagName === "H3" ? 3 : 2
+          });
+        });
+
+        return items;
+      }
+
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({
+            type: "motorurl:toc",
+            items: getTocItems()
+          }, "*");
+        }
+
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
