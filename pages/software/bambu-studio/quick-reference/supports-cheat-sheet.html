@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Decision Cheat Sheet</title>
+  <link rel="stylesheet" href="../../../../css/styles.css" />
+</head>
+<body class="pageBody">
+  <main class="pageCard">
+    <div class="pageTopRow">
+      <div>
+        <h1>Support Decision Cheat Sheet</h1>
+        <p>Bambu Studio · Quick Reference<br />Fast support/no-support decision aid</p>
+      </div>
+    </div>
+
+
+    <h2>Quick Rule</h2>
+    <p><strong>Ask whether the layer is printing onto something or into air. Onto something usually means no supports; into air needs evaluation.</strong></p>
+
+    <h2>Overhang Angle</h2>
+    <ul>
+      <li><strong>0–45°:</strong> usually safe.</li>
+      <li><strong>45–60°:</strong> borderline; depends on material, cooling, speed, and surface expectations.</li>
+      <li><strong>60°+:</strong> usually needs support.</li>
+    </ul>
+
+    <h2>Overhang Distance</h2>
+    <ul>
+      <li><strong>Less than 2 mm:</strong> usually safe.</li>
+      <li><strong>2–5 mm:</strong> usually fine.</li>
+      <li><strong>5–10 mm:</strong> risky.</li>
+      <li><strong>More than 10 mm:</strong> usually needs support.</li>
+    </ul>
+
+    <h2>Shape Rule</h2>
+    <ul>
+      <li>Gradual slopes and curves are usually safe.</li>
+      <li>Sudden ledges and flat ceilings usually need support.</li>
+    </ul>
+
+    <h2>Bridge vs Overhang</h2>
+    <ul>
+      <li><strong>Overhang:</strong> grows outward from a previous layer.</li>
+      <li><strong>Bridge:</strong> spans a gap between two supported areas.</li>
+      <li>Bridges are riskier because the filament is crossing open space.</li>
+    </ul>
+
+    <h2>Material</h2>
+    <ul>
+      <li><strong>PLA:</strong> generally best for overhangs.</li>
+      <li><strong>PETG:</strong> slightly worse than PLA and more prone to stringing or sagging.</li>
+      <li><strong>ABS:</strong> generally more difficult for clean unsupported overhangs.</li>
+    </ul>
+
+    <h2>Red Flags</h2>
+    <ul>
+      <li>Flat undersides.</li>
+      <li>Large bridges.</li>
+      <li>Steep angles.</li>
+      <li>Any first layer that would print into air.</li>
+    </ul>
+
+    <h2>Green Flags</h2>
+    <ul>
+      <li>Threads.</li>
+      <li>Cones.</li>
+      <li>Curved surfaces.</li>
+      <li>Organic shapes.</li>
+    </ul>
+
+    <h2>Decision Flow</h2>
+    <ul>
+      <li>Flat underside? Add support.</li>
+      <li>Gradual slope? Usually no support.</li>
+      <li>Bridge? Evaluate span length and material.</li>
+      <li>Under 45°? Usually no support.</li>
+      <li>Very small unsupported distance? Usually no support.</li>
+    </ul>
+
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="cause-effect-cheat-sheet.html">3D Print Cause & Effect Cheat Sheet</a></li>
+    </ul>
+
+  </main>
+
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+        nodes.forEach((el, index) => {
+          if (!el.id) el.id = "section-" + index;
+          items.push({ id: el.id, text: el.textContent.trim(), level: el.tagName === "H3" ? 3 : 2 });
+        });
+        return items;
+      }
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({ type: "motorurl:toc", items: getTocItems() }, "*");
+        }
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

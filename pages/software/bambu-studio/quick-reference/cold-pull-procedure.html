@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cold Pull Procedure</title>
+  <link rel="stylesheet" href="../../../../css/styles.css" />
+</head>
+<body class="pageBody">
+  <main class="pageCard">
+    <div class="pageTopRow">
+      <div>
+        <h1>Cold Pull Procedure</h1>
+        <p>Bambu Studio · Quick Reference<br />Quick nozzle-cleaning workflow</p>
+      </div>
+    </div>
+
+
+    <h2>Quick Rule</h2>
+    <p><strong>Use PLA for the pull, heat to printing temperature, cool until the filament grips debris, then pull straight out firmly.</strong></p>
+
+    <h2>Quick Checklist</h2>
+    <ol>
+      <li>Turn on Maintenance Mode.</li>
+      <li>Load PLA filament; use a light color if possible.</li>
+      <li>Heat nozzle to about 200–220°C.</li>
+      <li>Purge a small amount of filament.</li>
+      <li>Cool nozzle to about 125°C, or lower if your setup allows.</li>
+      <li>Pull filament straight out firmly.</li>
+      <li>Do not jerk sideways.</li>
+      <li>Use Extrude/Retract controls or manual pull, but do not fight both aggressively at the same time.</li>
+      <li>Inspect the tip for debris, dark specks, or burnt material.</li>
+      <li>Repeat one or two times if needed.</li>
+      <li>Turn off Maintenance Mode.</li>
+    </ol>
+
+    <h2>After TPU Prints</h2>
+    <p>After printing TPU, repeat the cold pull process using PLA. PLA firms up better and can pull residue from the nozzle more effectively.</p>
+
+    <h2>Why PLA Works Well</h2>
+    <p>PLA becomes firm at lower temperatures and grips debris better. PETG can be used if necessary, but it remains rubbery longer and is usually less effective.</p>
+
+    <h2>What a Cold Pull Removes</h2>
+    <ul>
+      <li>burnt filament</li>
+      <li>heat-degraded plastic</li>
+      <li>leftover material from previous prints</li>
+      <li>TPU residue</li>
+    </ul>
+
+    <h2>Maintenance Mode</h2>
+    <p>Maintenance Mode gives manual control of temperature and extrusion and helps prevent automatic routines from interfering. It is optional, but it makes the process easier.</p>
+
+    <h2>Pro Tip</h2>
+    <p>For better feel and control, remove the PTFE tube and feed filament directly. This improves your ability to feel resistance during the pull.</p>
+
+  </main>
+
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+        nodes.forEach((el, index) => {
+          if (!el.id) el.id = "section-" + index;
+          items.push({ id: el.id, text: el.textContent.trim(), level: el.tagName === "H3" ? 3 : 2 });
+        });
+        return items;
+      }
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({ type: "motorurl:toc", items: getTocItems() }, "*");
+        }
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

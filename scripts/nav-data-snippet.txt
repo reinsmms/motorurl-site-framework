@@ -1,0 +1,14 @@
+// NAV UPDATE SNIPPET FOR 20260504_Updates_V4
+// Add these under Bambu Studio -> Quick Reference:
+[
+  { title: "Cause & Effect Cheat Sheet", url: "pages/software/bambu-studio/quick-reference/cause-effect-cheat-sheet.html" },
+  { title: "Support Decision Cheat Sheet", url: "pages/software/bambu-studio/quick-reference/supports-cheat-sheet.html" },
+  { title: "Filament Runout Guide", url: "pages/software/bambu-studio/quick-reference/filament-runout-guide.html" },
+  { title: "Cold Pull Procedure", url: "pages/software/bambu-studio/quick-reference/cold-pull-procedure.html" }
+]
+
+// Rename top-level Materials to Filament, then add:
+[
+  { title: "Real-World Drying Overrides", url: "pages/filament/real-world-drying-overrides.html" },
+  { title: "Feeding Filament From Dryer", url: "pages/filament/feeding-filament-from-dryer.html" }
+]

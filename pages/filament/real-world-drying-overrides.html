@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-World Drying Overrides</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body class="pageBody">
+  <main class="pageCard">
+    <div class="pageTopRow">
+      <div>
+        <h1>Real-World Drying Overrides</h1>
+        <p>Filament<br />Practical drying guidance based on real consumer dryer behavior</p>
+      </div>
+    </div>
+
+
+    <h2>Quick Rule</h2>
+    <p><strong>Real-world drying starts with the dryer you actually own; on the Creality Dryer 2.0, that means PLA drying starts at 45°C because that is the minimum setting.</strong></p>
+
+    <h2>Purpose</h2>
+    <p>These drying overrides complement baseline recommendations. They are based on consumer dryers and actual print outcomes rather than lab-perfect drying conditions.</p>
+
+    <h2>Equipment Note</h2>
+    <ul>
+      <li><strong>Creality Dryer 2.0 minimum temperature:</strong> 45°C.</li>
+      <li>This means PLA baseline drying will typically start at 45°C, not lower.</li>
+      <li>This slightly exceeds ultra-conservative recommendations but is safe for most modern spools.</li>
+    </ul>
+
+    <h2>PLA / PLA+</h2>
+    <ul>
+      <li><strong>Recommended:</strong> 45–50°C for about 4 hours.</li>
+      <li><strong>Preferred when printing immediately:</strong> 50°C for consistency.</li>
+      <li>Low moisture sensitivity does not mean zero moisture sensitivity.</li>
+      <li>Avoid prolonged exposure above 50°C to reduce spool deformation risk.</li>
+    </ul>
+
+    <h2>PETG</h2>
+    <ul>
+      <li><strong>Recommended:</strong> 50–55°C for 4–6 hours.</li>
+      <li>Always dry before tuning retraction.</li>
+      <li>Moisture strongly affects stringing and surface finish.</li>
+      <li>Transparent PETG requires stricter drying for clarity.</li>
+    </ul>
+
+    <h2>TPU</h2>
+    <ul>
+      <li><strong>Short cycle:</strong> 50°C for about 4 hours.</li>
+      <li><strong>Full cycle:</strong> 50°C for 6–8 hours.</li>
+      <li>TPU is highly moisture sensitive.</li>
+      <li>Best results come from printing immediately after drying.</li>
+      <li>Consider short re-dry cycles after short exposure.</li>
+    </ul>
+
+    <h2>General Practical Notes</h2>
+    <ul>
+      <li>Printing immediately after drying gives the most consistent results.</li>
+      <li>Storage conditions often matter more than drying frequency.</li>
+      <li>Slightly higher temperatures within safe ranges can reduce guesswork.</li>
+      <li>Use geometry, chamfers, and tolerances to handle minor variability instead of over-tuning drying.</li>
+    </ul>
+
+  </main>
+
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+        nodes.forEach((el, index) => {
+          if (!el.id) el.id = "section-" + index;
+          items.push({ id: el.id, text: el.textContent.trim(), level: el.tagName === "H3" ? 3 : 2 });
+        });
+        return items;
+      }
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({ type: "motorurl:toc", items: getTocItems() }, "*");
+        }
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

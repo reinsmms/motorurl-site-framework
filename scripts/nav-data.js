@@ -1,4 +1,13 @@
-const NAV_DATA = [
+﻿const NAV_DATA = [
+    {
+    title: "3D Printing Fundamentals",
+    children: [
+      {
+        title: "3MF Files and Printer Profile Behavior",
+        url: "pages/3d-printing-fundamentals/3mf-printer-profile-behavior.html"
+      }
+    ]
+  },
   {
     title: "Software",
     children: [
@@ -9,15 +18,16 @@ const NAV_DATA = [
             title: "Overview",
             url: "pages/software/bambu-studio/index.html"
           },
-          {
-            title: "Quick Reference",
-            children: [
-              {
-                title: "Align Tool – Reliable Workflow",
-                url: "pages/software/bambu-studio/quick-reference/align-tool-reliable-workflow.html"
-              }
-            ]
-          }
+{
+  title: "Quick Reference",
+  children: [
+    { title: "Align Tool – Reliable Workflow", url: "pages/software/bambu-studio/quick-reference/align-tool-reliable-workflow.html" },
+    { title: "Filament Runout Guide", url: "pages/software/bambu-studio/quick-reference/filament-runout-guide.html" },
+    { title: "Cold Pull Procedure", url: "pages/software/bambu-studio/quick-reference/cold-pull-procedure.html" },
+    { title: "Cause & Effect Cheat Sheet", url: "pages/software/bambu-studio/quick-reference/cause-effect-cheat-sheet.html" },
+    { title: "Supports Cheat Sheet", url: "pages/software/bambu-studio/quick-reference/supports-cheat-sheet.html" }
+  ]
+}
         ]
       },
       {
@@ -35,8 +45,8 @@ const NAV_DATA = [
     url: "pages/printers/index.html"
   },
   {
-    title: "Materials",
-    url: "pages/materials/index.html"
+    title: "Filament",
+    url: "pages/filament/index.html"
   },
   {
     title: "Projects",

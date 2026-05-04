@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3MF Files and Printer Profile Behavior</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body class="pageBody">
+  <main class="pageCard">
+    <div class="pageTopRow">
+      <div>
+        <h1>3MF Files and Printer Profile Behavior</h1>
+        <p>
+          3D Printing Fundamentals<br />
+          Why 3MF files can open with printer, plate, or profile settings you did not expect
+        </p>
+      </div>
+    </div>
+
+    <h2>Quick Rule</h2>
+    <p><strong>3MF is a standard project-style file format, but slicers may store and reload slicer-specific printer settings inside it.</strong></p>
+
+    <h2>Overview</h2>
+    <p>A <strong>3MF</strong> file is not just a simple model file like an STL. It can store geometry, units, object layout, material information, and slicer-specific project metadata. In many slicers, a 3MF behaves more like a saved project than a plain mesh export.</p>
+    <p>This is useful because it allows complete print setups to be shared. The tradeoff is that opening a 3MF from another user, printer, or slicer can bring along settings that do not match your current machine.</p>
+
+    <h2>What Can Happen</h2>
+    <p>When a 3MF file opens, the slicer may load the printer profile, plate setup, filament setup, or process settings that were saved with the file.</p>
+    <ul>
+      <li>the selected printer does not match your machine</li>
+      <li>the build plate or printable area looks wrong</li>
+      <li>a boundary or motion envelope appears larger, smaller, or differently shaped than expected</li>
+      <li>the model layout or plate arrangement looks odd</li>
+      <li>the file appears to have settings you did not choose</li>
+    </ul>
+
+    <h2>Why This Happens</h2>
+    <p>3MF is a standard container format, but individual slicers can add their own project data inside that container. That means the geometry may be portable, while the full project setup may still be tied to the slicer or printer profile that created it.</p>
+    <p>In practical terms, the file may remember:</p>
+    <ul>
+      <li>printer profile</li>
+      <li>plate setup</li>
+      <li>filament or material assignments</li>
+      <li>slicing/process settings</li>
+      <li>object layout and grouping</li>
+      <li>supports, modifiers, or other slicer-specific features</li>
+    </ul>
+
+    <h2>Bambu Studio Example</h2>
+    <p>In Bambu Studio, a 3MF often behaves as a full project file. If the file was created for a different printer, Studio may load that original printer profile instead of automatically applying your current printer.</p>
+    <p>For example, a 3MF created for one Bambu printer may open with that printer selected, even if you normally print on a different model. The visible printer boundary or purple build-volume display may look wrong until the project is switched and re-sliced for the correct printer.</p>
+
+    <h2>How to Recognize the Problem</h2>
+    <ul>
+      <li>Check the selected printer at the top of the slicer.</li>
+      <li>Compare the visible build area to your actual printer.</li>
+      <li>Look for unexpected plate layouts or filament assignments.</li>
+      <li>Do not assume the model itself is wrong until the printer/profile selection is checked.</li>
+    </ul>
+
+    <h2>Quick Fix</h2>
+    <ol>
+      <li>Open the 3MF file.</li>
+      <li>Check the selected printer profile.</li>
+      <li>Switch to your actual printer if needed.</li>
+      <li>Review filament/material assignments.</li>
+      <li>Re-slice the model before printing.</li>
+    </ol>
+
+    <h2>Clean Reset Method</h2>
+    <p>If the project still looks wrong after switching printers, use a clean reset approach.</p>
+    <ol>
+      <li>Switch to the correct printer.</li>
+      <li>Create a clean project or clear the current plate setup.</li>
+      <li>Re-import the model geometry.</li>
+      <li>Apply your normal filament and process settings.</li>
+      <li>Re-slice and inspect the preview.</li>
+    </ol>
+
+    <h2>Common Mistake</h2>
+    <p>Do not assume the model is bad just because the build volume, plate, or profile looks strange. In many cases, the file simply loaded with the printer profile or project metadata it was saved with.</p>
+
+    <h2>3MF vs STL</h2>
+    <p>An <strong>STL</strong> is mostly raw triangle geometry. A <strong>3MF</strong> can be a richer project container. That makes 3MF more powerful, but also more likely to carry printer-specific or slicer-specific assumptions.</p>
+    <ul>
+      <li><strong>STL:</strong> simple geometry file</li>
+      <li><strong>3MF:</strong> smart project container</li>
+    </ul>
+
+    <h2>Tips</h2>
+    <ul>
+      <li>Always verify the active printer before printing a downloaded or shared 3MF.</li>
+      <li>Re-slice after changing printer profiles.</li>
+      <li>Use 3MF for saving complete projects.</li>
+      <li>Use STL when you only need broad geometry compatibility.</li>
+      <li>If something looks strange, check the stored project settings before blaming the model.</li>
+    </ul>
+
+    <h2>Screenshot Guide</h2>
+    <ul>
+      <li>a mismatched build-volume boundary</li>
+      <li>the printer selector showing the wrong printer profile</li>
+      <li>the same file after switching to the correct printer</li>
+      <li>a clean re-imported project setup</li>
+    </ul>
+
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="../software/bambu-studio/index.html">Bambu Studio</a></li>
+    </ul>
+  </main>
+
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+        nodes.forEach((el, index) => {
+          if (!el.id) el.id = "section-" + index;
+          items.push({ id: el.id, text: el.textContent.trim(), level: el.tagName === "H3" ? 3 : 2 });
+        });
+        return items;
+      }
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({ type: "motorurl:toc", items: getTocItems() }, "*");
+        }
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

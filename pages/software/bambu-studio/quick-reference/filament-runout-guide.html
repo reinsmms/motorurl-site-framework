@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bambu A1 Filament Runout Guide</title>
+  <link rel="stylesheet" href="../../../../css/styles.css" />
+</head>
+<body class="pageBody">
+  <main class="pageCard">
+    <div class="pageTopRow">
+      <div>
+        <h1>Bambu A1 Filament Runout Guide</h1>
+        <p>Bambu Studio · Quick Reference<br />What to do when filament runs out or jams at the spool end</p>
+      </div>
+    </div>
+
+
+    <h2>Quick Rule</h2>
+    <p><strong>When the A1 pauses for filament runout, load the new spool, purge cleanly, wipe any nozzle blob, and resume.</strong></p>
+
+    <h2>Normal Scenario</h2>
+    <p>The printer detects runout, pauses automatically, and parks the toolhead safely.</p>
+    <ol>
+      <li>Remove the empty spool.</li>
+      <li>Mount the new spool.</li>
+      <li>On the printer screen, choose <strong>Load Filament</strong>.</li>
+      <li>Insert the filament into the inlet/PTFE tube.</li>
+      <li>Let the printer grab and purge the filament.</li>
+      <li>Wipe the nozzle tip if a blob formed during the pause.</li>
+      <li>Tap <strong>Resume Print</strong>.</li>
+    </ol>
+
+    <h2>Spool-Hole Scenario</h2>
+    <p>Some spools store the filament end in a hub hole. If the end stays trapped, the last loops may not unwind.</p>
+    <ol>
+      <li>Remove the spool.</li>
+      <li>Pull the remaining filament out of the tube or extruder.</li>
+      <li>Install the new spool.</li>
+      <li>Choose <strong>Load Filament</strong>.</li>
+      <li>Feed filament until the extruder grabs it.</li>
+      <li>Allow the printer to purge.</li>
+      <li>Resume the print.</li>
+    </ol>
+
+    <h2>Printer Won’t Grab the New Filament</h2>
+    <p>This usually means a small stub of filament is still inside the extruder.</p>
+    <ol>
+      <li>Select <strong>Unload Filament</strong>.</li>
+      <li>Pull out the remaining stub.</li>
+      <li>Select <strong>Load Filament</strong>.</li>
+      <li>Insert the new filament until the extruder grabs it.</li>
+      <li>Let the printer purge.</li>
+      <li>Resume the print.</li>
+    </ol>
+
+    <h2>Prevent Spool-End Jams</h2>
+    <ol>
+      <li>Remove the filament end from the hub storage hole before installing the spool.</li>
+      <li>Pull off about 30–50 cm of filament and rewind it loosely.</li>
+      <li>Make sure the filament is free and not locked into any hole.</li>
+      <li>Cut the filament tip at a 45° angle.</li>
+      <li>Load normally.</li>
+    </ol>
+
+    <h2>Good Habits</h2>
+    <ul>
+      <li>Always check the filament end before installing a spool.</li>
+      <li>Clip the filament tip at a 45° angle.</li>
+      <li>Watch the first few seconds after resuming.</li>
+      <li>Remove nozzle blobs with tweezers before the print continues.</li>
+    </ul>
+
+  </main>
+
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+        nodes.forEach((el, index) => {
+          if (!el.id) el.id = "section-" + index;
+          items.push({ id: el.id, text: el.textContent.trim(), level: el.tagName === "H3" ? 3 : 2 });
+        });
+        return items;
+      }
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({ type: "motorurl:toc", items: getTocItems() }, "*");
+        }
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

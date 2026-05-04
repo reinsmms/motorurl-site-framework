@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Print Cause &amp; Effect Cheat Sheet</title>
+  <link rel="stylesheet" href="../../../../css/styles.css" />
+</head>
+<body class="pageBody">
+  <main class="pageCard">
+    <div class="pageTopRow">
+      <div>
+        <h1>3D Print Cause &amp; Effect Cheat Sheet</h1>
+        <p>Bambu Studio · Quick Reference<br />Fast lookup for print behavior relationships</p>
+      </div>
+    </div>
+
+
+    <h2>Quick Rule</h2>
+    <p><strong>Most print problems are cause-and-effect chains: geometry, orientation, layer height, speed, cooling, and filament condition all interact.</strong></p>
+
+    <h2>Geometry vs Print Behavior</h2>
+    <ul>
+      <li>Large holes create more bridging, which can cause sagging or flattening.</li>
+      <li>Angled slots are often easier to print cleanly than circular holes in vertical walls.</li>
+      <li>Chamfers can help bridging; fillets can introduce flow variation or visible surface changes.</li>
+      <li>Floor-to-wall transitions can cause visible bands.</li>
+    </ul>
+
+    <h2>Orientation Effects</h2>
+    <ul>
+      <li>Aligning long edges with the X axis can produce smoother motion on some parts.</li>
+      <li>Poor orientation can increase travel moves and surface inconsistency.</li>
+    </ul>
+
+    <h2>Layer Height Effects</h2>
+    <ul>
+      <li>Lower layer height generally improves appearance and surface smoothness.</li>
+      <li>Lower layer height does not fix root causes like flow variation, geometry problems, or wet filament.</li>
+      <li>Smaller layers can slightly improve overhang performance.</li>
+    </ul>
+
+    <h2>Speed and Flow Effects</h2>
+    <ul>
+      <li>Outer wall speed strongly affects surface finish.</li>
+      <li>Printing too fast can create visible lines and inconsistent surfaces.</li>
+      <li>Flow variation can cause banding and subtle wall artifacts.</li>
+    </ul>
+
+    <h2>Cooling and Layer Time</h2>
+    <ul>
+      <li>Low layer time can leave layers soft, which increases sagging risk.</li>
+      <li>Proper cooling improves consistency and bridging.</li>
+    </ul>
+
+    <h2>Filament Condition</h2>
+    <ul>
+      <li>Wet filament can cause micro-bubbles and inconsistent extrusion.</li>
+      <li>Moisture often appears as faint lines, roughness, popping, stringing, or inconsistent surface texture.</li>
+    </ul>
+
+    <h2>Bridging and Overhangs</h2>
+    <ul>
+      <li>Large unsupported spans sag without support or geometry help.</li>
+      <li>Chamfers and tapers can improve bridging behavior.</li>
+    </ul>
+
+    <h2>Fillets and Geometry Complexity</h2>
+    <ul>
+      <li>Too many small fillets can create slicer complexity.</li>
+      <li>Complex geometry can cause visible layer transitions and artifacts.</li>
+    </ul>
+
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="supports-cheat-sheet.html">Support Decision Cheat Sheet</a></li>
+      <li><a href="../../../../pages/filament/real-world-drying-overrides.html">Real-World Drying Overrides</a></li>
+    </ul>
+
+  </main>
+
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+        nodes.forEach((el, index) => {
+          if (!el.id) el.id = "section-" + index;
+          items.push({ id: el.id, text: el.textContent.trim(), level: el.tagName === "H3" ? 3 : 2 });
+        });
+        return items;
+      }
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({ type: "motorurl:toc", items: getTocItems() }, "*");
+        }
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feeding Filament Directly From a Dryer</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body class="pageBody">
+  <main class="pageCard">
+    <div class="pageTopRow">
+      <div>
+        <h1>Feeding Filament Directly From a Dryer</h1>
+        <p>Filament<br />Practical guide for printing directly from a dryer</p>
+      </div>
+    </div>
+
+
+    <h2>Quick Rule</h2>
+    <p><strong>Feeding directly from a dryer keeps moisture-sensitive filament dry during the print, but the filament path must stay smooth and low-friction.</strong></p>
+
+    <h2>Why Feed From a Dryer?</h2>
+    <p>Filament begins absorbing moisture after it leaves the dryer. For moisture-sensitive materials, this can affect print quality during longer jobs.</p>
+    <ul>
+      <li>Maintains lower moisture content during the entire print.</li>
+      <li>Improves consistency on long jobs.</li>
+      <li>Reduces stringing, haze, bubbles, and mid-print degradation.</li>
+    </ul>
+
+    <h2>Best Uses</h2>
+    <ul>
+      <li>clear or translucent materials</li>
+      <li>PETG</li>
+      <li>TPU</li>
+      <li>Nylon, PC, or filled blends</li>
+      <li>large or tall prints</li>
+      <li>prints lasting more than about 2–3 hours</li>
+    </ul>
+
+    <h2>Advantages</h2>
+    <ul>
+      <li>Keeps filament dry throughout the print.</li>
+      <li>Reduces stringing and surface defects.</li>
+      <li>Improves clarity in transparent filaments.</li>
+      <li>Stabilizes extrusion on long prints.</li>
+      <li>Reduces repeated dry/store cycles.</li>
+    </ul>
+
+    <h2>Tradeoffs</h2>
+    <ul>
+      <li>More setup complexity.</li>
+      <li>Filament path and drag need attention.</li>
+      <li>The dryer must be positioned thoughtfully near the printer.</li>
+    </ul>
+
+    <h2>Example Dryer: Creality Filament Dry Box 2.0</h2>
+    <ul>
+      <li>No active exhaust vent.</li>
+      <li>Passive enclosure.</li>
+      <li>Single filament exit hole.</li>
+      <li>A slight 1–2 mm lid shim is recommended when drying PETG or similar materials so moisture vapor can escape.</li>
+    </ul>
+
+    <h2>Connection Options</h2>
+
+    <h3>Option 1 — Direct Feed</h3>
+    <p>Best for short distances and quick testing. Place the dryer close to the printer and let the filament form a gentle arc into the printer.</p>
+
+    <h3>Option 2 — PTFE-Guided Feed</h3>
+    <p>Best for long prints or more permanent setups. Use short, gently curved 4 mm OD PTFE tubing from the dryer to the printer inlet.</p>
+
+    <h3>Option 3 — Dryer Adapter + Push-Connect</h3>
+    <p>Best for a clean, repeatable setup. Use a printed adapter and PC4-M10 push-connect fitting to guide filament from the dryer into PTFE tubing.</p>
+
+    <h2>Drying vs Feeding Settings</h2>
+    <ul>
+      <li><strong>Drying PETG before printing:</strong> about 55°C for 4–6 hours, with lid slightly shimmed.</li>
+      <li><strong>Feeding or holding during printing:</strong> about 45–50°C, with the filament fed continuously to the printer.</li>
+    </ul>
+
+    <h2>Placement Guidelines</h2>
+    <ul>
+      <li>Keep the dryer on the same surface as the printer when practical.</li>
+      <li>Position it at or slightly below spool height.</li>
+      <li>Avoid sharp filament bends.</li>
+      <li>Avoid vertical pull directly downward.</li>
+      <li>Avoid side-loading the printer’s filament inlet.</li>
+    </ul>
+
+    <h2>Summary</h2>
+    <p>Start simple with direct feed. Add PTFE guidance or fittings later if needed. The key principles are dry filament, gentle filament paths, and appropriate temperature control.</p>
+
+  </main>
+
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+        nodes.forEach((el, index) => {
+          if (!el.id) el.id = "section-" + index;
+          items.push({ id: el.id, text: el.textContent.trim(), level: el.tagName === "H3" ? 3 : 2 });
+        });
+        return items;
+      }
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({ type: "motorurl:toc", items: getTocItems() }, "*");
+        }
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
