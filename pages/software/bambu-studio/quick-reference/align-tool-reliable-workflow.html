@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- IMPORTANT:
+       Confirm the stylesheet path if this file is moved.
+       Current location:
+       pages/software/bambu-studio/quick-reference/
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Bambu Studio – Align Tool Reliable Workflow</title>
+
+  <link rel="stylesheet" href="../../../../css/styles.css" />
+</head>
+<body class="pageBody">
+
+  <main class="pageCard">
+
+    <!-- PAGE HEADER -->
+    <div class="pageTopRow">
+      <div>
+        <h1>Align Tool – Reliable Workflow</h1>
+        <p>
+          “Select only the object you want to move, then align it to a reference face on the fixed object.”
+        </p>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <h2>Overview</h2>
+    <p>
+      This quick reference explains the reliable way to use the Align tool in Bambu Studio
+      when one object should move and another object should remain fixed.
+    </p>
+    <p>
+      The key is to select only the object that should move. Do not multi-select both objects
+      when one is meant to act as a fixed reference.
+    </p>
+
+    <!-- CORE RULE -->
+    <h2>Core Rule</h2>
+    <ul>
+      <li>Select only the object you want to move.</li>
+      <li>Do not multi-select when aligning to a fixed reference.</li>
+    </ul>
+
+    <!-- STEP BY STEP -->
+    <h2>Step-by-Step</h2>
+
+    <h3>Select the Moving Object</h3>
+    <p>
+      Click only the part you want to reposition.
+    </p>
+
+    <h3>Activate Align</h3>
+    <p>
+      Use the Align tool.
+    </p>
+
+    <h3>Pick the Reference Face</h3>
+    <p>
+      Click the face on the object that should stay fixed.
+    </p>
+
+    <h3>Pick the Moving Face</h3>
+    <p>
+      Click the corresponding face on the selected moving object.
+    </p>
+
+    <h3>Choose the Alignment Type</h3>
+    <p>
+      Choose center, edge, or face alignment as needed.
+    </p>
+
+    <!-- RESULT -->
+    <h2>Result</h2>
+    <p>
+      Only the selected object moves. The reference object remains in place.
+    </p>
+
+    <!-- WHY THIS WORKS -->
+    <h2>Why This Works</h2>
+    <p>
+      Bambu Studio alignment is geometry-based, not selection-order based. Selection order does
+      not create an anchor object the way some drawing or CAD programs might.
+    </p>
+    <p>
+      When multiple objects are selected, Studio tries to reconcile the selected geometry together.
+      That can move the part you intended to keep fixed.
+    </p>
+
+    <!-- COMMON MISTAKE -->
+    <h2>Common Mistake</h2>
+    <p>
+      Selecting both objects can cause unexpected movement because there is no fixed anchor or
+      precedence rule based on selection order.
+    </p>
+
+    <!-- PRO TIP -->
+    <h2>Pro Tip – Lock the Reference</h2>
+    <p>
+      If the reference object should not move, right-click it and choose <strong>Fix Model</strong>.
+      This helps prevent accidental movement while aligning other parts.
+    </p>
+
+    <!-- EXAMPLE -->
+    <h2>Example: Two Squares</h2>
+    <p>
+      <strong>Goal:</strong> Move the top square to the bottom square without moving the bottom square.
+    </p>
+    <p>
+      <strong>Action:</strong> Select the top square → Align → click the bottom face → click the top face.
+    </p>
+
+    <!-- RELATED PAGES -->
+    <h2>Related Pages</h2>
+    <ul>
+      <li><a href="../index.html">Bambu Studio Overview</a></li>
+      <li><a href="../main-mode-tabs/prepare/prepare.html">Prepare Tab</a></li>
+    </ul>
+
+  </main>
+
+  <div class="pageFooter">
+    <a href="#" class="topLink">Back to top</a>
+  </div>
+
+  <!-- CHILD PAGE TOC HELPER -->
+  <script>
+    (function () {
+      function getTocItems() {
+        const items = [];
+        const nodes = document.querySelectorAll("h2, h3");
+
+        nodes.forEach((el, index) => {
+          if (!el.id) {
+            el.id = "section-" + index;
+          }
+
+          items.push({
+            id: el.id,
+            text: el.textContent.trim(),
+            level: el.tagName === "H3" ? 3 : 2
+          });
+        });
+
+        return items;
+      }
+
+      window.addEventListener("message", (event) => {
+        const data = event.data;
+        if (!data) return;
+
+        if (data.type === "motorurl:requestToc") {
+          window.parent.postMessage({
+            type: "motorurl:toc",
+            items: getTocItems()
+          }, "*");
+        }
+
+        if (data.type === "motorurl:scrollTo") {
+          const target = document.getElementById(data.id);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
