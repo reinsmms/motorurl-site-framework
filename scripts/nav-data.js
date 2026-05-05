@@ -24,6 +24,46 @@ const NAV_DATA = [
         "url": "pages/filament/feeding-filament-from-dryer.html"
       },
       {
+        "title": "Filament Brands Quality Ranking",
+        "url": "pages/filament/filament-brands-quality-ranking.html"
+      },
+      {
+        "title": "Filament Colors Popularity Rankings",
+        "url": "pages/filament/filament-colors-popularity-rankings.html"
+      },
+      {
+        "title": "Filament Drying And Storage",
+        "url": "pages/filament/filament-drying-and-storage.html"
+      },
+      {
+        "title": "Filament Drying Guide",
+        "url": "pages/filament/filament-drying-guide.html"
+      },
+      {
+        "title": "Filament Finishes And Appearance",
+        "url": "pages/filament/filament-finishes-and-appearance.html"
+      },
+      {
+        "title": "Filament Finishes And Styles",
+        "url": "pages/filament/filament-finishes-and-styles.html"
+      },
+      {
+        "title": "Filament Handling And Recovery",
+        "url": "pages/filament/filament-handling-and-recovery.html"
+      },
+      {
+        "title": "Filament Preparation And Care",
+        "url": "pages/filament/filament-preparation-and-care.html"
+      },
+      {
+        "title": "Filament Reference Tables",
+        "url": "pages/filament/filament-reference-tables.html"
+      },
+      {
+        "title": "Filament Selection And Buying",
+        "url": "pages/filament/filament-selection-and-buying.html"
+      },
+      {
         "title": "Real World Drying Overrides",
         "url": "pages/filament/real-world-drying-overrides.html"
       }
@@ -46,19 +86,6 @@ const NAV_DATA = [
           {
             "title": "Overview",
             "url": "pages/software/bambu-studio/index.html"
-          },
-          {
-            "title": "Filament",
-            "children": [
-              {
-                "title": "Drying Overrides",
-                "url": "pages/software/bambu-studio/filament/drying-overrides.html"
-              },
-              {
-                "title": "Feeding From Dryer",
-                "url": "pages/software/bambu-studio/filament/feeding-from-dryer.html"
-              }
-            ]
           },
           {
             "title": "Main Mode Tabs",
