@@ -3,17 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Mirroring in Fusion</title>
-  <link rel="stylesheet" href="../../../../styles.css" />
+
+  <!-- MotorURL shared framework stylesheet.
+       Root-relative paths avoid folder-depth mistakes when the page is moved. -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Safety fallback only. The shared stylesheet should normally control page styling.
+       This prevents browser dark-mode auto styling from causing dark text on a dark background
+       if the stylesheet fails to load. -->
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    html,
+    body {
+      background: #f6f7f9;
+      color: #1f2933;
+    }
+  </style>
 </head>
+
 <body class="pageBody">
   <main class="pageCard">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="../../../../index.html">Home</a>
+      <a href="/">Home</a>
       <span>/</span>
-      <a href="../../../index.html">Software</a>
+      <span>Software</span>
       <span>/</span>
-      <a href="../../index.html">Fusion</a>
+      <span>Fusion</span>
       <span>/</span>
       <span>Mirroring in Fusion</span>
     </nav>
@@ -223,6 +243,6 @@
     </section>
   </main>
 
-  <script src="../../../../scripts/toc.js"></script>
+  <script src="/scripts/toc.js"></script>
 </body>
 </html>
