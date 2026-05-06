@@ -15,8 +15,9 @@
       </div>
     </div>
 
+    <nav class="toc" data-toc></nav>
 
-    <h2>Quick Rule</h2>
+<h2>Quick Rule</h2>
     <p><strong>Feeding directly from a dryer keeps moisture-sensitive filament dry during the print, but the filament path must stay smooth and low-friction.</strong></p>
 
     <h2>Why Feed From a Dryer?</h2>
@@ -29,12 +30,12 @@
 
     <h2>Best Uses</h2>
     <ul>
-      <li>clear or translucent materials</li>
+      <li>Clear or translucent materials</li>
       <li>PETG</li>
       <li>TPU</li>
       <li>Nylon, PC, or filled blends</li>
-      <li>large or tall prints</li>
-      <li>prints lasting more than about 2–3 hours</li>
+      <li>Large or tall prints</li>
+      <li>Prints lasting more than about 2–3 hours</li>
     </ul>
 
     <h2>Advantages</h2>
@@ -96,29 +97,7 @@
     <a href="#" class="topLink">Back to top</a>
   </div>
 
-  <script>
-    (function () {
-      function getTocItems() {
-        const items = [];
-        const nodes = document.querySelectorAll("h2, h3");
-        nodes.forEach((el, index) => {
-          if (!el.id) el.id = "section-" + index;
-          items.push({ id: el.id, text: el.textContent.trim(), level: el.tagName === "H3" ? 3 : 2 });
-        });
-        return items;
-      }
-      window.addEventListener("message", (event) => {
-        const data = event.data;
-        if (!data) return;
-        if (data.type === "motorurl:requestToc") {
-          window.parent.postMessage({ type: "motorurl:toc", items: getTocItems() }, "*");
-        }
-        if (data.type === "motorurl:scrollTo") {
-          const target = document.getElementById(data.id);
-          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-    })();
-  </script>
+  <script src="../../scripts/page.js"></script>
+  <script src="../../scripts/toc.js"></script>
 </body>
 </html>

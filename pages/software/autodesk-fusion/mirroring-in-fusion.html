@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirroring in Fusion</title>
+  <link rel="stylesheet" href="../../../../styles.css" />
+</head>
+<body class="pageBody">
+  <main class="pageCard">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../../../../index.html">Home</a>
+      <span>/</span>
+      <a href="../../../index.html">Software</a>
+      <span>/</span>
+      <a href="../../index.html">Fusion</a>
+      <span>/</span>
+      <span>Mirroring in Fusion</span>
+    </nav>
+
+    <h1>Mirroring in Fusion</h1>
+
+    <p class="summary">
+      Mirroring in Fusion means copying geometry across a reference. The confusing part is that
+      the reference changes depending on where you are working: inside a sketch you mirror across
+      a line, while in 3D modeling you usually mirror across a plane or face.
+    </p>
+
+    <section id="quick-answer">
+      <h2>Quick Answer</h2>
+      <p>
+        In a sketch, Fusion asks for a <strong>mirror line</strong>. Outside a sketch, Fusion usually
+        asks for a <strong>mirror plane</strong>. The terms are different because sketch geometry is
+        2D, while bodies, components, and features exist in 3D space.
+      </p>
+    </section>
+
+    <section id="sketch-mirror">
+      <h2>Sketch Mirror</h2>
+      <p>
+        Sketch Mirror is used while editing a sketch. It reflects selected sketch geometry across a
+        line in that same sketch.
+      </p>
+
+      <h3>What the Mirror Line Is</h3>
+      <p>
+        The mirror line is the 2D reference line the sketch objects reflect across. Think of it like
+        folding a piece of paper along a crease. The crease is the mirror line.
+      </p>
+
+      <h3>What Can Be Used as a Mirror Line</h3>
+      <ul>
+        <li>A construction line</li>
+        <li>A regular sketch line</li>
+        <li>A projected edge</li>
+        <li>An origin axis visible in the sketch</li>
+      </ul>
+
+      <p>
+        A dedicated construction centerline is usually the cleanest choice because it makes the
+        relationship visible and easier to understand later.
+      </p>
+    </section>
+
+    <section id="body-feature-mirror">
+      <h2>Body, Feature, and Component Mirror</h2>
+      <p>
+        Outside a sketch, Fusion works in 3D. Instead of a mirror line, you usually select a plane,
+        face, or construction plane as the mirror reference.
+      </p>
+
+      <h3>Common 3D Mirror Targets</h3>
+      <ul>
+        <li><strong>Body mirror:</strong> mirrors an existing solid or surface body.</li>
+        <li><strong>Feature mirror:</strong> mirrors a modeling operation from the timeline.</li>
+        <li><strong>Component mirror:</strong> mirrors an entire component.</li>
+      </ul>
+
+      <p>
+        This is better when the shape already exists as 3D geometry and you want the mirrored copy
+        to behave like a separate body, feature, or component.
+      </p>
+    </section>
+
+    <section id="comparison">
+      <h2>Sketch Mirror vs Body / Feature Mirror</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Reference</th>
+            <th>Best For</th>
+            <th>Main Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sketch Mirror</td>
+            <td>Mirror line</td>
+            <td>Simple 2D sketch symmetry</td>
+            <td>Can create extra sketch relationships that are harder to edit later</td>
+          </tr>
+          <tr>
+            <td>Body Mirror</td>
+            <td>Plane, face, or construction plane</td>
+            <td>Mirroring completed 3D geometry</td>
+            <td>May create separate bodies that need to be joined or managed</td>
+          </tr>
+          <tr>
+            <td>Feature Mirror</td>
+            <td>Plane, face, or construction plane</td>
+            <td>Repeating a modeling operation parametrically</td>
+            <td>Depends on feature order and timeline health</td>
+          </tr>
+          <tr>
+            <td>Component Mirror</td>
+            <td>Plane, face, or construction plane</td>
+            <td>Symmetrical assemblies or repeated parts</td>
+            <td>Can add assembly complexity</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="when-to-use-sketch-mirror">
+      <h2>When to Use Sketch Mirror</h2>
+      <p>
+        Use Sketch Mirror when the mirrored geometry is still part of the same 2D sketch and you
+        want symmetry before creating a 3D feature.
+      </p>
+
+      <h3>Good Uses</h3>
+      <ul>
+        <li>Simple symmetrical profiles</li>
+        <li>Slots, ribs, or cutout outlines that are still easy to understand in one sketch</li>
+        <li>Early layout work where the sketch is not overloaded</li>
+      </ul>
+
+      <h3>Be Careful When</h3>
+      <ul>
+        <li>The sketch already has many constraints</li>
+        <li>You plan to rotate, stretch, or heavily edit the mirrored items later</li>
+        <li>You want the mirrored copy to become a separate body or independently editable object</li>
+      </ul>
+    </section>
+
+    <section id="when-to-use-body-or-feature-mirror">
+      <h2>When to Mirror a Body or Feature Instead</h2>
+      <p>
+        Mirror the body or feature when the shape is already 3D, when you want cleaner timeline
+        control, or when sketch-level mirror relationships would make the sketch harder to edit.
+      </p>
+
+      <h3>Better Uses for 3D Mirror</h3>
+      <ul>
+        <li>Mirroring a completed bracket, tab, rib, clip, or support</li>
+        <li>Keeping the sketch simple and letting features do the repeated work</li>
+        <li>Creating geometry that may need to be joined, separated, or edited later</li>
+        <li>Avoiding large sketch patterns or mirrored sketch groups that slow down sketch solving</li>
+      </ul>
+    </section>
+
+    <section id="editing-problems">
+      <h2>Why Sketch Mirrors Can Be Hard to Change Later</h2>
+      <p>
+        A common problem is mirroring geometry inside a sketch and later wanting to treat the mirrored
+        result like separate 3D objects. That usually does not work the way expected because the mirror
+        was created as part of the sketch, not as a separate body-level feature.
+      </p>
+
+      <p>
+        In that case, the mirrored items may still be tied to sketch constraints, symmetry relationships,
+        dimensions, and the mirror line. Editing one side may affect the other side, or Fusion may resist
+        movement because the sketch is still trying to preserve the mirrored relationship.
+      </p>
+
+      <div class="callout">
+        <strong>Rule of thumb:</strong>
+        If you want mirrored geometry to remain part of one clean sketch, use Sketch Mirror.
+        If you want the result to behave like actual 3D geometry that can be managed later, mirror the
+        body, feature, or component instead.
+      </div>
+    </section>
+
+    <section id="practical-workflow">
+      <h2>Practical Workflow</h2>
+      <ol>
+        <li>Create a simple sketch for the base profile.</li>
+        <li>Use construction geometry for centerlines and references.</li>
+        <li>Only use Sketch Mirror when the sketch will remain simple.</li>
+        <li>Extrude or create the 3D geometry.</li>
+        <li>If the mirrored shape needs separate control, use Body Mirror or Feature Mirror instead.</li>
+        <li>Check the timeline so the mirror is easy to find and edit later.</li>
+      </ol>
+    </section>
+
+    <section id="common-confusion">
+      <h2>Common Confusion</h2>
+      <p>
+        Fusion uses different mirror references depending on context. This is the same kind of reference
+        issue that appears with angles, rotations, construction planes, and chamfers. Fusion is always
+        asking: <strong>mirror across what?</strong>
+      </p>
+
+      <ul>
+        <li>Sketch mirror asks for a line because the sketch is already flat.</li>
+        <li>Body and feature mirror ask for a plane because the geometry exists in 3D space.</li>
+        <li>The mirror reference controls the result, so it should be chosen deliberately.</li>
+      </ul>
+    </section>
+
+    <section id="key-takeaway">
+      <h2>Key Takeaway</h2>
+      <p>
+        Sketch Mirror is best for simple 2D symmetry. Body, Feature, or Component Mirror is usually
+        better when the shape already exists in 3D or needs to remain easier to manage later.
+      </p>
+
+      <p class="search-keywords">
+        Alternate search terms: Fusion mirror line, sketch symmetry
+      </p>
+    </section>
+  </main>
+
+  <script src="../../../../scripts/toc.js"></script>
+</body>
+</html>

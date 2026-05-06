@@ -1,632 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/toc.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Filament Drying and Storage</title>
+  <link rel="stylesheet" href="../../css/styles.css" />
 </head>
-<body class="pageBody" data-gallery-enabled="false">
-  <div id="top"></div>
-  <div class="pageCard">
+<body class="pageBody">
+  <main class="pageCard">
     <div class="pageTopRow">
-      <h1>Filament Drying and Storage</h1>
-      <a id="galleryLink" class="pillLink" href="gallery.html" style="display:none;">🖼️ Gallery</a>
+      <div>
+        <h1>Filament Drying and Storage</h1>
+        <p>Filament<br />Drying, storage, desiccant, and long-term handling</p>
+      </div>
     </div>
+
     <nav class="toc" data-toc></nav>
-    <h1>Filament Drying and Storage</h1>
+
 <h2>Baseline Filament Drying Settings</h2>
-<p>This reference provides baseline filament drying settings by material family. Values are conservative defaults suitable for most consumer filament dryers. Brand‑specific guidance may override these values.</p>
-<table class='dataTable'>
-<thead><tr>
-<th>Material Family</th>
-<th>Typical Drying Temp</th>
-<th>Typical Time</th>
-<th>Subtype / Variant Notes</th>
-<th>Exceptions / Comments</th>
-</tr></thead><tbody>
-<tr><td>PLA / PLA+</td><td>40–45 °C</td><td>4–6 h</td><td>PLA+, PLA Tough, High‑Speed PLA treated as same family</td><td>Avoid &gt;50 °C (risk of deformation); usually low moisture sensitivity</td></tr>
-<tr><td>PETG</td><td>50–55 °C</td><td>4–6 h</td><td>PETG variants generally equivalent</td><td>Stringing often moisture‑related; dry before tuning retraction</td></tr>
-<tr><td>ABS</td><td>60–65 °C</td><td>4–8 h</td><td>ABS+, ASA similar</td><td>Higher temps acceptable; store dry after drying</td></tr>
-<tr><td>ASA</td><td>60–65 °C</td><td>4–8 h</td><td>Considered ABS‑family equivalent</td><td>More UV‑stable than ABS; drying behavior same</td></tr>
-<tr><td>TPU</td><td>45–55 °C</td><td>4–8 h</td><td>Shore hardness (85A, 95A, etc.) does not materially change drying needs</td><td>Very moisture sensitive; dry even if new</td></tr>
-<tr><td>Nylon (PA)</td><td>70–80 °C</td><td>8–12 h</td><td>PA6, PA12, blends vary slightly</td><td>Extremely hygroscopic; print directly from dryer if possible</td></tr>
-<tr><td>Nylon CF / GF</td><td>70–80 °C</td><td>8–12 h</td><td>Reinforced nylons follow base PA</td><td>Never skip drying; moisture dominates print quality</td></tr>
-<tr><td>Polycarbonate (PC)</td><td>70–80 °C</td><td>6–8 h</td><td>PC blends similar</td><td>Needs aggressive drying; enclosure recommended</td></tr>
-<tr><td>PVA</td><td>45–50 °C</td><td>4–6 h</td><td>Soluble support material</td><td>Absorbs moisture very rapidly; reseal immediately</td></tr>
-<tr><td>HIPS</td><td>50–55 °C</td><td>4–6 h</td><td>HIPS behaves like ABS‑lite</td><td>Lower moisture sensitivity than nylon</td></tr>
-</tbody></table>
-<h2>Material Drying Specifics and Notes</h2>
-<h3>TPU</h3>
-<p>Short Re‑Dry After Brief Exposure</p>
-<p>If TPU was fully dried and then left exposed for a short period (~6–12 hours):</p>
-<p>45–50 °C for 2–3 hours is usually sufficient</p>
-<p>Purpose is to remove surface moisture, not recondition the entire spool</p>
-<p>Use a full 4–8 h cycle again if: - Exposure exceeds ~24 hours - You observe popping, foaming, gloss loss, or excessive stringing - Ambient humidity is high</p>
-<p>Quick Extrusion Sanity Check (Optional)</p>
-<p>Heat nozzle and extrude 50–100 mm</p>
-<p>Smooth / glossy extrusion → short re‑dry is adequate</p>
-<p>Bubbling or hissing → extend drying time</p>
-<p>TPU Cooldown Habit (Recommended)</p>
-<p>When a TPU print finishes, do not leave the spool on the printer</p>
-<p>While the bed/nozzle cools, remove the spool</p>
-<p>Immediately seal in a dry box or bag with fresh desiccant</p>
-<p>If left out for several hours, apply the short re‑dry above</p>
-<p>This avoids unnecessary full drying cycles and preserves TPU print quality.</p>
-<h2>Brand‑Specific Drying Overrides (Common Brands)</h2>
-<p>Use these when manufacturer guidance is available; otherwise fall back to baseline values above.</p>
-<table class='dataTable'>
-<thead><tr>
-<th>Brand</th>
-<th>Material</th>
-<th>Temp</th>
-<th>Time</th>
-<th>Notes</th>
-</tr></thead><tbody>
-<tr><td>Bambu Lab</td><td>PLA / PLA+</td><td>45 °C</td><td>6 h</td><td>Conservative; avoid exceeding 50 °C</td></tr>
-<tr><td></td><td>PETG</td><td>55 °C</td><td>6 h</td><td>Dry before tuning retraction</td></tr>
-<tr><td></td><td>TPU</td><td>50 °C</td><td>8 h</td><td>Strongly recommended even when new</td></tr>
-<tr><td></td><td>PA / PA‑CF</td><td>80 °C</td><td>12 h</td><td>Print directly from dryer</td></tr>
-<tr><td>eSun</td><td>PLA+</td><td>45 °C</td><td>6 h</td><td>PLA+ still PLA‑family</td></tr>
-<tr><td></td><td>PETG</td><td>55 °C</td><td>6 h</td><td>Moisture often causes stringing</td></tr>
-<tr><td></td><td>TPU</td><td>50 °C</td><td>8 h</td><td>Highly hygroscopic</td></tr>
-<tr><td>Overture</td><td>PETG – Transparent Clear</td><td>55 °C</td><td>4 h (OOTB)</td><td>Factory‑sealed preliminary dry; extend to 6 h for max clarity</td></tr>
-<tr><td></td><td>PETG – Transparent Clear</td><td>55 °C</td><td>6 h</td><td>Use if humidity &gt;50% or visual clarity is critical</td></tr>
-<tr><td></td><td>PLA / PLA+</td><td>45 °C</td><td>4–6 h</td><td>Generally dry from factory</td></tr>
-<tr><td></td><td>PETG (opaque)</td><td>55 °C</td><td>6 h</td><td>Recommended before first use</td></tr>
-<tr><td></td><td>TPU</td><td>50 °C</td><td>6–8 h</td><td>Seal immediately after use</td></tr>
-<tr><td>Polymaker</td><td>PLA / PLA Pro</td><td>45 °C</td><td>6 h</td><td>Matches PLA baseline</td></tr>
-<tr><td></td><td>PETG</td><td>55 °C</td><td>6 h</td><td>Standard PETG behavior</td></tr>
-<tr><td></td><td>PA6 / PA‑CF</td><td>80 °C</td><td>12 h</td><td>Aggressive drying required</td></tr>
-</tbody></table>
-<h2>Out‑of‑the‑Box (OOTB) Preliminary Drying</h2>
-<p>Use these settings for brand‑new, factory‑sealed spools before first print.</p>
-<table class='dataTable'>
-<thead><tr>
-<th>Material</th>
-<th>OOTB Temp</th>
-<th>OOTB Time</th>
-<th>Purpose</th>
-</tr></thead><tbody>
-<tr><td>PLA / PLA+</td><td>40–45 °C</td><td>2–3 h</td><td>Remove surface moisture only</td></tr>
-<tr><td>PETG (opaque)</td><td>55 °C</td><td>3–4 h</td><td>Stabilize before tuning</td></tr>
-<tr><td>PETG – Transparent / Clear</td><td>55 °C</td><td>4 h</td><td>Preserve optical clarity</td></tr>
-<tr><td>ABS / ASA</td><td>60 °C</td><td>3–4 h</td><td>Ensure consistent extrusion</td></tr>
-<tr><td>TPU</td><td>50 °C</td><td>4–6 h</td><td>Even new TPU often contains moisture</td></tr>
-<tr><td>Nylon (PA)</td><td>70–80 °C</td><td>6–8 h</td><td>Partial conditioning only</td></tr>
-<tr><td>PC</td><td>70–80 °C</td><td>4–6 h</td><td>Prevent early surface defects</td></tr>
-<tr><td>PVA</td><td>45–50 °C</td><td>3–4 h</td><td>Prevent rapid moisture uptake</td></tr>
-<tr><td>HIPS</td><td>50–55 °C</td><td>3–4 h</td><td>Light stabilization</td></tr>
-</tbody></table>
-<p>Note: OOTB drying is not a substitute for full drying on hygroscopic materials (TPU, PA, PVA).</p>
-<h2>Print‑from‑Dryer Recommendation</h2>
-<table class='dataTable'>
-<thead><tr>
-<th>Material</th>
-<th>Print from Dryer?</th>
-<th>Reason</th>
-</tr></thead><tbody>
-<tr><td>PLA / PLA+</td><td>Optional</td><td>Low moisture sensitivity</td></tr>
-<tr><td>PETG</td><td>Recommended</td><td>Stringing highly moisture‑dependent</td></tr>
-<tr><td>ABS / ASA</td><td>Optional</td><td>Dry storage usually sufficient</td></tr>
-<tr><td>TPU</td><td>Strongly Recommended</td><td>Rapid moisture uptake</td></tr>
-<tr><td>Nylon (PA)</td><td>Required</td><td>Extremely hygroscopic</td></tr>
-<tr><td>Nylon CF / GF</td><td>Required</td><td>Moisture dominates print quality</td></tr>
-<tr><td>PC</td><td>Recommended</td><td>Moisture causes surface defects</td></tr>
-<tr><td>PVA</td><td>Required</td><td>Absorbs moisture extremely fast</td></tr>
-<tr><td>HIPS</td><td>Optional</td><td>Moderate sensitivity</td></tr>
-</tbody></table>
-<h2>Ambient Humidity Adjustments</h2>
-<p>Use these modifiers in addition to baseline or brand values:</p>
-<table class='dataTable'>
-<thead><tr>
-<th>Ambient RH</th>
-<th>Adjustment</th>
-</tr></thead><tbody>
-<tr><td>&lt;30% (Dry)</td><td>Use lower end of temp &amp; time ranges</td></tr>
-<tr><td>30–50% (Normal)</td><td>Use baseline values</td></tr>
-<tr><td>50–70% (Humid)</td><td>+1–2 h drying time</td></tr>
-<tr><td>&gt;70% (Very Humid)</td><td>+2–4 h; print from dryer strongly advised</td></tr>
-</tbody></table>
-<p>In very humid conditions, storage quality matters as much as dryer time.</p>
-<h2>Safe Maximum Dryer Temperatures (Consumer Dryers)</h2>
-<table class='dataTable'>
-<thead><tr>
-<th>Material</th>
-<th>Absolute Max Temp</th>
-<th>Risk if Exceeded</th>
-</tr></thead><tbody>
-<tr><td>PLA / PLA+</td><td>50 °C</td><td>Spool deformation, filament ovaling</td></tr>
-<tr><td>PETG</td><td>60 °C</td><td>Softening, tangling</td></tr>
-<tr><td>ABS / ASA</td><td>70 °C</td><td>Low risk; monitor spool</td></tr>
-<tr><td>TPU</td><td>55 °C</td><td>Filament fusion, shape loss</td></tr>
-<tr><td>Nylon (PA)</td><td>85 °C</td><td>Generally safe; spool‑dependent</td></tr>
-<tr><td>Nylon CF / GF</td><td>85 °C</td><td>Same as base PA</td></tr>
-<tr><td>PC</td><td>85 °C</td><td>Spool warp possible</td></tr>
-<tr><td>PVA</td><td>55 °C</td><td>Filament distortion</td></tr>
-<tr><td>HIPS</td><td>60 °C</td><td>Minor deformation possible</td></tr>
-</tbody></table>
-<h2>Notes for Future Expansion</h2>
-<p>Dryer model‑specific presets (Sunlu, Eibos, Sovol, Bambu AMS Drying)</p>
-<p>Spool material heat limits (PLA vs PC spools)</p>
-<p>Multi‑material batch drying best practices</p>
-<p>Long‑term storage RH targets by material</p>
-<h2>PETG Classification Notes – Opaque vs Transparent</h2>
-<table class='dataTable'>
-<thead><tr>
-<th>PETG Type</th>
-<th>Drying Sensitivity</th>
-<th>Visual Sensitivity</th>
-<th>Notes</th>
-</tr></thead><tbody>
-<tr><td>Opaque PETG</td><td>Moderate</td><td>Low</td><td>Moisture mainly affects stringing and surface quality</td></tr>
-<tr><td>Transparent / Clear PETG</td><td>Moderate</td><td>High</td><td>Even slight moisture causes haze, bubbles, and clarity loss</td></tr>
-</tbody></table>
-<p>Transparent PETG should always be dried before first use if visual clarity matters.</p>
-<h2>Visual Symptoms → Corrective Action (Quick Lookup)</h2>
-<table class='dataTable'>
-<thead><tr>
-<th>Symptom</th>
-<th>Likely Cause</th>
-<th>Action</th>
-</tr></thead><tbody>
-<tr><td>Fine bubbles in extrusion</td><td>Moisture</td><td>Dry 55 °C +2–4 h</td></tr>
-<tr><td>Cloudy / milky clear parts</td><td>Moisture or cooling too fast</td><td>Dry fully; reduce fan</td></tr>
-<tr><td>Excessive stringing</td><td>Moisture</td><td>Dry before tuning retraction</td></tr>
-<tr><td>Popping / hissing sounds</td><td>Severe moisture</td><td>Full drying cycle required</td></tr>
-<tr><td>Rough or pitted surface</td><td>Moisture</td><td>Increase drying time</td></tr>
-<tr><td>Loss of gloss</td><td>Moisture</td><td>Dry and store sealed immediately</td></tr>
-</tbody></table>
-<h2>AMS / Dryer‑Box Usage Notes</h2>
-<h3>Bambu AMS (No Active Heat)</h3>
-<p>AMS does not dry filament; it only slows moisture uptake</p>
-<p>Use only with pre‑dried filament</p>
-<p>Transparent PETG will still haze if loaded damp</p>
-<h3>Active Dryer Boxes</h3>
-<p>Best option for PETG, TPU, Nylon</p>
-<p>Allow printing directly from dryer when possible</p>
-<p>Avoid exceeding safe max temps listed above</p>
-<h3>Storage Best Practices</h3>
-<p>Target storage RH:</p>
-<p>PLA / PETG: &lt;30–35%</p>
-<p>TPU: &lt;25%</p>
-<p>Nylon / PVA: &lt;20%</p>
-<p>Replace or recharge desiccant regularly</p>
-<h2>Reference Summary</h2>
-<p>Opaque PETG → drying affects print behavior</p>
-<p>Transparent PETG → drying affects appearance first</p>
-<p>Drying before retraction tuning saves time</p>
-<p>Storage discipline matters as much as dryer time</p>
-<h2>Over‑Drying &amp; Filament Lifespan</h2>
-<h3>Is Over‑Drying Possible?</h3>
-<p>Yes — but over‑drying is almost always caused by excessive heat, not excessive time.</p>
-<p>Polymers do not get damaged because they are “too dry”</p>
-<p>Damage occurs when heat alters polymer chains or deforms the filament</p>
-<p>Correct‑temperature drying can be repeated many times without harm</p>
-<h3>Common Over‑Drying Symptoms (by Material)</h3>
-<table class='dataTable'>
-<thead><tr>
-<th>Material</th>
-<th>Over‑Drying Symptoms</th>
-<th>Likely Cause</th>
-</tr></thead><tbody>
-<tr><td>PLA / PLA+</td><td>Brittle filament, snapping during bends or retractions</td><td>Temp too high (&gt;50 °C)</td></tr>
-<tr><td>PETG</td><td>Rare; possible ovaling or tacky feel</td><td>Temp &gt;60 °C</td></tr>
-<tr><td>TPU</td><td>Loss of elasticity, stiffness, filament fusing on spool</td><td>Temp &gt;55 °C</td></tr>
-<tr><td>Nylon (PA)</td><td>Chalky feel, weak layers, dull extrusion</td><td>Extended high‑temp exposure</td></tr>
-<tr><td>PVA</td><td>Crumbling or soft extrusion</td><td>Thermal degradation</td></tr>
-<tr><td>PC</td><td>Spool warp, inconsistent extrusion</td><td>Excessive heat</td></tr>
-</tbody></table>
-<p>Diagnostic rule: If print quality worsens after drying, suspect heat damage, not dryness.</p>
-<h3>How Many Times Can Filament Be Dried?</h3>
-<p>Drying cycles are not consumable when temperatures stay within limits.</p>
-<table class='dataTable'>
-<thead><tr>
-<th>Material</th>
-<th>Safe Re‑Dry Cycles</th>
-<th>Notes</th>
-</tr></thead><tbody>
-<tr><td>PLA / PLA+</td><td>5–10+</td><td>Stay ≤45–50 °C</td></tr>
-<tr><td>PETG</td><td>10+</td><td>Very forgiving</td></tr>
-<tr><td>TPU</td><td>5–10</td><td>Heat discipline required</td></tr>
-<tr><td>Nylon (PA)</td><td>10+</td><td>Often requires repeated drying</td></tr>
-<tr><td>PVA</td><td>3–5</td><td>Degrades faster than most</td></tr>
-<tr><td>PC</td><td>8–10</td><td>Stable but heat sensitive</td></tr>
-</tbody></table>
-<h3>Shelf Life Expectations</h3>
-<p>Factory‑Sealed (Unopened)</p>
-<table class='dataTable'>
-<thead><tr>
-<th>Material</th>
-<th>Shelf Life</th>
-</tr></thead><tbody>
-<tr><td>PLA / PETG</td><td>1–3 years</td></tr>
-<tr><td>TPU</td><td>~1 year</td></tr>
-<tr><td>Nylon / PVA</td><td>6–12 months</td></tr>
-<tr><td>PC</td><td>~1–2 years</td></tr>
-</tbody></table>
-<p>Sealed does not mean immune to moisture forever.</p>
-<p>Unsealed but Well Stored (Dry Box, Fresh Desiccant)</p>
-<table class='dataTable'>
-<thead><tr>
-<th>Material</th>
-<th>Practical Shelf Life</th>
-</tr></thead><tbody>
-<tr><td>PLA / PETG</td><td>6–12 months</td></tr>
-<tr><td>TPU</td><td>1–3 months</td></tr>
-<tr><td>Nylon / PVA</td><td>Weeks to 1 month</td></tr>
-<tr><td>PC</td><td>3–6 months</td></tr>
-</tbody></table>
-<p>Field Rolls (Actively Used)</p>
-<table class='dataTable'>
-<thead><tr>
-<th>Material</th>
-<th>Typical Field Life</th>
-</tr></thead><tbody>
-<tr><td>PLA / PETG</td><td>Months</td></tr>
-<tr><td>TPU</td><td>Days–weeks</td></tr>
-<tr><td>Nylon / PVA</td><td>Hours–days</td></tr>
-</tbody></table>
-<p>Field rolls age by exposure cycles, not calendar time.</p>
-<h3>Best Practices to Maximize Lifespan</h3>
-<p>Obey safe maximum dryer temperatures</p>
-<p>Prefer short re‑dries over repeated long cycles</p>
-<p>Allow filament to cool inside the dryer</p>
-<p>Remove filament from printer immediately after prints</p>
-<p>Seal with fresh desiccant after every session</p>
-<p>Done correctly, drying extends filament life — it does not shorten it.</p>
-<h2>Filament Drying Decision Flowchart (Quick Use)</h2>
-<p>Use this step-by-step flow to decide if, how, and how long to dry filament.</p>
-<p>START
-  ↓
-Is the filament NEW and FACTORY‑SEALED?
-  ├─ YES → Is the material hygroscopic? (TPU / Nylon / PVA)
-  │         ├─ YES → Full Dry Cycle (Baseline for material)
-  │         └─ NO  → OOTB Preliminary Dry → Print
-  │
-  └─ NO → (Spool has been opened)
-          ↓
-   Has it been exposed &gt;24 hours OR RH &gt;50%?
-          ├─ YES → Full Dry Cycle (Baseline)
-          └─ NO  → Short Re‑Dry
-                     (2–3 h for PETG/PLA, 2–4 h for TPU)
+    <p>This reference provides baseline filament drying settings by material family. Values are conservative defaults suitable for most consumer filament dryers. Brand-specific guidance may override these values.</p>
 
-After Drying:
-  ↓
-Perform Quick Extrusion Check (optional)
-  ├─ Smooth extrusion → OK to print
-  └─ Bubbling / hissing → Extend drying +2 h
+    <table class="dataTable">
+      <thead>
+        <tr><th>Material Family</th><th>Typical Drying Temp</th><th>Typical Time</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>PLA / PLA+</td><td>40–45°C</td><td>4–6 h</td><td>Avoid &gt;50°C; usually low moisture sensitivity.</td></tr>
+        <tr><td>PETG</td><td>50–55°C</td><td>4–6 h</td><td>Stringing is often moisture-related; dry before tuning retraction.</td></tr>
+        <tr><td>ABS / ASA</td><td>60–65°C</td><td>4–8 h</td><td>Higher temps acceptable; store dry after drying.</td></tr>
+        <tr><td>TPU</td><td>45–55°C</td><td>4–8 h</td><td>Very moisture sensitive; dry even if new.</td></tr>
+        <tr><td>Nylon / PA</td><td>70–80°C</td><td>8–12 h</td><td>Extremely hygroscopic; print directly from dryer if possible.</td></tr>
+        <tr><td>PC</td><td>70–80°C</td><td>6–8 h</td><td>Needs aggressive drying; enclosure recommended.</td></tr>
+        <tr><td>PVA</td><td>45–50°C</td><td>4–6 h</td><td>Absorbs moisture rapidly; reseal immediately.</td></tr>
+        <tr><td>HIPS</td><td>50–55°C</td><td>4–6 h</td><td>Moderate sensitivity.</td></tr>
+      </tbody>
+    </table>
 
-During Printing:
-  ↓
-Do you observe stringing, haze, popping, or rough surface?
-  ├─ YES → Pause, dry +2–4 h, print from dryer if possible
-  └─ NO  → Continue printing
+    <h2>Print-From-Dryer Recommendation</h2>
+    <table class="dataTable">
+      <thead><tr><th>Material</th><th>Print From Dryer?</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>PLA / PLA+</td><td>Optional</td><td>Low moisture sensitivity.</td></tr>
+        <tr><td>PETG</td><td>Recommended</td><td>Stringing is moisture-dependent.</td></tr>
+        <tr><td>ABS / ASA</td><td>Optional</td><td>Dry storage is usually sufficient.</td></tr>
+        <tr><td>TPU</td><td>Strongly recommended</td><td>Rapid moisture uptake.</td></tr>
+        <tr><td>Nylon / PA</td><td>Required</td><td>Extremely hygroscopic.</td></tr>
+        <tr><td>PC</td><td>Recommended</td><td>Moisture can cause surface defects.</td></tr>
+        <tr><td>PVA</td><td>Required</td><td>Absorbs moisture extremely fast.</td></tr>
+      </tbody>
+    </table>
 
-After Print:
-  ↓
-Is this a hygroscopic material?
-  ├─ YES → Seal immediately with fresh desiccant
-  └─ NO  → Seal when cool
+    <h2>Ambient Humidity Adjustments</h2>
+    <table class="dataTable">
+      <thead><tr><th>Ambient RH</th><th>Adjustment</th></tr></thead>
+      <tbody>
+        <tr><td>&lt;30% dry</td><td>Use the lower end of temp and time ranges.</td></tr>
+        <tr><td>30–50% normal</td><td>Use baseline values.</td></tr>
+        <tr><td>50–70% humid</td><td>Add 1–2 hours drying time.</td></tr>
+        <tr><td>&gt;70% very humid</td><td>Add 2–4 hours; print from dryer strongly advised.</td></tr>
+      </tbody>
+    </table>
 
-END</p>
-<h3>Flowchart Notes</h3>
-<p>OOTB Preliminary Dry = light stabilization for sealed spools</p>
-<p>Full Dry Cycle = baseline drying table values</p>
-<p>Short Re‑Dry = surface moisture removal only</p>
-<p>When in doubt, dry first, tune later</p>
-<p>If print quality worsens after drying, suspect excess temperature</p>
-<h2>Filament Drying Decision Flowchart (Website Visual)</h2>
-<p>Below is a website‑ready SVG flowchart. It is lightweight, scalable, and can be dropped directly into your site (or styled later with CSS).</p>
-<p>Recommended filename: filament-drying-flowchart.svg</p>
-<p>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="100%" font-family="Arial, Helvetica, sans-serif"&gt;
-  &lt;defs&gt;
-    &lt;style&gt;
-      .box { fill:#ffffff; stroke:#333; stroke-width:2; rx:10; ry:10; }
-      .decision { fill:#f9f9f9; stroke:#333; stroke-width:2; }
-      .text { font-size:16px; fill:#000; text-anchor:middle; dominant-baseline:middle; }
-      .arrow { stroke:#333; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
-    &lt;/style&gt;
-    &lt;marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"&gt;
-      &lt;polygon points="0 0, 10 3.5, 0 7" fill="#333" /&gt;
-    &lt;/marker&gt;
-  &lt;/defs&gt;
+    <h2>Safe Maximum Dryer Temperatures</h2>
+    <table class="dataTable">
+      <thead><tr><th>Material</th><th>Absolute Max Temp</th><th>Risk if Exceeded</th></tr></thead>
+      <tbody>
+        <tr><td>PLA / PLA+</td><td>50°C</td><td>Spool deformation or filament ovaling.</td></tr>
+        <tr><td>PETG</td><td>60°C</td><td>Softening or tangling.</td></tr>
+        <tr><td>TPU</td><td>55°C</td><td>Filament fusion or shape loss.</td></tr>
+        <tr><td>Nylon / PA</td><td>85°C</td><td>Generally safe, but spool-dependent.</td></tr>
+        <tr><td>PC</td><td>85°C</td><td>Spool warp possible.</td></tr>
+        <tr><td>PVA</td><td>55°C</td><td>Filament distortion.</td></tr>
+      </tbody>
+    </table>
 
-  &lt;!-- START --&gt;
-  &lt;rect x="350" y="20" width="200" height="50" class="box" /&gt;
-  &lt;text x="450" y="45" class="text"&gt;START&lt;/text&gt;
+    <h2>Storage Environment Targets</h2>
+    <table class="dataTable">
+      <thead><tr><th>Factor</th><th>Recommended Range</th><th>Why It Matters</th></tr></thead>
+      <tbody>
+        <tr><td>Relative humidity</td><td>&lt;30% PLA/PETG, &lt;25% TPU, &lt;20% Nylon/PVA</td><td>Moisture absorption is the primary failure mode.</td></tr>
+        <tr><td>Temperature</td><td>60–75°F / 15–24°C</td><td>Avoids softening and spool warp.</td></tr>
+        <tr><td>Light exposure</td><td>Dark or opaque storage</td><td>UV can degrade polymers over time.</td></tr>
+        <tr><td>Air exchange</td><td>Minimal</td><td>Reduces moisture cycling.</td></tr>
+      </tbody>
+    </table>
 
-  &lt;!-- New &amp; Sealed --&gt;
-  &lt;rect x="300" y="110" width="300" height="70" class="decision" /&gt;
-  &lt;text x="450" y="145" class="text"&gt;New &amp; Factory Sealed?&lt;/text&gt;
+    <h2>Visual Symptoms and Corrective Action</h2>
+    <table class="dataTable">
+      <thead><tr><th>Symptom</th><th>Likely Cause</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Fine bubbles in extrusion</td><td>Moisture</td><td>Dry longer.</td></tr>
+        <tr><td>Cloudy / milky clear parts</td><td>Moisture or cooling too fast</td><td>Dry fully; reduce fan if appropriate.</td></tr>
+        <tr><td>Excessive stringing</td><td>Moisture</td><td>Dry before tuning retraction.</td></tr>
+        <tr><td>Popping / hissing sounds</td><td>Severe moisture</td><td>Full drying cycle required.</td></tr>
+        <tr><td>Rough or pitted surface</td><td>Moisture</td><td>Increase drying time.</td></tr>
+        <tr><td>Loss of gloss</td><td>Moisture</td><td>Dry and store sealed immediately.</td></tr>
+      </tbody>
+    </table>
 
-  &lt;line x1="450" y1="70" x2="450" y2="110" class="arrow" /&gt;
+    <h2>Over-Drying and Filament Lifespan</h2>
+    <p>Over-drying is usually caused by excessive heat, not excessive time. Correct-temperature drying can be repeated many times without harm.</p>
 
-  &lt;!-- Hygroscopic --&gt;
-  &lt;rect x="60" y="230" width="360" height="80" class="decision" /&gt;
-  &lt;text x="240" y="270" class="text"&gt;Hygroscopic Material?
-(TPU / Nylon / PVA)&lt;/text&gt;
+    <h2>Best Practices</h2>
+    <ul>
+      <li>Obey safe maximum dryer temperatures.</li>
+      <li>Prefer short re-dries over repeated long cycles when exposure was brief.</li>
+      <li>Allow filament to cool inside the dryer when practical.</li>
+      <li>Remove moisture-sensitive filament from the printer after printing.</li>
+      <li>Seal with fresh desiccant after every session.</li>
+    </ul>
 
-  &lt;line x1="300" y1="180" x2="240" y2="230" class="arrow" /&gt;
-  &lt;line x1="600" y1="180" x2="660" y2="230" class="arrow" /&gt;
+  </main>
 
-  &lt;!-- OOTB --&gt;
-  &lt;rect x="540" y="230" width="300" height="80" class="box" /&gt;
-  &lt;text x="690" y="270" class="text"&gt;OOTB Preliminary Dry&lt;/text&gt;
-
-  &lt;!-- Full Dry --&gt;
-  &lt;rect x="60" y="360" width="360" height="80" class="box" /&gt;
-  &lt;text x="240" y="400" class="text"&gt;Full Dry Cycle
-(Baseline Table)&lt;/text&gt;
-
-  &lt;line x1="240" y1="310" x2="240" y2="360" class="arrow" /&gt;
-  &lt;line x1="690" y1="310" x2="690" y2="360" class="arrow" /&gt;
-
-  &lt;!-- Exposure --&gt;
-  &lt;rect x="300" y="500" width="300" height="80" class="decision" /&gt;
-  &lt;text x="450" y="540" class="text"&gt;Exposed &gt;24h or RH &gt;50%?&lt;/text&gt;
-
-  &lt;line x1="240" y1="440" x2="450" y2="500" class="arrow" /&gt;
-  &lt;line x1="690" y1="440" x2="450" y2="500" class="arrow" /&gt;
-
-  &lt;!-- Short Re-Dry --&gt;
-  &lt;rect x="60" y="650" width="360" height="80" class="box" /&gt;
-  &lt;text x="240" y="690" class="text"&gt;Short Re‑Dry
-(2–4 h)&lt;/text&gt;
-
-  &lt;!-- Print --&gt;
-  &lt;rect x="540" y="650" width="300" height="80" class="box" /&gt;
-  &lt;text x="690" y="690" class="text"&gt;Print&lt;/text&gt;
-
-  &lt;line x1="450" y1="580" x2="240" y2="650" class="arrow" /&gt;
-  &lt;line x1="450" y1="580" x2="690" y2="650" class="arrow" /&gt;
-
-  &lt;!-- After Print --&gt;
-  &lt;rect x="300" y="800" width="300" height="80" class="decision" /&gt;
-  &lt;text x="450" y="840" class="text"&gt;Hygroscopic Material?&lt;/text&gt;
-
-  &lt;line x1="240" y1="730" x2="450" y2="800" class="arrow" /&gt;
-  &lt;line x1="690" y1="730" x2="450" y2="800" class="arrow" /&gt;
-
-  &lt;!-- Seal --&gt;
-  &lt;rect x="60" y="950" width="360" height="80" class="box" /&gt;
-  &lt;text x="240" y="990" class="text"&gt;Seal Immediately
-+ Fresh Desiccant&lt;/text&gt;
-
-  &lt;!-- Optional Seal --&gt;
-  &lt;rect x="540" y="950" width="300" height="80" class="box" /&gt;
-  &lt;text x="690" y="990" class="text"&gt;Seal When Cool&lt;/text&gt;
-
-  &lt;line x1="450" y1="880" x2="240" y2="950" class="arrow" /&gt;
-  &lt;line x1="450" y1="880" x2="690" y2="950" class="arrow" /&gt;
-&lt;/svg&gt;</p>
-<h3>Website Notes</h3>
-<p>Scales cleanly on mobile and desktop</p>
-<p>Text is readable without zoom</p>
-<p>Easy to recolor for dark mode or branding</p>
-<p>Can be split into material‑specific SVGs later</p>
-<h2>Filament Storage &amp; Long‑Term Care</h2>
-<p>Drying fixes filament now; storage determines how long it stays usable. The goal is to control humidity first, then temperature and light.</p>
-<h3>Storage Environment Targets</h3>
-<table class='dataTable'>
-<thead><tr>
-<th>Factor</th>
-<th>Recommended Range</th>
-<th>Why It Matters</th>
-</tr></thead><tbody>
-<tr><td>Relative Humidity (RH)</td><td>&lt;30% (PLA/PETG), &lt;25% (TPU), &lt;20% (Nylon/PVA)</td><td>Moisture absorption is the primary failure mode</td></tr>
-<tr><td>Temperature</td><td>60–75 °F (15–24 °C)</td><td>Avoid softening, spool warp</td></tr>
-<tr><td>Light Exposure</td><td>Dark or opaque storage</td><td>UV degrades polymers over time</td></tr>
-<tr><td>Air Exchange</td><td>Minimal</td><td>Reduces moisture cycling</td></tr>
-</tbody></table>
-<p>Humidity control matters more than temperature for almost all filaments.</p>
-<h2>Desiccant Selection &amp; Sizing</h2>
-<h3>Recommended Desiccant Types</h3>
-<table class='dataTable'>
-<thead><tr>
-<th>Type</th>
-<th>Pros</th>
-<th>Cons</th>
-<th>Best Use</th>
-</tr></thead><tbody>
-<tr><td>Silica Gel (Orange / Blue)</td><td>Cheap, reusable, visual indicator</td><td>Lower capacity than others</td><td>General storage boxes</td></tr>
-<tr><td>Activated Alumina</td><td>High capacity, reusable</td><td>No color indicator</td><td>Dry boxes, long‑term storage</td></tr>
-<tr><td>Molecular Sieve (3A)</td><td>Extremely aggressive</td><td>Expensive, overkill for PLA</td><td>Nylon / PVA</td></tr>
-</tbody></table>
-<h3>How Much Desiccant Do You Need?</h3>
-<p>Rule of thumb: - 10–20 g per liter of sealed container volume</p>
-<p>Examples: - 5‑gal storage bin (~19 L) → 200–300 g desiccant - Single spool sealed bag → 20–40 g desiccant - Large dry box (multiple spools) → 300–500 g desiccant</p>
-<p>More desiccant = longer stable RH, not drier filament.</p>
-<h3>Desiccant Maintenance</h3>
-<p>Recharge silica gel at 250–275 °F (120–135 °C) for 2–3 h</p>
-<p>Replace or recharge when indicator changes color</p>
-<p>Do not mix fresh and saturated desiccant</p>
-<h2>Hygrometers (Humidity Monitoring)</h2>
-<h3>What to Look For</h3>
-<p>Accuracy ±2–3% RH</p>
-<p>Fast refresh (≤10 s)</p>
-<p>Small enough to fit inside spool boxes</p>
-<h3>Placement Tips</h3>
-<p>Place inside storage container, not outside</p>
-<p>Avoid direct contact with desiccant</p>
-<p>One hygrometer per large container is sufficient</p>
-<p>If you can’t see RH, you’re guessing.</p>
-<h2>Storage Containers &amp; Cases</h2>
-<h3>Common Options</h3>
-<table class='dataTable'>
-<thead><tr>
-<th>Storage Type</th>
-<th>Pros</th>
-<th>Cons</th>
-<th>Notes</th>
-</tr></thead><tbody>
-<tr><td>Zip Bags + Desiccant</td><td>Cheap, flexible</td><td>Easy to puncture</td><td>Good for field rolls</td></tr>
-<tr><td>Airtight Plastic Bins</td><td>Inexpensive, scalable</td><td>Needs good gasket</td><td>Add hygrometer</td></tr>
-<tr><td>Purpose‑Built Dry Boxes</td><td>Print‑from‑box</td><td>Cost</td><td>Best for TPU/Nylon</td></tr>
-<tr><td>Vacuum Bags</td><td>Very low RH</td><td>Awkward access</td><td>Long‑term storage</td></tr>
-</tbody></table>
-<h2>Storage by Filament State</h2>
-<h3>Field Rolls (In Active Use)</h3>
-<p>Dry → print → reseal immediately</p>
-<p>Avoid leaving filament on printer overnight</p>
-<p>Short re‑dry after exposure is preferred</p>
-<h3>Long‑Term Storage</h3>
-<p>Fully dry before sealing</p>
-<p>Use excess desiccant</p>
-<p>Store in a dark, temperature‑stable location</p>
-<h2>Light &amp; UV Exposure</h2>
-<p>UV causes brittleness and color shift over time</p>
-<p>Clear bins should be stored away from sunlight</p>
-<p>Opaque containers preferred for multi‑year storage</p>
-<h2>Storage Checklist (Quick Reference)</h2>
-<p>✔ Dry before storage</p>
-<p>✔ Seal airtight</p>
-<p>✔ Adequate desiccant</p>
-<p>✔ Hygrometer visible</p>
-<p>✔ Dark, cool location</p>
-<p>Proper storage extends filament life far more than repeated drying.</p>
-<h2>Filament Storage Decision Flowchart (Website Visual)</h2>
-<p>This flowchart answers where and how to store filament after drying or printing. It complements the drying flowchart and is intended for website use (SVG).</p>
-<p>Recommended filename: filament-storage-flowchart.svg</p>
-<p>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="100%" font-family="Arial, Helvetica, sans-serif"&gt;
-  &lt;defs&gt;
-    &lt;style&gt;
-      .box { fill:#ffffff; stroke:#333; stroke-width:2; rx:10; ry:10; }
-      .decision { fill:#f9f9f9; stroke:#333; stroke-width:2; }
-      .text { font-size:16px; fill:#000; text-anchor:middle; dominant-baseline:middle; }
-      .arrow { stroke:#333; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
-    &lt;/style&gt;
-    &lt;marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"&gt;
-      &lt;polygon points="0 0, 10 3.5, 0 7" fill="#333" /&gt;
-    &lt;/marker&gt;
-  &lt;/defs&gt;
-
-  &lt;!-- START --&gt;
-  &lt;rect x="350" y="20" width="200" height="50" class="box" /&gt;
-  &lt;text x="450" y="45" class="text"&gt;FINISHED PRINT&lt;/text&gt;
-
-  &lt;!-- Material Type --&gt;
-  &lt;rect x="300" y="110" width="300" height="80" class="decision" /&gt;
-  &lt;text x="450" y="150" class="text"&gt;Hygroscopic Material?
-(TPU / Nylon / PVA)&lt;/text&gt;
-
-  &lt;line x1="450" y1="70" x2="450" y2="110" class="arrow" /&gt;
-
-  &lt;!-- Immediate Seal --&gt;
-  &lt;rect x="60" y="250" width="360" height="80" class="box" /&gt;
-  &lt;text x="240" y="290" class="text"&gt;Seal Immediately
-+ Fresh Desiccant&lt;/text&gt;
-
-  &lt;!-- Non-Hygroscopic --&gt;
-  &lt;rect x="540" y="250" width="300" height="80" class="decision" /&gt;
-  &lt;text x="690" y="290" class="text"&gt;Will it be used again
-within 24 hours?&lt;/text&gt;
-
-  &lt;line x1="300" y1="190" x2="240" y2="250" class="arrow" /&gt;
-  &lt;line x1="600" y1="190" x2="690" y2="250" class="arrow" /&gt;
-
-  &lt;!-- Short-Term --&gt;
-  &lt;rect x="540" y="380" width="300" height="80" class="box" /&gt;
-  &lt;text x="690" y="420" class="text"&gt;Short-Term Storage
-(Dry Box or Bag)&lt;/text&gt;
-
-  &lt;!-- Long-Term --&gt;
-  &lt;rect x="60" y="380" width="360" height="80" class="box" /&gt;
-  &lt;text x="240" y="420" class="text"&gt;Long-Term Storage
-(Airtight + Excess Desiccant)&lt;/text&gt;
-
-  &lt;line x1="690" y1="330" x2="690" y2="380" class="arrow" /&gt;
-  &lt;line x1="690" y1="330" x2="240" y2="380" class="arrow" /&gt;
-
-  &lt;!-- Environment Check --&gt;
-  &lt;rect x="300" y="520" width="300" height="80" class="decision" /&gt;
-  &lt;text x="450" y="560" class="text"&gt;Storage RH Below Target?&lt;/text&gt;
-
-  &lt;line x1="240" y1="460" x2="450" y2="520" class="arrow" /&gt;
-  &lt;line x1="690" y1="460" x2="450" y2="520" class="arrow" /&gt;
-
-  &lt;!-- Add Desiccant --&gt;
-  &lt;rect x="60" y="650" width="360" height="80" class="box" /&gt;
-  &lt;text x="240" y="690" class="text"&gt;Add / Recharge Desiccant&lt;/text&gt;
-
-  &lt;!-- Store --&gt;
-  &lt;rect x="540" y="650" width="300" height="80" class="box" /&gt;
-  &lt;text x="690" y="690" class="text"&gt;Store in Dark,
-Temperature-Stable Area&lt;/text&gt;
-
-  &lt;line x1="450" y1="600" x2="240" y2="650" class="arrow" /&gt;
-  &lt;line x1="450" y1="600" x2="690" y2="650" class="arrow" /&gt;
-
-  &lt;!-- Periodic Check --&gt;
-  &lt;rect x="300" y="800" width="300" height="80" class="box" /&gt;
-  &lt;text x="450" y="840" class="text"&gt;Periodic RH Check
-(Hygrometer)&lt;/text&gt;
-
-  &lt;line x1="240" y1="730" x2="450" y2="800" class="arrow" /&gt;
-  &lt;line x1="690" y1="730" x2="450" y2="800" class="arrow" /&gt;
-&lt;/svg&gt;</p>
-<h3>Website Notes</h3>
-<p>Pairs with the Drying Decision Flowchart</p>
-<p>Designed for mobile and desktop readability</p>
-<p>Easy to recolor or icon-enhance later</p>
-<p>Can be split into Field Roll vs Long-Term Storage variants</p>
-<h2>Filament Lifecycle Diagram (Dry → Print → Store)</h2>
-<p>This diagram shows the complete filament lifecycle from purchase through repeated use. It is designed as a single, high‑level visual for the website and pairs with the detailed flowcharts.</p>
-<p>Recommended filename: filament-lifecycle-diagram.svg</p>
-<p>&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" font-family="Arial, Helvetica, sans-serif"&gt;
-  &lt;defs&gt;
-    &lt;style&gt;
-      .stage { fill:#ffffff; stroke:#333; stroke-width:2; rx:14; ry:14; }
-      .text { font-size:18px; fill:#000; text-anchor:middle; dominant-baseline:middle; }
-      .sub { font-size:14px; fill:#333; text-anchor:middle; }
-      .arrow { stroke:#333; stroke-width:2.5; fill:none; marker-end:url(#arrowhead); }
-    &lt;/style&gt;
-    &lt;marker id="arrowhead" markerWidth="12" markerHeight="8" refX="12" refY="4" orient="auto"&gt;
-      &lt;polygon points="0 0, 12 4, 0 8" fill="#333" /&gt;
-    &lt;/marker&gt;
-  &lt;/defs&gt;
-
-  &lt;!-- Stages --&gt;
-  &lt;rect x="40" y="220" width="220" height="120" class="stage" /&gt;
-  &lt;text x="150" y="255" class="text"&gt;Purchase&lt;/text&gt;
-  &lt;text x="150" y="285" class="sub"&gt;Factory‑Sealed&lt;/text&gt;
-
-  &lt;rect x="300" y="220" width="220" height="120" class="stage" /&gt;
-  &lt;text x="410" y="255" class="text"&gt;Initial Dry&lt;/text&gt;
-  &lt;text x="410" y="285" class="sub"&gt;OOTB or Full Dry&lt;/text&gt;
-
-  &lt;rect x="560" y="220" width="220" height="120" class="stage" /&gt;
-  &lt;text x="670" y="255" class="text"&gt;Print&lt;/text&gt;
-  &lt;text x="670" y="285" class="sub"&gt;From Dryer if Needed&lt;/text&gt;
-
-  &lt;rect x="820" y="220" width="220" height="120" class="stage" /&gt;
-  &lt;text x="930" y="255" class="text"&gt;Store&lt;/text&gt;
-  &lt;text x="930" y="285" class="sub"&gt;Dry • Dark • Sealed&lt;/text&gt;
-
-  &lt;!-- Arrows --&gt;
-  &lt;line x1="260" y1="280" x2="300" y2="280" class="arrow" /&gt;
-  &lt;line x1="520" y1="280" x2="560" y2="280" class="arrow" /&gt;
-  &lt;line x1="780" y1="280" x2="820" y2="280" class="arrow" /&gt;
-
-  &lt;!-- Return Loop --&gt;
-  &lt;path d="M930 340 C930 430, 410 430, 410 340" class="arrow" /&gt;
-  &lt;text x="670" y="460" class="sub"&gt;Exposure / RH Check → Re‑Dry if Needed&lt;/text&gt;
-
-&lt;/svg&gt;</p>
-<h3>How to Use This Diagram</h3>
-<p>Use as a top‑level visual on the Filament Drying &amp; Storage page</p>
-<p>Links naturally to:</p>
-<p>Drying Flowchart</p>
-<p>Storage Flowchart</p>
-<p>OOTB / Baseline tables</p>
-<p>Reinforces that filament is cyclical, not single‑use</p>
-<p>Drying and storage are maintenance steps, not one‑time events.</p>
-  </div>
   <div class="pageFooter">
-    <a class="topLink" href="#top">Top ↑</a>
+    <a href="#" class="topLink">Back to top</a>
   </div>
-  <script src="../scripts/page.js"></script>
-  <script src="../scripts/toc.js"></script>
+
+  <script src="../../scripts/page.js"></script>
+  <script src="../../scripts/toc.js"></script>
 </body>
 </html>
