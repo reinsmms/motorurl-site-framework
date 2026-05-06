@@ -1,0 +1,115 @@
+<section id="understanding-angle-reference">
+  <h2>Understanding Angle Reference in Fusion</h2>
+
+  <p class="summary">
+    Angles are only meaningful when you know what they are being measured from.
+    In Fusion, the same line can appear to use a different angle depending on the
+    axis, direction, and starting point Fusion uses as the reference.
+  </p>
+
+  <p>
+    This is one of the most common sources of confusion when drawing angled lines,
+    braces, supports, cuts, or rotated sketch geometry. The problem usually is not
+    the angle itself. The problem is figuring out what Fusion is treating as
+    <strong>zero degrees</strong>.
+  </p>
+
+  <h3>The Core Idea</h3>
+
+  <p>
+    An angle needs two things:
+  </p>
+
+  <ul>
+    <li>A reference direction, such as horizontal, vertical, X axis, or Y axis.</li>
+    <li>A rotation direction, such as clockwise or counterclockwise.</li>
+  </ul>
+
+  <p>
+    When drawing a line manually, Fusion may infer the angle reference from the
+    direction you pull the line. If you pull mostly sideways, the angle may be
+    measured from the horizontal axis. If you pull mostly upward or downward, it
+    may feel like Fusion is measuring from the vertical axis instead.
+  </p>
+
+  <h3>Why the Same Line Can Have Multiple “Correct” Angles</h3>
+
+  <p>
+    A diagonal line might be described as 30 degrees from horizontal, 60 degrees
+    from vertical, 120 degrees from the opposite direction, or 150 degrees depending
+    on the quadrant and reference direction being used.
+  </p>
+
+  <p>
+    None of those numbers are necessarily wrong. They are just measuring from
+    different starting directions.
+  </p>
+
+  <h3>Fusion Axes and Directions</h3>
+
+  <p>
+    On a typical sketch plane, the main reference directions are:
+  </p>
+
+  <ul>
+    <li><strong>Right:</strong> positive X direction</li>
+    <li><strong>Left:</strong> negative X direction</li>
+    <li><strong>Up:</strong> positive Y direction</li>
+    <li><strong>Down:</strong> negative Y direction</li>
+  </ul>
+
+  <p>
+    Before typing an angle, ask:
+    <strong>“Angle from what?”</strong>
+  </p>
+
+  <h3>Real-World Comparison</h3>
+
+  <p>
+    This is similar to cutting studs, planks, braces, or trim. Saying “cut it at
+    45 degrees” is incomplete unless you also know which face, edge, or direction
+    the angle is measured from.
+  </p>
+
+  <p>
+    The same kind of confusion can happen with miter cuts, bevel cuts, diagonal
+    braces, roof framing, and layout work. The angle may be right mathematically
+    but wrong for the reference face.
+  </p>
+
+  <h3>Other Fusion Tools With Similar Direction Issues</h3>
+
+  <ul>
+    <li><strong>Rotate:</strong> depends on pivot, axis, and clockwise/counterclockwise direction.</li>
+    <li><strong>Chamfer:</strong> distance-angle chamfers depend on which edge or face is the reference.</li>
+    <li><strong>Extrude:</strong> positive and negative directions depend on the sketch plane normal.</li>
+    <li><strong>Construction planes:</strong> offsets and angles depend on the selected face or axis.</li>
+    <li><strong>Angle dimensions:</strong> Fusion may show the acute or obtuse angle depending on what is selected.</li>
+  </ul>
+
+  <h3>Practical Workflow</h3>
+
+  <ol>
+    <li>Draw the line roughly in the direction you want.</li>
+    <li>Add or edit the angle dimension.</li>
+    <li>Check what Fusion is measuring from.</li>
+    <li>If needed, add a construction line as a known reference.</li>
+    <li>Dimension the angle between the construction line and the angled line.</li>
+  </ol>
+
+  <p>
+    Using a construction line as the reference removes most of the guesswork.
+    Instead of relying on Fusion’s inferred direction, you create the reference
+    yourself.
+  </p>
+
+  <div class="callout">
+    <strong>Key takeaway:</strong>
+    Angles are relative measurements. Confusion usually comes from not realizing
+    which axis, edge, face, or direction is being used as the starting reference.
+  </div>
+
+  <p class="search-keywords">
+    Alternate search terms: angle reference, angle direction
+  </p>
+</section>

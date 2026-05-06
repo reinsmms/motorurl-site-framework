@@ -321,6 +321,10 @@ const NAV_DATA = [
           {
             "title": "Overview",
             "url": "pages/software/autodesk-fusion/index.html"
+          },
+          {
+            "title": "Understanding Angle Reference",
+            "url": "pages/software/autodesk-fusion/understanding-angle-reference.html"
           }
         ]
       }
