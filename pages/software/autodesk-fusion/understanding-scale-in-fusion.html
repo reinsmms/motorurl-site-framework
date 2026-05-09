@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Understanding Scale in Fusion</title>
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    html,
+    body {
+      background: #f6f7f9;
+      color: #1f2933;
+    }
+  </style>
+</head>
+
+<body class="pageBody">
+  <main class="pageCard">
+
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <span>Software</span>
+      <span>/</span>
+      <span>Fusion</span>
+      <span>/</span>
+      <span>Understanding Scale in Fusion</span>
+    </nav>
+
+    <h1>Understanding Scale in Fusion</h1>
+
+    <p class="summary">
+      Fusion's Scale tool can be extremely useful, but it also creates some of the
+      most confusing downstream problems in a parametric workflow. The biggest surprise
+      is that scaling geometry does not always scale the underlying sketches,
+      constraints, or design intent the way users expect.
+    </p>
+
+    <section id="quick-warning">
+      <h2>Quick Warning</h2>
+
+      <div class="callout">
+        <strong>Recommended rule:</strong>
+        Treat Scale as a finishing operation. If major edits are still expected,
+        remove or suppress the Scale feature first, make changes, then apply Scale
+        again as the final step.
+      </div>
+    </section>
+
+    <section id="the-big-surprise">
+      <h2>The Biggest Surprise: Sketches Do Not Always Scale</h2>
+
+      <p>
+        One of the most confusing discoveries for many users is that scaling a body
+        does not necessarily scale the sketch logic driving the model.
+      </p>
+
+      <ul>
+        <li>The body appears correctly scaled</li>
+        <li>The timeline still references the original sketches</li>
+        <li>Editing a sketch later may create unexpected recomputes or failures</li>
+      </ul>
+
+      <div class="callout">
+        <strong>Important distinction:</strong>
+        Scaling geometry is not the same as redesigning the model at a different size.
+      </div>
+    </section>
+
+    <section id="common-problems">
+      <h2>Common Problems After Scaling</h2>
+
+      <ul>
+        <li>Fillets fail or change shape unexpectedly</li>
+        <li>Chamfers no longer look correct</li>
+        <li>Patterns behave inconsistently</li>
+        <li>Projected geometry loses references</li>
+        <li>Sketch edits cause large recomputes</li>
+        <li>Timeline operations become fragile</li>
+        <li>Mirrors and symmetry operations become unstable</li>
+        <li>Shell thicknesses scale differently than expected</li>
+      </ul>
+    </section>
+
+    <section id="best-practice-workflow">
+      <h2>Best-Practice Workflow</h2>
+
+      <ol>
+        <li>Create sketches and dimensions first.</li>
+        <li>Build the primary geometry.</li>
+        <li>Add fillets, chamfers, mirrors, and patterns.</li>
+        <li>Finalize the design.</li>
+        <li>Apply Scale as one of the final operations.</li>
+      </ol>
+
+      <p>
+        If additional design work becomes necessary later:
+      </p>
+
+      <ol>
+        <li>Suppress or remove the Scale feature.</li>
+        <li>Edit the original geometry and sketches.</li>
+        <li>Reapply Scale afterward if still needed.</li>
+      </ol>
+    </section>
+
+    <section id="parametric-vs-scale">
+      <h2>Parametric Resizing vs Scale</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>What Changes</th>
+            <th>Usually Safer?</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Changing dimensions / parameters</td>
+            <td>Underlying design logic</td>
+            <td>Yes</td>
+          </tr>
+
+          <tr>
+            <td>Scale feature</td>
+            <td>Resulting geometry</td>
+            <td>Best used near the end of workflow</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="key-takeaway">
+      <h2>Key Takeaway</h2>
+
+      <p>
+        Fusion's Scale feature usually transforms resulting geometry rather than
+        updating the underlying sketch intent. Because of this, Scale works best
+        as a final-stage operation after most design work is complete.
+      </p>
+
+      <div class="callout">
+        <strong>Strong practical rule:</strong>
+        If you need to make major edits after scaling, remove the Scale feature first,
+        make the edits, then scale again afterward.
+      </div>
+
+      <p class="search-keywords">
+        Alternate search terms: Fusion resize model, scaling problems
+      </p>
+    </section>
+
+  </main>
+
+  <script src="/scripts/toc.js"></script>
+</body>
+</html>
