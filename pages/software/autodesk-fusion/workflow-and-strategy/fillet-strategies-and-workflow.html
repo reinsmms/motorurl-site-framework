@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fillet Strategies and Workflow</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+</head>
+<body>
+  <main class="pageBody">
+    <article class="pageCard">
+      <header>
+        <p class="eyebrow">Autodesk Fusion · Workflow and Strategy</p>
+        <h1>Fillet Strategies and Workflow</h1>
+        <p class="lede">Fillets are easier to manage when they are treated as grouped finishing operations instead of random edge cleanup.</p>
+      </header>
+
+      <section>
+        <h2>Quick checklist</h2>
+        <ol>
+          <li>Add functional geometry first.</li>
+          <li>Delay cosmetic fillets until the model is stable.</li>
+          <li>Start with the largest important fillets.</li>
+          <li>Group similar fillets together.</li>
+          <li>Use smaller separate fillet features when conflicts appear.</li>
+          <li>Edit and add edges gradually instead of selecting everything at once.</li>
+          <li>Expect some edge combinations to conflict and split them into separate features.</li>
+        </ol>
+      </section>
+      <section>
+        <h2>Why fillets fail</h2>
+        <p>A fillet is not just a rounded edge. Fusion has to rebuild nearby faces so the round can fit into the surrounding geometry. If two fillets overlap, run into a tiny face, cross a hole, or meet a complicated corner, the solver may fail.</p>
+        <p>That does not always mean the model is wrong. It often means the fillets need to be applied in a better order or separated into smaller groups.</p>
+      </section>
+      <section>
+        <h2>Start broad, then narrow</h2>
+        <p>A useful method is to create a first fillet feature, add the obvious edges, and test whether Fusion accepts them. If one edge causes failure, remove it and keep the successful group. Then create a second fillet feature for the difficult area.</p>
+        <p>This turns filleting into a controlled process instead of an all-or-nothing command.</p>
+      </section>
+      <section>
+        <h2>Whole body, whole face, or individual edges?</h2>
+        <p>Whole body or whole face selections are fast, but they can grab edges that should not be rounded. They are best for simple parts where every selected edge truly needs the same treatment.</p>
+        <p>Individual edge selection is slower, but safer when the part has holes, tabs, bosses, retainers, thin walls, or functional contact surfaces. Use it when accuracy matters.</p>
+      </section>
+      <section>
+        <h2>Recommended grouping strategy</h2>
+        <ul>
+          <li><strong>Structural fillets:</strong> large rounds that define the actual shape.</li>
+          <li><strong>Functional fillets:</strong> rounds needed for strength, clearance, or fit.</li>
+          <li><strong>Print-friendly edge breaks:</strong> small chamfers or fillets to reduce sharp edges.</li>
+          <li><strong>Cosmetic fillets:</strong> visual cleanup added at the end.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>When to adjust the model instead</h2>
+        <p>If a fillet repeatedly fails, do not keep forcing the same edge. Look for tiny sliver faces, awkward intersections, very thin walls, or cuts that happen too late in the timeline. Sometimes the better fix is to move the hole earlier, change the cut shape, or split the fillet into a different feature group.</p>
+      </section>
+      <section>
+        <h2>3D printing note</h2>
+        <p>For printed parts, a chamfer can sometimes be more reliable than a fillet, especially on bottom edges, overhangs, and surfaces that need clean first-layer behavior. Fillets are excellent for comfort and appearance, but they are not always the best printability choice.</p>
+      </section>
+      <section>
+        <h2>Alternate search terms</h2>
+        <p>Edge rounding, chamfer strategy, fillet order, failed fillet.</p>
+      </section>
+
+    </article>
+  </main>
+  <script src="../../../../scripts/toc.js"></script>
+</body>
+</html>

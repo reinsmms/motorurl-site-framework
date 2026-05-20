@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cause and Effect in Modeling</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+</head>
+<body>
+  <main class="pageBody">
+    <article class="pageCard">
+      <header>
+        <p class="eyebrow">Autodesk Fusion · Workflow and Strategy</p>
+        <h1>Cause and Effect in Modeling</h1>
+        <p class="lede">Many Fusion problems are delayed reactions: the visible failure happens later, but the cause often started several steps earlier.</p>
+      </header>
+
+      <section>
+        <h2>The main idea</h2>
+        <p>Fusion modeling is full of cause-and-effect relationships. A sketch choice affects an extrusion. An extrusion creates edges. Edges affect fillets. Fillets affect cuts. Cuts affect combines. A small early decision can turn into a large later failure.</p>
+        <p>This page is about learning to ask, “What earlier choice caused this behavior?” instead of only asking, “Why did this command fail?”</p>
+      </section>
+      <section>
+        <h2>Common chains of cause and effect</h2>
+        <ul>
+          <li><strong>Messy sketch → fragile features:</strong> unclear constraints can make later edits unpredictable.</li>
+          <li><strong>Early fillets → failed later cuts:</strong> rounded faces are harder to cut cleanly than flat faces.</li>
+          <li><strong>Late holes → awkward intersections:</strong> holes placed after finishing details may cross complex geometry.</li>
+          <li><strong>Early combine → harder repairs:</strong> once bodies are merged, it can be harder to isolate the problem feature.</li>
+          <li><strong>Early scale → strange downstream behavior:</strong> sketches, references, and imported geometry may not all respond the same way.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Why this matters</h2>
+        <p>When a model fails, the fastest fix is not always at the failure point. Sometimes the cleanest repair is to roll the timeline back, move a hole earlier, split a combine, simplify a sketch, or delay a fillet.</p>
+        <p>This is why experienced modelers often work backward from the failure to find the first unstable decision.</p>
+      </section>
+      <section>
+        <h2>Useful troubleshooting questions</h2>
+        <ol>
+          <li>What changed immediately before the problem appeared?</li>
+          <li>Which earlier feature created the edge, face, or body that is now failing?</li>
+          <li>Can the operation be moved earlier in the timeline?</li>
+          <li>Would this be cleaner if the body stayed separate longer?</li>
+          <li>Is this a design feature or a finishing detail?</li>
+          <li>Would a simpler sketch reduce the number of dependencies?</li>
+        </ol>
+      </section>
+      <section>
+        <h2>Design feature vs finishing detail</h2>
+        <p>A design feature controls the shape or function of the part. A finishing detail improves appearance, comfort, or print behavior. Confusing those two categories is a common source of fragile timelines.</p>
+        <p>Build design features early. Add finishing details late.</p>
+      </section>
+      <section>
+        <h2>3D printing connection</h2>
+        <p>In a 3D printing workflow, modeling choices affect print orientation, support needs, bridging, wall strength, surface quality, and slicer interpretation. A part that looks correct in Fusion may still need changes so it slices and prints reliably.</p>
+      </section>
+      <section>
+        <h2>Alternate search terms</h2>
+        <p>Making connections, modeling logic, feature dependency, downstream failure.</p>
+      </section>
+
+    </article>
+  </main>
+  <script src="../../../../scripts/toc.js"></script>
+</body>
+</html>

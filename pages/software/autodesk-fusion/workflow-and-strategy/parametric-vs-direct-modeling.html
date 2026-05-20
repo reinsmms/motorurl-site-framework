@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parametric vs Direct Modeling</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+</head>
+<body>
+  <main class="pageBody">
+    <article class="pageCard">
+      <header>
+        <p class="eyebrow">Autodesk Fusion · Workflow and Strategy</p>
+        <h1>Parametric vs Direct Modeling</h1>
+        <p class="lede">Fusion can be used as a history-based parametric modeler or as a direct-editing tool, and each mode solves a different kind of problem.</p>
+      </header>
+
+      <section>
+        <h2>Quick difference</h2>
+        <p><strong>Parametric modeling</strong> keeps a timeline of features that can be edited later. <strong>Direct modeling</strong> edits the geometry more directly without relying on the same timeline structure.</p>
+        <p>Neither method is automatically better. The better choice depends on whether the model needs controlled future edits or fast geometry repair.</p>
+      </section>
+      <section>
+        <h2>When parametric modeling helps</h2>
+        <ul>
+          <li>The part will be revised many times.</li>
+          <li>Dimensions need to stay editable.</li>
+          <li>User parameters control important sizes.</li>
+          <li>Multiple features depend on the same design intent.</li>
+          <li>You want a clear history of how the part was built.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>When direct modeling helps</h2>
+        <ul>
+          <li>The imported model has messy or unnecessary history.</li>
+          <li>The timeline is slow, fragile, or full of failed features.</li>
+          <li>The task is a simple repair or geometry adjustment.</li>
+          <li>You are working with converted mesh geometry.</li>
+          <li>You need to remove problem features and simplify the model.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>The timeline tradeoff</h2>
+        <p>The parametric timeline is powerful because it remembers how the model was made. That same memory can become a burden when too many features depend on unstable geometry.</p>
+        <p>If a model was created cleanly, the timeline is an asset. If it was built through repeated repairs, mesh conversions, failed cuts, or temporary experiments, the timeline may become the source of the slowdown.</p>
+      </section>
+      <section>
+        <h2>Hybrid workflow</h2>
+        <p>A practical approach is to use parametric modeling for clean original design work, then use direct modeling when a file needs repair, simplification, or one-time adjustment.</p>
+        <p>For example, a 3D printing workflow may start with a repaired mesh, convert it, simplify it, and then add clean parametric features only where future edits matter.</p>
+      </section>
+      <section>
+        <h2>Before switching modes</h2>
+        <p>Before turning off design history, save a copy or milestone version. Direct modeling can clean up problems, but it can also remove the easy edit path for earlier features.</p>
+        <p>A safe pattern is to keep one original version with history and create a separate simplified working version for direct cleanup or printing preparation.</p>
+      </section>
+      <section>
+        <h2>Alternate search terms</h2>
+        <p>Capture Design History, direct edit, design timeline, history-based modeling.</p>
+      </section>
+
+    </article>
+  </main>
+  <script src="../../../../scripts/toc.js"></script>
+</body>
+</html>

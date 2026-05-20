@@ -329,6 +329,35 @@ const NAV_DATA = [
           {
             "title": "Understanding Angle Reference Page",
             "url": "pages/software/autodesk-fusion/understanding-angle-reference-page.html"
+          },
+          {
+            "title": "Understanding Scale In Fusion",
+            "url": "pages/software/autodesk-fusion/understanding-scale-in-fusion.html"
+          },
+          {
+            "title": "Workflow And Strategy",
+            "children": [
+              {
+                "title": "Overview",
+                "url": "pages/software/autodesk-fusion/workflow-and-strategy/index.html"
+              },
+              {
+                "title": "Cause And Effect In Modeling",
+                "url": "pages/software/autodesk-fusion/workflow-and-strategy/cause-and-effect-in-modeling.html"
+              },
+              {
+                "title": "Fillet Strategies And Workflow",
+                "url": "pages/software/autodesk-fusion/workflow-and-strategy/fillet-strategies-and-workflow.html"
+              },
+              {
+                "title": "Fusion Order Of Operations",
+                "url": "pages/software/autodesk-fusion/workflow-and-strategy/fusion-order-of-operations.html"
+              },
+              {
+                "title": "Parametric Vs Direct Modeling",
+                "url": "pages/software/autodesk-fusion/workflow-and-strategy/parametric-vs-direct-modeling.html"
+              }
+            ]
           }
         ]
       }

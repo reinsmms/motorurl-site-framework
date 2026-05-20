@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fusion Order of Operations</title>
+  <link rel="stylesheet" href="../../../../styles.css">
+</head>
+<body>
+  <main class="pageBody">
+    <article class="pageCard">
+      <header>
+        <p class="eyebrow">Autodesk Fusion · Workflow and Strategy</p>
+        <h1>Fusion Order of Operations</h1>
+        <p class="lede">A clean modeling order helps prevent broken timelines, failed fillets, bad cuts, and unnecessary rebuild work.</p>
+      </header>
+
+      <section>
+        <h2>Quick checklist</h2>
+        <ol>
+          <li>Start with the simplest controlling sketches.</li>
+          <li>Create the main body shape before small details.</li>
+          <li>Add holes, slots, and functional cuts before decorative rounding.</li>
+          <li>Use combine operations after the separate bodies are stable.</li>
+          <li>Add fillets and chamfers late.</li>
+          <li>Scale last whenever possible.</li>
+          <li>Export only after the model has been checked in its final orientation and size.</li>
+        </ol>
+      </section>
+      <section>
+        <h2>Why order matters</h2>
+        <p>Fusion is history-based when Capture Design History is on. Each feature depends on what came before it. When an early feature changes, every later feature may need to rebuild. That is useful when the model is clean, but frustrating when small downstream details are attached to geometry that keeps changing.</p>
+        <p>The safest approach is to build the model from large, stable decisions toward smaller finishing details.</p>
+      </section>
+      <section>
+        <h2>Holes before fillets</h2>
+        <p>Holes and functional cuts usually belong before fillets. If a hole cuts through a clean flat face, Fusion has a much easier job. If the face is already rounded or blended, the hole may intersect complex geometry and cause unexpected edges or failures.</p>
+        <p>This is especially important for screw holes, mounting slots, bolt bosses, tabs, retainers, and anything that must stay dimensionally accurate.</p>
+      </section>
+      <section>
+        <h2>Combine late</h2>
+        <p>Combine operations are powerful, but they can also hide the point where separate shapes stop being independently editable. Keep bodies separate while they are still being shaped, aligned, mirrored, or adjusted. Combine them once the relationship is proven.</p>
+        <p>For 3D printing, this also helps with troubleshooting. If a feature prints badly, it is easier to revise the body or cutter that created it before the entire model becomes one merged solid.</p>
+      </section>
+      <section>
+        <h2>Fillets and chamfers late</h2>
+        <p>Fillets are finishing features. They depend heavily on surrounding edges and faces. If they are added too early, later edits may destroy the edges they were attached to.</p>
+        <p>Use early fillets only when the rounded shape is part of the actual design structure. Save cosmetic softening, comfort rounding, and print-friendly edge breaks for the end.</p>
+      </section>
+      <section>
+        <h2>Scale last</h2>
+        <p>Scaling can be risky when sketches, features, projected geometry, and imported bodies are all involved. A body may scale cleanly while a sketch or reference relationship does not behave the way expected.</p>
+        <p>When practical, model at the intended size. If scaling is needed, treat it as a final operation after the shape is stable.</p>
+      </section>
+      <section>
+        <h2>Common warning signs</h2>
+        <ul>
+          <li>A small edit causes many downstream features to fail.</li>
+          <li>A fillet works once but fails after another feature is added.</li>
+          <li>A combine operation makes later edits harder to isolate.</li>
+          <li>The model becomes slow even though the visible shape seems simple.</li>
+          <li>You keep fixing the same area after every timeline change.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Alternate search terms</h2>
+        <p>Feature order, timeline order, modeling sequence, Fusion workflow.</p>
+      </section>
+
+    </article>
+  </main>
+  <script src="../../../../scripts/toc.js"></script>
+</body>
+</html>
