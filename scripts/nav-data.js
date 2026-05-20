@@ -327,10 +327,6 @@ const NAV_DATA = [
             "url": "pages/software/autodesk-fusion/mirroring-in-fusion.html"
           },
           {
-            "title": "Understanding Angle Reference Page",
-            "url": "pages/software/autodesk-fusion/understanding-angle-reference-page.html"
-          },
-          {
             "title": "Understanding Scale In Fusion",
             "url": "pages/software/autodesk-fusion/understanding-scale-in-fusion.html"
           },
